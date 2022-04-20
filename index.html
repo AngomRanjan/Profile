@@ -1,122 +1,224 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
-    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+<head>
+  <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Web Developer on Jobscan, HTML,CSS,javascripts, Micronuat</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap" rel='stylesheet'>
+    <meta name="description" content="Angom Chittaranjan Profile Page">
     <link rel="stylesheet" href="style.css">
-  </head>    
-<body>
-  <div class="wrapper">
-    <header class="header">
-      <div class="container" id="toolbar">
-        <div class="logo" id="logo">
-          <a class="logo-text" href="#logo">My Logo</a>
-        </div>
-        <div class="header-right">
-          <img class="icons" id="menu" src="icons/union.png" alt="menu-icn">
-        </div>
-      </div>    
+  </head>
+  <body>
+    <header class="flex" id="header">
+      <div class="logo">
+        <a class="logo-text" href="#logo">Angom</a>
+      </div>
+      <nav class="navbar">
+        <ul class="inline-li">
+          <li><a class="nav-links-desktop" href="#works">Portfolio</a></li>
+          <li><a class="nav-links-desktop" href="#about">About</a></li>
+          <li><a class="nav-links-desktop" href="#contacts">Contact</a></li>
+          <li>
+            <a href="_blank" class="nav-links-mobile">
+              <img class="icons" id="menu" src="icons/menu.png" alt="menu-icon">
+            </a>
+          </li>
+        </ul>
+      </nav>
     </header>
-    <section class="container" id="headline">
-      <h1 class="head1" id="title">I’m Mariane Glad to see you!</h1>
-      <p class="description" id="title-desc">I’m a software developer! I can help you build a product , feature or website Look through some of my work and experience! If you like what you see and have a project you need coded, don’t hestiate to contact me.</p>
-      <h3 class="head3" id="headline2">LET’S CONNECT</h3>
-      <ul class="connect-lists">
-        <li class="connect-items" id="connect-item1"><a href="https://twitter.com/RanjanAngom"><img src="images/twitter.png" alt="twitter link"></a></li>
-        <li class="connect-items" id="connect-item2"><a href="https://linkedin.com/in/angom-chittaranjan"><img src="images/linkedin.png" alt="linkedin link"></a></li>
-        <li class="connect-items" id="connect-item3"><a href="https://medium.com/"><img src="images/medium.png" alt="medium link"></a></li>
-        <li class="connect-items" id="connect-item4"><a href="https://github.com/AngomRanjan"><img src="images/github.png" alt="github link"></a></li>
-        <li class="connect-items" id="connect-item5"><a href="https://angel.co/"><img src="images/angellist.png" alt="angellist link"></a></li>
-      </ul>
-    </section>    
-  </div>
-  <section class="grid-container" id="works">
-    <div class="cards" id="card-1">
-      <div class="snapshoot-placeholders" id="snapshoot-placeholder1"><img src="images/img-project1.png" alt="Project-1 Snapshoot"></div>
-      <div class="info-blocks" id="info-block1">
-        <h2 class="project-titles" id="project-title1">Tonic</h2>
-        <h3 class="project-infos" id="info-project1">CANOPY <span class="gray">&bull; Back End Dev &bull; 2015</span></h3>
-        <p class="project-descriptions" id="desc-project1">A daily selection of privately personalized reads; no accounts or sign-ups required.</p>
-        <ul class="tag-lists">
-          <li class="tags">html</li>
-          <li class="tags">css</li>
-          <li class="tags">javascripts</li>
-        </ul>
-        <button class="btn" type="button">See Project</button>
-      </div>
-    </div>
-    <div class="cards" id="card-2">
-      <div class="snapshoot-placeholders" id="snapshoot-placeholder2"><img src="images/img-project2.png" alt="Project-2 Snapshoot"></div>
-      <div class="info-blocks" id="info-block2">
-        <h2 class="project-titles" id="project-title2">Multi-Post Stories</h2>
-        <h3 class="project-infos" id="info-project2">CANOPY <span class="gray">&bull; Back End Dev &bull; 2015</span></h3>
-        <p class="project-descriptions" id="desc-project2">A daily selection of privately personalized reads; no accounts or sign-ups required.</p>
-        <ul class="tag-lists">
-          <li class="tags">html</li>
-          <li class="tags">css</li>
-          <li class="tags">javascripts</li>
-        </ul>
-        <button class="btn" type="button">See Project</button>
-      </div>
-    </div>
-    <div class="cards" id="card-3">
-      <div class="snapshoot-placeholders" id="snapshoot-placeholder3"><img src="images/img-project3.png" alt="Project-3 Snapshoot"></div>
-      <div class="info-blocks" id="info-block3">
-        <h2 class="project-titles" id="project-title3">Tonic</h2>
-        <h3 class="project-infos" id="info-project3">CANOPY <span class="gray">&bull; Back End Dev &bull; 2015</span></h3>
-        <p class="project-descriptions" id="desc-project3">A daily selection of privately personalized reads; no accounts or sign-ups required.</p>
-        <ul class="tag-lists">
-          <li class="tags">html</li>
-          <li class="tags">css</li>
-          <li class="tags">javascripts</li>
-        </ul>
-        <button class="btn" type="button">See Project</button>
-      </div>
-    </div>
-    <div class="cards" id="card-4">
-      <div class="snapshoot-placeholders" id="snapshoot-placeholder4"><img src="images/img-project4.png" alt="Project-4 Snapshoot"></div>
-      <div class="info-blocks" id="info-block4">
-        <h2 class="project-titles" id="project-title4">Multi-Post Stories</h2>
-        <h3 class="project-infos" id="info-project4">CANOPY <span class="gray">&bull; Back End Dev &bull; 2015</span></h3>
-        <p class="project-descriptions" id="desc-project4">A daily selection of privately personalized reads; no accounts or sign-ups required.</p>
-        <ul class="tag-lists">
-          <li class="tags">html</li>
-          <li class="tags">css</li>
-          <li class="tags">javascripts</li>
-        </ul>
-        <button class="btn" type="button">See Project</button>
-      </div>
-    </div>
-  </section>
-  <section class="grid-container" id="about-myself">
-    <div class="my-info" id="personal-info">
-      <h2 class="head1" id="about">About Myself</h2>
-      <p class="description" id="intro">Hello I’m a software developer! I can help you build a product , feature or website Look through some of my work and experience! If you like what you see and have a project you need coded, don’t hestiate to contact me.</p>
-      <h3 class="head3" id="social">LET’S CONNECT</h3>
-      <ul class="connect-lists">
-        <li class="connect-items" id="social-item1"><a href="https://twitter.com/RanjanAngom"><img src="images/twitter.png" alt="twitter link"></a></li>
-        <li class="connect-items" id="social-item2"><a href="https://linkedin.com/in/angom-chittaranjan"><img src="images/linkedin.png" alt="linkedin link"></a></li>
-        <li class="connect-items" id="social-item3"><a href="https://medium.com/"><img src="images/medium.png" alt="medium link"></a></li>
-        <li class="connect-items" id="social-item4"><a href="https://github.com/AngomRanjan"><img src="images/github.png" alt="github link"></a></li>
-        <li class="connect-items" id="social-item5"><a href="https://angel.co/"><img src="images/angellist.png" alt="angellist link"></a></li>
-      </ul>
-      <button class="btn" type="button">Get my resume</button>      
-    </div>
-    <div class="my-info" id="skills-info">
-      <div class="skills" id="languages">
-        <div class="skill-heads" id="plang"><div>Languages</div><img class="icons" id="menu1" src="icons/drop.png" alt="menu-icn"></div>        
-        <ul class="lang-lists">          
-          <li class="lang-items" id="lang-item1"><img src="images/js.png" alt="twitter link">JavaSript</li>
-          <li class="lang-items" id="lang-item2"><img src="images/html.png" alt="linkedin link">HTML</li>
-          <li class="lang-items" id="lang-item3"><img src="images/css.png" alt="medium link">CSS</li>
-        </ul>
-      </div>     
-      <div class="skills skill-heads" id="frameworks"><div>Frameworks</div><img class="icons" id="menu2" src="icons/open.png" alt="menu-icn"></div>
-      <div class="skills skill-heads" id="skills"><div>Skills</div><img class="icons" id="menu3" src="icons/open.png" alt="menu-icn"></div>
-    </div>    
-  </section>
-</body>
+    <main class="wrapper" id="main-container">      
+      <section class="flex" id="headlines">
+          <div class="content-placeholder">
+            <h1 class="head-1" id="main-title">
+              I’m Angom,<br>
+              Glad to see you!
+            </h1>
+            <p class="description" id="title-desc">
+              I’m a software developer! I can help you build a product, 
+              feature or website Look through some of my work and experience! 
+              If you like what you see and have a project you need coded, d
+              on’t hestiate to contact me.
+            </p>
+            <div class="social-media">
+              <h3 class="head3" id="social-1">LET’S CONNECT</h3>
+              <ul class="inline-li">
+                <li class="social-items">
+                  <a href="https://twitter.com/RanjanAngom">
+                    <img src="images/twitter.png" alt="twitter link">
+                  </a>
+                </li>
+                <li class="social-items">
+                  <a href="https://linkedin.com/in/angom-chittaranjan">
+                    <img src="images/linkedin.png" alt="linkedin link">
+                  </a>
+                </li>
+                <li class="social-items">
+                  <a href="https://medium.com/">
+                    <img src="images/medium.png" alt="medium link">
+                  </a>
+                </li>
+                <li class="social-items">
+                  <a href="https://github.com/AngomRanjan">
+                    <img src="images/github.png" alt="github link">
+                  </a>
+                </li>
+                <li class="social-items">
+                  <a href="https://angel.co/">
+                    <img src="images/angellist.png" alt="angellist link">
+                  </a>
+                </li>
+              </ul>
+            </div> 
+          </div>        
+      </section>
+      <section class="works" id="works">
+        <div class="cards" id="card1">
+          <div class="snapshoot-placeholders">
+            <img class="snapshoot" src="images/SnapshootD1.jpg" alt="Project-1 Snapshoot">
+          </div>
+          <div class="projects">
+            <h2 class="project-titles">Tonic</h2>
+            <ul class="inline-li project-summary">
+              <li class="client">CANOPY</li>
+              <li class="type">Back End Dev</li>
+              <li class="year">2015</li>
+            </ul>
+            <p class="project-descriptions">
+              A daily selection of privately personalized reads; 
+              no accounts or sign-ups required.
+            </p>
+            <ul class="inline-li">
+              <li class="tags">html</li>
+              <li class="tags">Ruby on rails</li>
+              <li class="tags">css</li>
+              <li class="tags">javascripts</li>
+            </ul>
+            <button class="btn" type="button">See Project</button>
+          </div>
+        </div>
+        <div class="cards reverse" id="card2">
+          <div class="snapshoot-placeholders">
+            <img class="snapshoot" src="images/SnapshootD2.jpg" alt="Project-2 Snapshoot">
+          </div>
+          <div class="projects">
+            <h2 class="project-titles">Multi-Post Stories</h2>
+            <ul class="inline-li project-summary">
+              <li class="client">FACEBOOK</li>
+              <li class="type">Full Stack Dev</li>
+              <li class="year">2015</li>
+            </ul>
+            <p class="project-descriptions">
+              Experimental content creation feature that allows users to add to an existing 
+              story over the course of a day without spamming their friends.
+              </p>
+            <ul class="inline-li">
+              <li class="tags">html</li>
+              <li class="tags">Ruby on rails</li>
+              <li class="tags">css</li>
+              <li class="tags">javascripts</li>
+            </ul>
+            <button class="btn" type="button">See Project</button>
+          </div>
+        </div>
+        <div class="cards" id="card3">
+          <div class="snapshoot-placeholders">
+            <img class="snapshoot" src="images/SnapshootD3.jpg" alt="Project-3 Snapshoot">
+          </div>
+          <div class="projects">
+            <h2 class="project-titles">Facebook 360</h2>
+            <ul class="inline-li project-summary">
+              <li class="client">FACEBOOK</li>
+              <li class="type">Full Stack Dev</li>
+              <li class="year">2015</li>
+            </ul>
+            <p class="project-descriptions">
+              Exploring the future of media in Facebook's first Virtual Reality app; a place 
+              to discover and enjoy 360 photos and videos on Gear VR.
+            </p>
+            <ul class="inline-li">
+              <li class="tags">html</li>
+              <li class="tags">Ruby on rails</li>
+              <li class="tags">css</li>
+              <li class="tags">javascripts</li>
+            </ul>
+            <button class="btn" type="button">See Project</button>
+          </div>
+        </div>
+        <div class="cards reverse" id="card4">
+          <div class="snapshoot-placeholders">
+            <img class="snapshoot" src="images/SnapshootD4.jpg" alt="Project-4 Snapshoot">
+          </div>
+          <div class="projects">
+            <h2 class="project-titles">Uber Navigation</h2>
+            <ul class="inline-li project-summary">
+              <li class="client">Uber</li>
+              <li class="type">Lead Developer</li>
+              <li class="year">2018</li>
+            </ul>
+            <p class="project-descriptions">
+              A smart assistant to make driving more safe, efficient, and fun by unlocking 
+              your most expensive computer: your car.</p>
+            <ul class="inline-li">
+              <li class="tags">html</li>
+              <li class="tags">Ruby on rails</li>
+              <li class="tags">css</li>
+              <li class="tags">javascripts</li>
+            </ul>
+            <button class="btn" type="button">See Project</button>
+          </div>
+        </div>
+      </section>
+      <section class="flex" id="about">
+        <div class="snapshoot-placeholders">
+          <h2 class="head-1" id="about-title">About Myself</h2>
+          <p class="description" id="about-desc">
+            I’m a software developer! I can help you build a product , feature or website Look through some 
+            of my work and experience! If you like what you see and have a project you need coded, don’t 
+            hestiate to contact me.
+          </p>
+          <div class="social-media">
+            <h3 class="head3" id="social-2">LET’S CONNECT</h3>
+            <ul class="inline-li">
+              <li class="social-items">
+                <a href="https://twitter.com/RanjanAngom">
+                  <img src="images/twitter.png" alt="twitter link">
+                </a>
+              </li>
+              <li class="social-items">
+                <a href="https://linkedin.com/in/angom-chittaranjan">
+                  <img src="images/linkedin.png" alt="linkedin link">
+                </a>
+              </li>
+              <li class="social-items">
+                <a href="https://medium.com/">
+                  <img src="images/medium.png" alt="medium link">
+                </a>
+              </li>
+              <li class="social-items">
+                <a href="https://github.com/AngomRanjan">
+                  <img src="images/github.png" alt="github link">
+                </a>
+              </li>
+              <li class="social-items">
+                <a href="https://angel.co/">
+                  <img src="images/angellist.png" alt="angellist link">
+                </a>
+              </li>
+            </ul>
+          </div>       
+        </div>
+        <div class="projects">
+          <div class="flex skills-dropdown">Languages<img class="icons" src="icons/drop.png" alt="menu-icn"></div>
+          <ul class="language-ul">          
+            <li id="lang-item1"><img src="images/js.png" alt="twitter link">JavaSript</li>
+            <li id="lang-item2"><img src="images/html.png" alt="linkedin link">HTML</li>
+            <li id="lang-item3"><img src="images/css.png" alt="medium link">CSS</li>
+          </ul>  
+          <div class="flex skills-dropdown" id="frameworks"><div>Frameworks</div><img class="icons" src="icons/open.png" alt="menu-icn"></div>
+          <div class="flex skills-dropdown" id="skills"><div>Skills</div><img class="icons" src="icons/open.png" alt="menu-icn"></div>
+        </div>
+      </section>
+    </main>
+  </body>
 </html>
+
