@@ -1,0 +1,101 @@
+/* || General styles */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+p { margin: 20px 0; }
+
+a { text-decoration: none; }
+
+/* || Typography */
+
+@import url(https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap);
+
+body {
+  font: 400 15px/24px Poppins, sans-serif;
+  color: #344563;
+}
+
+.logo-text,
+h1,
+h2 {
+  font-weight: 700;
+  color: #172b4d;
+}
+
+.head-1 {
+  font-size: 40px;
+  line-height: 52px;
+}
+
+.head3 {
+  font-weight: 500;
+  font-size: 16px;
+  color: #7f8cff;
+}
+
+.logo-text {
+  font-size: 18px;
+  line-height: 20px;
+  color: #6070ff;
+}
+
+/* || Header and Main Navigation */
+
+#header {
+  width: 100%;
+  left: 0;
+  top: 0;
+  position: fixed;
+}
+
+#headlines {
+  background-image: url(images/topL.png), url(images/topC.png), url(images/topR.png), url(images/bottomL.png), url(images/bottomC.png), url(images/bottomR.png);
+  background-position: left top, center top, right top, left bottom, center calc(100vh - 30%), right bottom;
+  background-repeat: no-repeat;
+  width: 100vw;
+  background-color: #fff;
+  border-bottom-left-radius: 100px;
+}
+
+/* || Utilities */
+
+.wrapper {
+  display: grid;
+  grid-template-rows: calc(100vh - 48px) repeat(3, auto);
+  background-color: grey;
+  margin-top: 48px;
+}
+
+.flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 0.7% 3.4%;
+}
+
+.content-placeholder {
+  margin: auto;
+  width: 90%;
+}
+
+.inline-li li {
+  display: inline;
+  padding: 0 10px;
+}
+
+.social-media .inline-li { padding: 0 30px; }
+
+.social-items img {
+  width: 20px;
+  height: 20px;
+}
+
+/* .nav-links-desktop { display: none; } */
