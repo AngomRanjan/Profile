@@ -1,0 +1,4 @@
+# List of files folders to ignore
+try.html
+node_modules/
+
