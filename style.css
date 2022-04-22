@@ -61,3 +61,52 @@ header {
   padding-right: 12px;
 }
 
+#menu {
+  width: 18px;
+  height: 12px;
+}
+
+#headline {
+  width: 375px;
+  min-height: 250px;
+  background-image: url(images/header-shapes-mobile.png);
+  background-size: cover;
+  background-position: top;
+  justify-content: center;
+  align-items: flex-start;
+  flex-grow: 1;
+}
+
+.head1 {
+  color: #172b4d;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 52px;
+  letter-spacing: 0;
+  text-align: left;
+}
+
+.head2 {
+  font-weight: 500;
+  font-size: 16px;
+  color: #7f8cff;
+}
+
+p {
+  font-weight: 400;
+  color: #344563;
+}
+
+.connect-lists {
+  width: 180px;
+  display: flex;
+  list-style: none;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 15px;
+}
+
+.connect-items img {
+  width: 20px;
+  height: 20px;
+}
