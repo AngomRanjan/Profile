@@ -14,7 +14,7 @@ body {
 
 .wrapper {
   height: 100vh;
-  width: 375px;
+  width: 100vw;
   min-height: 450px;
   display: flex;
   flex-direction: column;
@@ -29,7 +29,7 @@ header {
 }
 
 .container {
-  width: 375px;
+  width: 96vw;
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -71,14 +71,15 @@ header {
 }
 
 #headline {
-  width: 375px;
-  min-height: 250px;
+  width: 100vw;
+  min-height: 400px;
   background-image: url(images/header-shapes-mobile.png);
   background-size: cover;
   background-position: top;
   justify-content: center;
   align-items: flex-start;
   flex-grow: 1;
+  margin: 0 auto;
 }
 
 .head1 {
