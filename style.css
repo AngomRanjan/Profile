@@ -283,7 +283,6 @@ p {
 }
 
 @media only screen and (max-device-width: 375px) {
-
   .grid-container {
     padding: 114px 0;
   }
