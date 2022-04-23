@@ -147,8 +147,11 @@ p {
   display: flex;
   flex-direction: column;
   gap: 12px;
-  height: 220px;
   border-radius: 8px;
+}
+
+.snapshoot-placeholders {
+  height: 220px;
 }
 
 .project-title {
