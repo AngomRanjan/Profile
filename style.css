@@ -91,7 +91,7 @@ header {
   text-align: left;
 }
 
-.head2 {
+.head3 {
   font-weight: 500;
   font-size: 16px;
   color: #7f8cff;
@@ -114,4 +114,179 @@ p {
 .connect-items img {
   width: 20px;
   height: 20px;
+}
+
+/* CSS after this line was added on 2nd project */
+
+.grid-container {
+  width: 100vw;
+  padding: 114px 24px;
+  display: grid;
+  grid-template-rows: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 88px;
+  justify-items: center;
+}
+
+.cards {
+  width: 100%;
+  padding: 16px;
+  border: 1px solid #dfe1e6;
+  border-radius: 16px;
+  background-color: white;
+  display: flex;
+  flex-shrink: 1;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  justify-content: center;
+}
+
+.info-blocks,
+.snapshoot-placeholders {
+  width: 295px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  border-radius: 8px;
+}
+
+.snapshoot-placeholders {
+  height: 220px;
+}
+
+.project-title {
+  size: 32px;
+  line-height: 44px;
+  font-weight: 700;
+  color: #172b4d;
+}
+
+.project-infos {
+  font-size: 13px;
+  line-height: 16px;
+  color: #344563;
+}
+
+.gray {
+  color: #7a869a;
+}
+
+.tag-lists {
+  width: 203px;
+  height: 24px;
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  justify-content: space-between;
+  align-items: center;
+  margin: 12px 0;
+}
+
+.btn {
+  width: fit-content;
+  height: 48px;
+  border-radius: 8px;
+  padding: 12px;
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 24px;
+  text-align: center;
+}
+
+.tags {
+  height: 25px;
+  border: 1px solid #ebebff;
+  padding: 4px 12px;
+  border-radius: 8px;
+  background-color: #ebebff;
+  font-size: 12px;
+  line-height: 16px;
+  color: #6070ff;
+}
+
+.project-descriptions {
+  font-size: 15px;
+  font-weight: 400;
+}
+
+.btn:hover {
+  background-color: #6070ff;
+  color: #fff;
+  box-shadow: 0 8px 16px rgba(64, 83, 252, 0.24);
+  border-radius: 8px;
+}
+
+.btn:disabled {
+  border: 1px solid #c1c7d0;
+  color: #5e6c84;
+}
+
+.btn:enabled {
+  border: 1px solid #6070ff;
+  color: #396df2;
+}
+
+#about-myself {
+  grid-template-rows: repeat(auto-fill, stretch);
+  background-color: #fff;
+  border-top-right-radius: 100px;
+  border: 1px solid red;
+  height: 990px;
+  justify-content: center;
+  gap: 10px;
+}
+
+.my-info {
+  width: 327px;
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+  gap: 12px;
+  flex-shrink: 1;
+  height: 72px;
+}
+
+.skill-heads {
+  height: 65px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.lang-lists {
+  width: 100%;
+  list-style: none;
+  justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+  padding: 12px;
+  gap: 10px;
+}
+
+.lang-items img {
+  width: 48px;
+  height: 48px;
+}
+
+.lang-items {
+  height: 66px;
+  display: flex;
+  flex: row;
+  justify-content: left;
+  align-items: center;
+  background-color: #f7f7f9;
+}
+
+#skills,
+#frameworks {
+  border-bottom: #dfe1e6;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+}
+
+@media only screen and (max-device-width: 375px) {
+  .grid-container {
+    padding: 114px 0;
+  }
 }
