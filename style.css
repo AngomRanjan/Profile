@@ -141,15 +141,12 @@ p {
   justify-content: center;
 }
 
+.info-blocks,
 .snapshoot-placeholders {
   width: 295px;
   display: flex;
   flex-direction: column;
   gap: 12px;
-}
-
-.snapshoot-placeholders {
-  width: 295px;
   height: 220px;
   border-radius: 8px;
 }
@@ -283,13 +280,6 @@ p {
   border-bottom: #dfe1e6;
   border-bottom-width: 1px;
   border-bottom-style: solid;
-}
-
-.snapshoot-placeholders {
-  width: 295px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
 }
 
 @media only screen and (max-device-width: 375px) {
