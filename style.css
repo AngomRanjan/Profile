@@ -174,8 +174,8 @@ p {
 .tag-lists {
   width: 203px;
   height: 24px;
-  float: inline-start;
-  flex-direction: row;
+  display: inline-block;
+  /* flex-direction: row; */
   list-style: none;
   justify-content: space-between;
   align-items: center;
@@ -195,6 +195,8 @@ p {
 
 .tags {
   height: 25px;
+  float: left;
+  gap: 20px;
   border: 1px solid #ebebff;
   padding: 4px 12px;
   border-radius: 8px;
