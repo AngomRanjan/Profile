@@ -174,7 +174,7 @@ p {
 .tag-lists {
   width: 203px;
   height: 24px;
-  display: flex;
+  float: inline-start;
   flex-direction: row;
   list-style: none;
   justify-content: space-between;
@@ -230,7 +230,6 @@ p {
   grid-template-rows: repeat(auto-fill, stretch);
   background-color: #fff;
   border-top-right-radius: 100px;
-  border: 1px solid red;
   height: 990px;
   justify-content: center;
   gap: 10px;
@@ -283,6 +282,47 @@ p {
   border-bottom: #dfe1e6;
   border-bottom-width: 1px;
   border-bottom-style: solid;
+}
+
+.contact {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  background-color: #fff;
+}
+
+#contact {
+  background-color: #6070ff;
+  border-top-left-radius: 100px;
+  min-height: 300px;
+  background-image: url(images/contact.png);
+  background-size: cover;
+}
+
+.msg-group {
+  min-width: 260px;
+  max-width: 375px;
+  display: flex;
+  flex-direction: column;
+  padding: 100px 40px 24px 24px;
+  row-gap: 40px;
+  text-align: center;
+}
+
+.form {
+  width: 100%;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
+
+.input {
+  height: 40px;
+  border-radius: 8px;
+  border: 1px solid #cfd8dc;
 }
 
 @media only screen and (max-device-width: 375px) {
