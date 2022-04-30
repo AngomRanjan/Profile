@@ -253,12 +253,12 @@ form {
 @media only screen and (min-width: 768px) {
   /* For desktop: */
 
+  .head-1 { width: 350px; }
+
   .nav-bar { display: flex; }
 
   #menu { display: none; }
   
-  .head-1 { width: 350px; }
-
   .description { width: 700px; }
 
   .headline-text-placehoder {
