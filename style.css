@@ -279,6 +279,7 @@ form {
   .lang-lists {
     display: flex;
   }
+  /* stylelint-disable-next-line no-eol-whitespace */
   
   .form {
     display: flex;
