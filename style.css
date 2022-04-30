@@ -256,10 +256,10 @@ form {
   .nav-bar { display: flex; }
 
   #menu { display: none; }
+  
+  .head-1 { width: 350px; }
 
-  #main-title { width: 350px; }
-
-  #title-desc { width: 700px; }
+  .description { width: 700px; }
 
   .headline-text-placehoder {
     min-width: 700px;
@@ -284,6 +284,22 @@ form {
   }
 
   .reverse { flex-direction: row-reverse; }
+
+  #about { flex-direction: row; }
+
+  .self-intro, 
+  .skill-info { width: 45%; }
+
+  #about-desc { width: 100%; }
+
+  #contact-msg,
+  #contact-me { width: 45%; }
+
+  .form {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
 
 }
 
