@@ -1,6 +1,6 @@
 /* style.css for index.html */
 
-.nav-bar { display: none; height: 40px;} /* nav bar hidden by default */
+.nav-bar { display: none; } /* nav bar hidden by default */
 
 * {
   box-sizing: border-box;
@@ -250,7 +250,7 @@ form {
   border-bottom-style: solid;
 }
 
-@media only screen and (min-width: 768px) {  
+@media only screen and (min-width: 768px) {
   /* For desktop: */
 
   .nav-bar { display: flex; }
@@ -287,7 +287,7 @@ form {
 
   #about { flex-direction: row; }
 
-  .self-intro, 
+  .self-intro,
   .skill-info { width: 45%; }
 
   #about-desc { width: 100%; }
@@ -300,6 +300,4 @@ form {
     justify-content: center;
     flex-wrap: wrap;
   }
-
 }
-
