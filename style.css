@@ -267,17 +267,23 @@ form {
   }
 
   .cards {
-    width: 80%;
+    width: 90%;
     justify-content: center;
   }
 
   .nav-lnks { color: #344563; }
 
   .snapshoot-placeholders,
-  .projects { width: 46%; }
+  .projects { width: 48%; }
+
+  .projects { justify-content: space-between; }
+
+  .snapshoot {
+    width: 100%;
+    height: 100%;
+  }
+
+  .reverse { flex-direction: row-reverse; }
+
 }
 
-.snapshoot {
-  width: 100%;
-  height: 100%;
-}
