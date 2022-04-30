@@ -1,7 +1,5 @@
 /* style.css for index.html */
 
-.nav-bar { display: none; } /* nav bar hidden by default */
-
 * {
   box-sizing: border-box;
   margin: 0;
@@ -48,6 +46,13 @@ h2 {
 
 ul { list-style: none; }
 
+.navs {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  gap: 30px;
+}
+
 .type,
 .year {
   color: #74869a;
@@ -87,17 +92,12 @@ a { text-decoration: none; }
   grid-area: 1/1/2/2;
   border-bottom-left-radius: 100px;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
   padding: 100px 24px;
   background-image: url(images/topL.png), url(images/topC.png), url(images/topR.png), url(images/bottomL.png), url(images/bottomC.png), url(images/bottomR.png);
   background-position: left top, center top, right top, left bottom, center bottom, right bottom;
   background-repeat: no-repeat;
-  width: 100vw;
-}
-
-.headline-text-placehoder {
-  align-items: flex-start;
 }
 
 .grid {
@@ -250,50 +250,36 @@ form {
   border-bottom-style: solid;
 }
 
+.mobile { display: inline; }
+
+.desktop { display: none; }
+
 @media only screen and (min-width: 768px) {
   /* For desktop: */
 
-  .head-1 { width: 350px; }
-
-  .nav-bar { display: flex; }
-
-  #menu { display: none; }
-  .description { width: 700px; }
-
-  .headline-text-placehoder {
-    min-width: 700px;
-    margin: auto;
+  .rev {
+    flex-direction: row-reverse;
   }
 
-  .cards {
-    width: 90%;
-    justify-content: center;
-  }
+  .desktop { display: inline; }
 
-  .nav-lnks { color: #344563; }
-
-  .snapshoot-placeholders,
-  .projects { width: 48%; }
-
-  .projects { justify-content: space-between; }
-
-  .snapshoot {
-    width: 100%;
-    height: 100%;
-  }
-
-  .reverse { flex-direction: row-reverse; }
-
-  #about { flex-direction: row; }
+  .mobile {display: none; }
 
   .self-intro,
-  .skill-info { width: 45%; }
+  .snapshoot-placeholders,
+  .projects { width: 43%; }
 
-  #about-desc { width: 100%; }
+  .snapshoot-placeholders img { width: 90%; }
 
-  #contact-msg,
-  #contact-me { width: 45%; }
+  #about {
+    flex-direction: row;
+    justify-content: left;
+  }
 
+  .lang-lists {
+    display: flex;
+  }
+  
   .form {
     display: flex;
     justify-content: center;
