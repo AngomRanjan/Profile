@@ -263,7 +263,7 @@ form {
 
   .desktop { display: inline; }
 
-  .mobile {display: none; }
+  .mobile { display: none; }
 
   .self-intro,
   .snapshoot-placeholders,
