@@ -1,5 +1,6 @@
 /* style.css for index.html */
 
+.nav-bar { display: none;} /* nav bar hidden by default */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -91,6 +92,7 @@ a { text-decoration: none; }
   background-image: url(images/topL.png), url(images/topC.png), url(images/topR.png), url(images/bottomL.png), url(images/bottomC.png), url(images/bottomR.png);
   background-position: left top, center top, right top, left bottom, center bottom, right bottom;
   background-repeat: no-repeat;
+  width: 100vw;
 }
 
 .grid {
@@ -241,4 +243,13 @@ form {
   border-bottom: #dfe1e6;
   border-bottom-width: 1px;
   border-bottom-style: solid;
+}
+
+@media only screen and (min-width: 768px) {  
+  /* For desktop: */
+
+  .nav-bar { display: inline-block; }
+
+  #menu { display: none; }
+
 }
