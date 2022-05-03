@@ -124,8 +124,9 @@ h2 {
 }
 
 .content-placeholder {
-  margin: auto;
   width: 90%;
+  max-width: 650px;
+  margin: auto;
 }
 
 .inline,
@@ -233,5 +234,41 @@ li.client::before {
 
 #frameworks,
 #skills { border-bottom: 1px solid #dfe1e6; }
+
+footer {
+  background-color: #6070ff;
+  border-top-left-radius: 100px;
+  width: 100%;
+  background-image: url(images/contact-bg_01.png), url(images/contact-bg_03.png);
+  background-position: center top, right top;
+  background-repeat: no-repeat;
+}
+
+footer .content-placeholder {
+  text-align: center;
+  padding: 60px 5px;
+}
+
+#contact-msg,
+#contact-me { color: #fff; }
+
+form {
+  width: 100%;
+  height: fit-content;
+  background-image: url(images/contact-bg_02.png);
+  background-position: right bottom;
+  background-repeat: no-repeat;
+}
+
+.form-input {
+  width: 100%;
+  border: 1px solid #cfd8dc;
+  border-radius: 8px;
+  padding: 12px 24px;
+  margin-bottom: 7px;
+  margin-top: 7px;
+}
+
+.input-line { height: 48px; }
 
 .nav-links-desktop { display: none; }
