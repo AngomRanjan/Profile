@@ -281,3 +281,15 @@ form {
 .input-line { height: 48px; }
 
 .nav-links-desktop { display: none; }
+
+@media only screen and (min-width: 768px) {
+  /* || Deskstop Responsive */
+
+  .nav-links-desktop {
+    display: inline;
+    color: #344563;
+    font-weight: 500;
+  }
+
+  .nav-links-mobile { display: none; }
+}
