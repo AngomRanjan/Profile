@@ -70,7 +70,7 @@ h2 {
 .wrapper {
   display: grid;
   grid-template-rows: calc(100vh - 48px) repeat(3, auto);
-  background-color: #808080;
+  background-color: #e5e5e5;
   margin-top: 48px;
 }
 
@@ -186,20 +186,26 @@ li.client::before {
   background-color: #fff;
 }
 
+.btn:focus,
+.btn:target,
+.btn:active {
+  color: #fff;
+  background-color: #2230d2;
+}
+
 .btn:hover {
   background-color: #6070ff;
   color: #fff;
   box-shadow: 0 8px 16px rgba(64, 83, 252, 0.24);
   border-radius: 8px;
-  transition: all 1s;
+  cursor: pointer;
+  transition: all 2ms;
 }
 
 .btn:disabled {
   border: 1px solid #c1c7d0;
   color: #5e6c84;
 }
-
-.btn:active { color: #2230d2; }
 
 #about {
   background-color: #fff;
@@ -235,7 +241,10 @@ li.client::before {
 #frameworks,
 #skills { border-bottom: 1px solid #dfe1e6; }
 
-footer {
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: #6070ff;
   border-top-left-radius: 100px;
   width: 100%;
@@ -254,10 +263,10 @@ footer .content-placeholder {
 
 form {
   width: 100%;
-  height: fit-content;
   background-image: url(images/contact-bg_02.png);
   background-position: right bottom;
   background-repeat: no-repeat;
+  flex-wrap: wrap;
 }
 
 .form-input {
