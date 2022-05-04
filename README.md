@@ -3,8 +3,8 @@
 # Profile
 
 > This project is a part of Microverse Software Developers Course Module-1.
-Here I am developing a Responsive Profile Website. Currently, the project is in the initial stage of development.
-A simple skeleton of mobile version is completed as of now.
+Here I am developing a Responsive Profile Website. The project is in the initial stage of development.
+Currently, it showcase a simple mobile and desktop responsive model. 
 
 
 

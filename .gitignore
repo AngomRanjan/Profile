@@ -4,4 +4,6 @@ node_modules/
 #removes the following
 *.json
 .hintrc
+.st*.json
+
 
