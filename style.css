@@ -186,6 +186,7 @@ li.client::before {
   background-color: #fff;
 }
 
+.nav-links-desktop:active,
 .btn:focus,
 .btn:target,
 .btn:active {
@@ -306,6 +307,21 @@ form {
   form {
     background-image: none;
     flex-direction: column;
+  }
+
+  .language-ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    width: 340px;
+  }
+
+  .language-ul li {
+    display: inline;
+    width: 102px;
+    text-align: left;
+    padding: 12px;
+    margin: 0 6px;
   }
 
   .reverse { flex-direction: row-reverse; }
