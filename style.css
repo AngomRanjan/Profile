@@ -168,6 +168,8 @@ li.client::before {
   color: #6070ff;
 }
 
+.nav-links-desktop { display: none; }
+
 .btn {
   width: fit-content;
   height: 48px;
@@ -186,6 +188,7 @@ li.client::before {
   background-color: #fff;
 }
 
+.nav-links-desktop:active,
 .btn:focus,
 .btn:target,
 .btn:active {
@@ -193,13 +196,14 @@ li.client::before {
   background-color: #2230d2;
 }
 
+.nav-links-desktop:hover,
 .btn:hover {
   background-color: #6070ff;
   color: #fff;
   box-shadow: 0 8px 16px rgba(64, 83, 252, 0.24);
-  border-radius: 8px;
+  border-radius: 5px;
   cursor: pointer;
-  transition: all 2ms;
+  transition: all 1s;
 }
 
 .btn:disabled {
@@ -280,4 +284,46 @@ form {
 
 .input-line { height: 48px; }
 
-.nav-links-desktop { display: none; }
+@media only screen and (min-width: 768px) {
+  /* || Deskstop Responsive */
+
+  .nav-links-desktop {
+    display: inline;
+    color: #344563;
+    font-weight: 500;
+  }
+
+  .nav-links-mobile { display: none; }
+
+  #headlines { background-image: url(images/dtp-header-bg.svg); }
+
+  .footer { background-image: url(images/dtp-contact-bg.svg); }
+
+  #headlines,
+  .footer {
+    background-position: 50% 50%;
+    background-size: contain;
+  }
+
+  form {
+    background-image: none;
+    flex-direction: column;
+  }
+
+  .language-ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    width: 340px;
+  }
+
+  .language-ul li {
+    display: inline;
+    width: 102px;
+    text-align: left;
+    padding: 12px;
+    margin: 0 6px;
+  }
+
+  .reverse { flex-direction: row-reverse; }
+}
