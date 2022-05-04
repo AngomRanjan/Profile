@@ -292,4 +292,19 @@ form {
   }
 
   .nav-links-mobile { display: none; }
+
+  #headlines { background-image: url(images/dtp-header-bg.svg); }
+
+  .footer { background-image: url(images/dtp-contact-bg.svg); }
+
+  #headlines,
+  .footer {
+    background-position: 50% 50%;
+    background-size: contain;
+  }
+
+  form {
+    background-image: none;
+    flex-direction: column;
+  }
 }
