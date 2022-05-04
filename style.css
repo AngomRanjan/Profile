@@ -307,4 +307,6 @@ form {
     background-image: none;
     flex-direction: column;
   }
+
+  .reverse { flex-direction: row-reverse; }
 }
