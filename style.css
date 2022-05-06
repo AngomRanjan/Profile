@@ -44,6 +44,8 @@ h2 {
   font-size: 18px;
   line-height: 20px;
   color: #6070ff;
+  transform: translate(2.1rem, 155px);
+  transition: all 2s;
 }
 
 /* || Header and Main Navigation */
@@ -168,7 +170,10 @@ li.client::before {
   color: #6070ff;
 }
 
-.nav-links-desktop { display: none; }
+.nav-links-desktop {
+  display: none;
+  /* animation: all 3s; */
+}
 
 .btn {
   width: fit-content;
@@ -180,20 +185,13 @@ li.client::before {
   line-height: 24px;
   text-align: center;
   margin: 30px 0;
+  transition: all 1s;
 }
 
 .btn:enabled {
   border: 1px solid #6070ff;
   color: #396df2;
   background-color: #fff;
-}
-
-.nav-links-desktop:active,
-.btn:focus,
-.btn:target,
-.btn:active {
-  color: #fff;
-  background-color: #2230d2;
 }
 
 .nav-links-desktop:hover,
@@ -203,12 +201,25 @@ li.client::before {
   box-shadow: 0 8px 16px rgba(64, 83, 252, 0.24);
   border-radius: 5px;
   cursor: pointer;
-  transition: all 1s;
+  /* transform: scale(110%); */
+  /* font-size: larger; */
+  font-weight: 800;
+}
+
+.btn:active {
+  color: #fff;
+  background-color: #2230d2;
 }
 
 .btn:disabled {
   border: 1px solid #c1c7d0;
   color: #5e6c84;
+}
+
+a:active,
+.nav-links-desktop:focus {
+  color: #fff;
+  background-color: #2230d2;
 }
 
 #about {
