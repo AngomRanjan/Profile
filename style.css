@@ -201,8 +201,8 @@ li.client::before {
   box-shadow: 0 8px 16px rgba(64, 83, 252, 0.24);
   border-radius: 5px;
   cursor: pointer;
-  transform: scale(110%); 
-  font-size: larger; 
+  transform: scale(110%);
+  letter-spacing: 0.05em;
   font-weight: 800;
 }
 
@@ -294,6 +294,8 @@ form {
 }
 
 .input-line { height: 48px; }
+
+.form-button { margin: 0; }
 
 @media only screen and (min-width: 768px) {
   /* || Deskstop Responsive */
