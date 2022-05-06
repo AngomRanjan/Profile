@@ -202,7 +202,7 @@ li.client::before {
   border-radius: 5px;
   cursor: pointer;
   transform: scale(110%); 
-  /* font-size: larger; */
+  font-size: larger; 
   font-weight: 800;
 }
 
