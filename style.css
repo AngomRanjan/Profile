@@ -172,7 +172,7 @@ li.client::before {
 
 .nav-links-desktop {
   display: none;
-  animation: all 3s; 
+  animation: all 3s;
 }
 
 .btn {
@@ -291,7 +291,10 @@ form {
   padding: 12px 24px;
   margin-bottom: 7px;
   margin-top: 7px;
+  transition: all 0.5s;
 }
+
+.form-input:hover::placeholder { transform: translate(0.5em, 0); }
 
 .input-line { height: 48px; }
 
