@@ -120,6 +120,12 @@ h2 {
 .snapshoot {
   width: 98%;
   height: auto;
+  animation: all 2s;
+}
+
+.snapshoot:hover {
+  width: 99%;
+  box-shadow: 0 8px 16px rgba(64, 83, 252, 0.25);
 }
 
 .projects {
