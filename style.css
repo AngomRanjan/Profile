@@ -46,7 +46,8 @@ h2 {
   color: #6070ff;
 }
 
-.logo {
+.logo,
+.logo:hover {
   transform: rotateY(360deg);
   transition: all 10s ease-in-out 1s;
 }
