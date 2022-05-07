@@ -44,8 +44,11 @@ h2 {
   font-size: 18px;
   line-height: 20px;
   color: #6070ff;
-  transform: translate(2.1rem, 155px);
-  transition: all 2s;
+}
+
+.logo {
+  transform: rotateY(360deg);
+  transition: all 10s ease-in-out 1s;
 }
 
 /* || Header and Main Navigation */
@@ -204,6 +207,7 @@ li.client::before {
   transform: scale(110%);
   letter-spacing: 0.05em;
   font-weight: 800;
+  border: 1px solid #396df2;
 }
 
 .btn:active {
