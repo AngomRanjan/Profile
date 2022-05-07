@@ -37,6 +37,8 @@ Give a ⭐️ if you like this project!
 
 ## Acknowledgments
 
+- Jemutai Kiplagat (@Jemutai) for sparing her time to collabrate and helping in giving
+  UI an interacting looks by adding simple yet effective animation.
 - Microverse Team
 - My Family
 
