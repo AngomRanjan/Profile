@@ -75,7 +75,7 @@ h2 {
 
 .wrapper {
   display: grid;
-  grid-template-rows: calc(100vh - 48px) repeat(3, auto);
+  grid-template-rows: minmax(calc(100vh - 48px), auto) repeat(3, auto);
   background-color: #e5e5e5;
   margin-top: 48px;
 }
@@ -139,6 +139,7 @@ h2 {
   width: 90%;
   max-width: 650px;
   margin: auto;
+  padding: 10% 0;
 }
 
 .inline,
@@ -187,7 +188,7 @@ li.client::before {
 
 .btn {
   width: fit-content;
-  height: 48px;
+  min-height: 48px;
   border-radius: 8px;
   padding: 12px;
   font-size: 17px;
@@ -341,16 +342,19 @@ form {
     display: flex;
     flex-direction: row;
     justify-content: left;
-    width: 340px;
+    width: 90%;
   }
 
   .language-ul li {
     display: inline;
-    width: 102px;
+    width: 25%;
     text-align: left;
     padding: 12px;
     margin: 0 6px;
+    word-wrap: break-word;
   }
+
+  .language-ul li img { display: block; }
 
   .reverse { flex-direction: row-reverse; }
 }
