@@ -37,13 +37,13 @@ h2 {
 .head3 {
   font-weight: 500;
   font-size: 16px;
-  color: #7f8cff;
+  color: #5564e1;
 }
 
 .logo-text {
   font-size: 18px;
   line-height: 20px;
-  color: #6070ff;
+  color: #5867eb;
 }
 
 .logo,
@@ -122,6 +122,7 @@ h2 {
   width: 98%;
   height: auto;
   animation: all 2s;
+  margin: 4% 0;
 }
 
 .snapshoot:hover {
@@ -151,7 +152,7 @@ h2 {
 .project-summary > li::before {
   content: '\2022';
   margin-right: 0.5em;
-  color: #7a869a;
+  color: #6b7687;
 }
 
 li.client::before {
@@ -159,7 +160,7 @@ li.client::before {
   margin-right: 0;
 }
 
-.project-summary { color: #7a869a; }
+.project-summary { color: #6b7687; }
 
 .client { color: #344563; }
 
@@ -178,7 +179,7 @@ li.client::before {
   background-color: #ebebff;
   font-size: 12px;
   line-height: 16px;
-  color: #6070ff;
+  color: #505dd5;
 }
 
 .nav-links-desktop {
@@ -272,7 +273,7 @@ a:active,
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #6070ff;
+  background-color: #5867eb;
   border-top-left-radius: 100px;
   width: 100%;
   background-image: url(images/contact-bg_01.png), url(images/contact-bg_03.png);
