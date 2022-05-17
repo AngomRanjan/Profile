@@ -1,48 +1,38 @@
-document.getElementById('menu').addEventListener('click',toggleMobMenu);
-const main=document.getElementById('body');
-const mobMenu=getDiv();
+const main = document.getElementById('body');
+const mobMenu = document.createElement('div');
+mobMenu.className = 'overlay-container';
+mobMenu.id = 'mobMenu';
 
-function getDiv() {
-  let div=document.createElement('div');
-  let d=document.createElement('div');
-  let a=document.createElement('a');
-  div.className='overlay-container';
-  div.id='mobMenu';
-  d.textContent="\u2715";
-  d.id='close';
-  d.addEventListener('click',toggleMobMenu);
-  div.appendChild(d);
-  a.textContent="Portfolio";
-  a.className='overlay';
-  a.href='#works';
-  a.addEventListener('click',toggleMobMenu);
-  div.appendChild(a);
-  a=document.createElement('a');
-  a.textContent="About";
-  a.className='overlay';
-  a.href='#about';
-  a.addEventListener('click',toggleMobMenu);
-  div.appendChild(a);
-  a=document.createElement('a');
-  a.textContent="Contact";
-  a.className='overlay';
-  a.href='#contacts';
-  a.addEventListener('click',toggleMobMenu);
-  div.appendChild(a);
-  return div;
+function addItem(item, itemId, iTarget, iText) {
+  if (item === 'div') {
+    item = document.createElement('div');
+    item.textContent = '\u2715';
+    item.id = 'close';
+  } else {
+    item = document.createElement('a');
+    item.id = itemId;
+    item.href = iTarget;
+    item.textContent = iText;
+    item.className = 'overlay';
+  }
+  return item;
 }
 
-function showMobMenu(){
+function hideMobMenu() {
+  mobMenu.innerHTML = '';
+  main.removeChild(mobMenu);
+  document.body.classList.toggle('no-scroll');
+}
+
+document.getElementById('menu').addEventListener('click', () => {
+  mobMenu.appendChild(addItem('div'));
+  mobMenu.appendChild(addItem('a', 'link1', '#works', 'Portfolio'));
+  mobMenu.appendChild(addItem('a', 'link2', '#about', 'About'));
+  mobMenu.appendChild(addItem('a', 'link3', '#contacts', 'Contact'));
   main.appendChild(mobMenu);
   document.body.classList.toggle('no-scroll');
-}
-
-function hideMobMenu(){
-  main.removeChild(mobMenu)
-  document.body.classList.toggle('no-scroll');
-}
-
-  function toggleMobMenu(e) {
-  (this.id==='menu') ? showMobMenu():hideMobMenu();
-  console.log(this.id);  
-  }
+  document.getElementById('close').addEventListener('click', hideMobMenu);
+  document.getElementById('link1').addEventListener('click', hideMobMenu);
+  document.getElementById('link2').addEventListener('click', hideMobMenu);
+  document.getElementById('link3').addEventListener('click', hideMobMenu);
+});
