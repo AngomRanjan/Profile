@@ -36,3 +36,25 @@ document.getElementById('menu').addEventListener('click', () => {
   document.getElementById('link2').addEventListener('click', hideMobMenu);
   document.getElementById('link3').addEventListener('click', hideMobMenu);
 });
+// || =========== Pop-Up Modal ============ ||
+const arrProjects = [];
+function addProjects() {
+  // for stores Project Infos in arrProject
+  const colTitles = document.getElementsByClassName('project-titles');
+  const colClient = document.getElementsByClassName('client');
+  const colRole = document.getElementsByClassName('type');
+  const colYear = document.getElementsByClassName('year');
+  for (let i = 0; i < colTitles.length; i++) {
+    const objProject = {};
+    objProject.name = colTitles[i].textContent;
+    objProject.client = colClient[i].textContent;
+    objProject.role = colRole[i].textContent;
+    objProject.year = colYear[i].textContent;
+    objProject.tags = ['html', 'css', 'javascript', 'github', 'ruby', 'bootstrap'];
+    objProject.snapshot = `images/SnapshootD${i}.jpg`;
+    arrProjects.push(objProject);
+  }
+}
+addProjects();
+console.table(arrProjects);
+// || =========== Pop-UP Ends ==============||
