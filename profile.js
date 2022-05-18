@@ -45,6 +45,7 @@ function addProjects() {
   const colRole = document.getElementsByClassName('type');
   const colYear = document.getElementsByClassName('year');
   for (let i = 0; i < colTitles.length; i++) {
+    // | creating a new project object an pushing it to arrProject
     const objProject = {};
     objProject.name = colTitles[i].textContent;
     objProject.client = colClient[i].textContent;
