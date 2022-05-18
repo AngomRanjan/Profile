@@ -63,8 +63,9 @@ function getProjectDetails(proID) {
 
 function showProjectDetails(proID) {
   // showing  Project Info
-  const p=getProjectDetails(proID);
-  console.log(p.name);
+  const p=getProjectDetails(proID-1);
+  let a = p.name +'\n'+p.client+" - "+p.year+' - ' +p.role
+  alert(a);
 }
 
 addProjects();
