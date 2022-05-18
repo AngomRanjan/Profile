@@ -52,7 +52,7 @@ function addProjects() {
     objProject.role = colRole[i].textContent;
     objProject.year = colYear[i].textContent;
     objProject.tags = ['html', 'css', 'javascript', 'github', 'ruby', 'bootstrap'];
-    objProject.snapshot = `images/SnapshootD${i}.jpg`;
+    objProject.snapshot = 'images/SnapshootD'+(i+1)+'.jpg';
     arrProjects.push(objProject);
   }
 }
@@ -64,9 +64,21 @@ function getProjectDetails(proID) {
 
 function showProjectDetails(proID) {
   // showing  Project Info
+  const modPopUp=document.getElementById('modal-ui-wrapper');
   const p=getProjectDetails(proID-1);
-  let a = p.name +'\n'+p.client+" - "+p.year+' - ' +p.role
-  alert(a);
+  document.getElementById('mc-title').textContent=p.name;
+  document.getElementById('mc-client').textContent=p.client;
+  document.getElementById('mc-type').textContent=p.role;
+  document.getElementById('mc-year').textContent=p.year;
+  document.getElementById('mc-img').src=p.snapshot;
+  document.body.classList.toggle('no-scroll');
+  modPopUp.classList.toggle('md-show');
+}
+
+function hideModal() {
+  const modPopUp=document.getElementById('modal-ui-wrapper');
+  modPopUp.classList.toggle('md-show');
+  document.body.classList.toggle('no-scroll');
 }
 
 addProjects();
@@ -80,4 +92,8 @@ btns.forEach(btn => {
     event.stopPropagation;
   });
 });
+
+// || =======Close Btn Click
+document.getElementById('mc-close').addEventListener('click',hideModal);
+
 // || =========== Pop-UP Ends ==============||
