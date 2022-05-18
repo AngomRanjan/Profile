@@ -44,7 +44,7 @@ function addProjects() {
   const colClient = document.getElementsByClassName('client');
   const colRole = document.getElementsByClassName('type');
   const colYear = document.getElementsByClassName('year');
-  for (let i = 0; i < colTitles.length; i++) {
+  for (let i = 0; i < colTitles.length; i += 1) {
     // | creating a new project object an pushing it to arrProject
     const objProject = {};
     objProject.name = colTitles[i].textContent;
@@ -52,7 +52,7 @@ function addProjects() {
     objProject.role = colRole[i].textContent;
     objProject.year = colYear[i].textContent;
     objProject.tags = ['html', 'css', 'javascript', 'github', 'ruby', 'bootstrap'];
-    objProject.snapshot = 'images/SnapshootD'+(i+1)+'.jpg';
+    objProject.snapshot = `images/SnapshootD${i + 1}.jpg`;
     arrProjects.push(objProject);
   }
 }
@@ -64,35 +64,35 @@ function getProjectDetails(proID) {
 
 function showProjectDetails(proID) {
   // showing  Project Info
-  const modPopUp=document.getElementById('modal-ui-wrapper');
-  const p=getProjectDetails(proID-1);
-  document.getElementById('mc-title').textContent=p.name;
-  document.getElementById('mc-client').textContent=p.client;
-  document.getElementById('mc-type').textContent=p.role;
-  document.getElementById('mc-year').textContent=p.year;
-  document.getElementById('mc-img').src=p.snapshot;
+  const modPopUp = document.getElementById('modal-ui-wrapper');
+  const p = getProjectDetails(proID - 1);
+  document.getElementById('mc-title').textContent = p.name;
+  document.getElementById('mc-client').textContent = p.client;
+  document.getElementById('mc-type').textContent = p.role;
+  document.getElementById('mc-year').textContent = p.year;
+  document.getElementById('mc-img').src = p.snapshot;
   document.body.classList.toggle('no-scroll');
   modPopUp.classList.toggle('md-show');
 }
 
 function hideModal() {
-  const modPopUp=document.getElementById('modal-ui-wrapper');
+  const modPopUp = document.getElementById('modal-ui-wrapper');
   modPopUp.classList.toggle('md-show');
   document.body.classList.toggle('no-scroll');
 }
-// | Call Add Object function 
+// | Call Add Object function
 addProjects();
 
 // | Add Click Event Listners to Project Buttons
 const btns = Array.from(document.getElementsByClassName('btn-projects'));
-btns.forEach(btn => {
-  btn.addEventListener('click',(event)=>{
+btns.forEach((btn) => {
+  btn.addEventListener('click', (event) => {
     showProjectDetails(btn.id);
-    event.stopPropagation;
+    event.stopPropagation();
   });
 });
 
 // || =======Close Btn Click
-document.getElementById('mc-close').addEventListener('click',hideModal);
+document.getElementById('mc-close').addEventListener('click', hideModal);
 
 // || =========== Pop-UP Ends ==============||
