@@ -80,10 +80,9 @@ function hideModal() {
   modPopUp.classList.toggle('md-show');
   document.body.classList.toggle('no-scroll');
 }
-
+// | Call Add Object function 
 addProjects();
-console.table(getProjectDetails(2));
-console.table(arrProjects);
+
 // | Add Click Event Listners to Project Buttons
 const btns = Array.from(document.getElementsByClassName('btn-projects'));
 btns.forEach(btn => {
