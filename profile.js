@@ -39,7 +39,7 @@ document.getElementById('menu').addEventListener('click', () => {
 // || =========== Pop-Up Modal ============ ||
 const arrProjects = [];
 function addProjects() {
-  // for stores Project Infos in arrProject
+  // Stores Project Infos in arrProject
   const colTitles = document.getElementsByClassName('project-titles');
   const colClient = document.getElementsByClassName('client');
   const colRole = document.getElementsByClassName('type');
@@ -55,6 +55,27 @@ function addProjects() {
     arrProjects.push(objProject);
   }
 }
+
+function getProjectDetails(proID) {
+  // Retrieving  Project Info
+  return arrProjects[proID];
+}
+
+function showProjectDetails(proID) {
+  // showing  Project Info
+  const p=getProjectDetails(proID);
+  console.log(p.name);
+}
+
 addProjects();
+console.table(getProjectDetails(2));
 console.table(arrProjects);
+// | Add Click Event Listners to Project Buttons
+const btns = Array.from(document.getElementsByClassName('btn-projects'));
+btns.forEach(btn => {
+  btn.addEventListener('click',(event)=>{
+    showProjectDetails(btn.id);
+    event.stopPropagation;
+  });
+});
 // || =========== Pop-UP Ends ==============||
