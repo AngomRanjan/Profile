@@ -544,8 +544,6 @@ form {
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
-    backdrop-filter: blur(12px);
-    opacity: 1;
   }
 
   .modal-card { height: 100%; }
