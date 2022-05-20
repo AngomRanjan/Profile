@@ -60,7 +60,7 @@ function addSummary(t) {
 function addSnapshot() {
   const itemSnapshot = document.createElement('div');
   itemSnapshot.className = 'mc-snap-place';
-  itemSnapshot.innerHTML = `<img class="mc-snapshoot" src="images/mcSnapshot.png" alt="Snapshot of Project Tonic" id="mc-img">`;
+  itemSnapshot.innerHTML = '<img class="mc-snapshoot" src="images/mcSnapshot.png" alt="Snapshot of Project Tonic" id="mc-img">';
   return itemSnapshot;
 }
 
