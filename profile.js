@@ -46,7 +46,7 @@ document.getElementById('contact-form').addEventListener('submit', (e) => {
   if (arrEmail !== arrEmail.toLowerCase() || arrEmail.match(/@[0-9a-z][\D\w]*?\./g) === null) {
     e.preventDefault();
     errorMsg.innerText='Invalid Email : Please Email should be in lowercase and contain a @ and . in it';
-    errorMsg.style.color = 'green';     
+    errorMsg.style.color = 'red';     
   }
 })
 // || ================ Email Validation ============= ||
