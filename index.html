@@ -228,11 +228,12 @@
           If you have an application you are interested in developing, a feature
           that you need built or a project that needs coding. I’d love to help
           with it
-        </p>    
-        <form class="form flex" action="https://formspree.io/f/xbjwpzkw" method="post">
+        </p>   
+        <form class="form flex" action="https://formspree.io/f/xbjwpzkw" method="post" id="contact-form">
           <input class="form-input input-line" type="text" placeholder="Enter your name" name="name" maxlength="30" required/>
           <input class="form-input input-line" type="email" id="email" name="email" placeholder="yourid@gmail.com" required/>
           <textarea class="form-input" rows="10" maxlength="500" placeholder="Write your message here" name="message" required ></textarea>
+          <div class="error-message" id ="error-message"></div>
           <input class="btn form-button" type="submit" value="Get It Touch" />
         </form>
       </div>

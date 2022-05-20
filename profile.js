@@ -36,3 +36,17 @@ document.getElementById('menu').addEventListener('click', () => {
   document.getElementById('link2').addEventListener('click', hideMobMenu);
   document.getElementById('link3').addEventListener('click', hideMobMenu);
 });
+
+// || ================ Email Validation ============= ||
+
+document.getElementById('contact-form').addEventListener('submit', (e) => {
+	const errorMsg = document.getElementById('error-message');  
+	const arrEmail = document.getElementById('email').value;
+  errorMsg.innerText='';
+  if (arrEmail !== arrEmail.toLowerCase() || arrEmail.match(/@[0-9a-z][\D\w]*?\./g) === null) {
+    e.preventDefault();
+    errorMsg.innerText='Invalid Email : Please Email should be in lowercase and contain a @ and . in it';
+    errorMsg.style.color = 'green';     
+  }
+})
+// || ================ Email Validation ============= ||
