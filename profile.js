@@ -40,56 +40,64 @@ document.getElementById('menu').addEventListener('click', () => {
 // || =========== Pop-Up Modal ============ ||*/
 
 const arrProjects = [
-  { no: '1', name: 'Tonic', summary: ['Canopy', 'Back End', '2015'], details: "A daily selection of privately personalized reads; no accounts or sign-ups required."},
-  { no: '2', name: 'Multi-Post Stories', summary: ['Facebook', 'Full Stack', '2016'], details: "Experimental content creation feature that allows users to add to an existing story over the course of a day without spamming their friends."},
-  { no: '3', name: 'Facebook 360', summary: ['Canopy', 'Full Stack', '2017'], details: "Exploring the future of media in Facebook's first Virtual Reality app; a place to discover and enjoy 360 photos and videos on Gear VR."},
-  { no: '4', name: 'Uber Navigation', summary: ['Canopy', 'Lead Role', '2018'], details: 'A smart assistant to make driving more safe, efficient, and fun by unlocking your most expensive computer: your car.'},
+  {
+    no: '1', name: 'Tonic', summary: ['Canopy', 'Back End', '2015'], details: 'A daily selection of privately personalized reads; no accounts or sign-ups required.',
+  },
+  {
+    no: '2', name: 'Multi-Post Stories', summary: ['Facebook', 'Full Stack', '2016'], details: 'Experimental content creation feature that allows users to add to an existing story over the course of a day without spamming their friends.',
+  },
+  {
+    no: '3', name: 'Facebook 360', summary: ['Canopy', 'Full Stack', '2017'], details: "Exploring the future of media in Facebook's first Virtual Reality app; a place to discover and enjoy 360 photos and videos on Gear VR.",
+  },
+  {
+    no: '4', name: 'Uber Navigation', summary: ['Canopy', 'Lead Role', '2018'], details: 'A smart assistant to make driving more safe, efficient, and fun by unlocking your most expensive computer: your car.',
+  },
 ];
 
 function compileCards(project) {
   const card = document.createElement('div');
   card.className = 'cards';
-  if (project.no === '2' || project.no === '4') card.classList.add('reverse');  
-  card.id = 'card' + project.no;
-  card.innerHTML=`<div class="snapshoot-placeholders">
-  <img class="snapshoot" src="images/SnapshootD` + project.no + `.jpg" alt="Snapshot of Project Uber Navigation">
+  if (project.no === '2' || project.no === '4') card.classList.add('reverse');
+  card.id = `card${project.no}`;
+  card.innerHTML = `<div class="snapshoot-placeholders">
+  <img class="snapshoot" src="images/SnapshootD${project.no}.jpg" alt="Snapshot of Project Uber Navigation">
 </div>
 <div class="projects">
-  <h2 class="project-titles">` + project.name + `</h2>
+  <h2 class="project-titles">${project.name}</h2>
   <ul class="inline-li project-summary">
-    <li class="client">` + project.summary[0] + `</li>
-    <li class="type">` + project.summary[1] + `</li>
-    <li class="year">` + project.summary[2] + `</li>
+    <li class="client">${project.summary[0]}</li>
+    <li class="type">${project.summary[1]}</li>
+    <li class="year">${project.summary[2]}</li>
   </ul>
   <p class="project-descriptions">
-  ` + project.details + `</p>
+  ${project.details}</p>
   <ul class="inline-li">
     <li class="tags">html</li>
     <li class="tags">Ruby on rails</li>
     <li class="tags">css</li>
     <li class="tags">javascripts</li>
   </ul>
-  <button class="btn btn-projects" type="button" id="` + project.no + `">See Project</button>
+  <button class="btn btn-projects" type="button" id="${project.no}">See Project</button>
 </div>`;
-return card;
+  return card;
 }
 
 const works = document.createElement('section');
 works.className = 'works';
 works.id = 'works';
 
-for ( var i = 0; i < arrProjects.length; i += 1) {
+for (let i = 0; i < arrProjects.length; i += 1) {
   works.appendChild(compileCards(arrProjects[i]));
 }
 
 const about = document.getElementById('about');
-about.parentNode.insertBefore(works,about);
+about.parentNode.insertBefore(works, about);
 
 function compileModalCards(project) {
   const modalCard = document.createElement('div');
   modalCard.className = 'modal-card';
   modalCard.id = 'modal-card';
-  modalCard.innerHTML=`<div class="mc-titlebar id="mc-titlebar">
+  modalCard.innerHTML = `<div class="mc-titlebar id="mc-titlebar">
   <h2 class="mc-title" id="mc-title">${project.name}</h2>
   <button type="button" class="mc-btn" id="mc-close"> &times;</button>
   </div>
@@ -137,10 +145,10 @@ function hideModal() {
 
 function showProjectDetails(proID) {
   // showing  Project Info
-  const modalPopUp = document.createElement('div');//   
+  const modalPopUp = document.createElement('div');//
   modalPopUp.className = 'modal-ui';
   modalPopUp.id = 'modal-ui-wrapper';
-  modalPopUp.appendChild(compileModalCards(arrProjects[proID-1]));
+  modalPopUp.appendChild(compileModalCards(arrProjects[proID - 1]));
   document.body.appendChild(modalPopUp);
   document.getElementById('mc-close').addEventListener('click', hideModal);
   document.body.classList.toggle('no-scroll');
