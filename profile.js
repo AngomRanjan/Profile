@@ -20,7 +20,7 @@ function addItem(item, itemId, iTarget, iText) {
 
 function hideMobMenu() {
   mobMenu.innerHTML = '';
-  main.removeChild(mobMenu);
+  document.body.removeChild(mobMenu);
   document.body.classList.toggle('no-scroll');
 }
 
@@ -31,10 +31,10 @@ document.getElementById('menu').addEventListener('click', () => {
   mobMenu.appendChild(addItem('a', 'link3', '#contacts', 'Contact'));
   main.appendChild(mobMenu);
   document.body.classList.toggle('no-scroll');
-  document.getElementById('close').addEventListener('click', hideMobMenu);
-  document.getElementById('link1').addEventListener('click', hideMobMenu);
-  document.getElementById('link2').addEventListener('click', hideMobMenu);
-  document.getElementById('link3').addEventListener('click', hideMobMenu);
+  document.getElementById('close').addEventListener('click', hideMobMenu());
+  document.getElementById('link1').addEventListener('click', hideMobMenu());
+  document.getElementById('link2').addEventListener('click', hideMobMenu());
+  document.getElementById('link3').addEventListener('click', hideMobMenu());
 });
 
 // || ================ Email Validation ============= ||
