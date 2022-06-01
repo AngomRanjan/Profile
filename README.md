@@ -37,8 +37,7 @@ Give a [⭐️](../../stargazers) if you like this project!
 
 ## Acknowledgments
 
-- Jemutai Kiplagat (@Jemutai) for sparing her time to collabrate and helping in giving
-  UI an interacting looks by adding simple yet effective animation.
+- Jemutai Kiplagat (@Jemutai), Sajid Munawar for sparing thier time to collabrate and help me in my work.
 - Microverse Team
 - My Family
 
