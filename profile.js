@@ -78,15 +78,43 @@ const arrProjects = [
   },
 ];
 
+const arrSocialMedia = [
+  {
+    media: 'twitter',
+    link: 'https://twitter.com/RanjanAngom',
+    icon: 'images/twitter.png',
+  },
+  {
+    media: 'linkedin',
+    link: 'https://linkedin.com/in/angom-chittaranjan',
+    icon: 'images/linkedin.png',
+  },
+  {
+    media: 'medium',
+    link: 'https://medium.com/',
+    icon: 'images/medium.png',
+  },
+  {
+    media: 'github',
+    link: 'https://github.com/AngomRanjan',
+    icon: 'images/github.png',
+  },
+  {
+    media: 'angellist',
+    link: 'https://angel.co/',
+    icon: 'images/angellist.png',
+  },
+];
+
 function compileCards(project) {
-  const card = document.createElement('div');
+  const card = document.createElement('section');
   card.className = 'cards';
   if (project.no === '2' || project.no === '4') card.classList.add('reverse');
   card.id = `card${project.no}`;
   card.innerHTML = `<div class="snapshoot-placeholders">
   <img class="snapshoot" src="images/SnapshootD${project.no}.jpg" alt="Snapshot of Project Uber Navigation">
 </div>
-<div class="projects">
+<article class="projects">
   <h2 class="project-titles">${project.name}</h2>
   <ul class="inline-li project-summary">
     <li class="client">${project.summary[0]}</li>
@@ -96,10 +124,10 @@ function compileCards(project) {
   <p class="project-descriptions">
   ${project.details}</p>
   <ul class="inline-li">
-  ${(project.skills.map((skill) => ("<li class='tags'>" + skill + "</li>"))).join(" ")}
+  ${(project.skills.map((skill) => (`<li class='tags'>${skill}</li>`))).join(' ')}
   </ul>
   <button class="btn btn-projects" type="button" id="${project.no}">See Project</button>
-</div>`;
+</article>`;
   return card;
 }
 
@@ -138,7 +166,7 @@ function compileModalCards(project) {
   </div>
   <div class="mc-l-block-r">
   <ul class="inline-li">
-  ${(project.skills.map((skill) => ("<li class='tags  mc-tags'>" + skill + "</li>"))).join(" ")}
+  ${(project.skills.map((skill) => (`<li class='tags  mc-tags'>${skill}</li>`))).join(' ')}
   </ul>
   <div class="modal-btn-area">
     <button class="btn btn-modal" type="button" id="mc-btn1" onclick="location.href='${project.links[0]}'">See Live <img src="icons/Icon.png" alt="" class="btn-icn"></button>
@@ -166,6 +194,16 @@ function showProjectDetails(proID) {
   document.getElementById('mc-close').addEventListener('click', hideModal);
   document.body.classList.toggle('no-scroll');
 }
+
+function compileSocial(social, index) {
+  social.innerHTML = `<h3 class="head3" id="social-${index}">LET’S CONNECT</h3>
+  <ul class='inline-li'>
+  ${(arrSocialMedia.map((soc) => `<li class='social-items'><a href='${soc.link}'><img src='${soc.icon}' alt='${soc.media}'></a></li>`)).join('')}
+  </ul>`;
+}
+
+const socialMedia = Array.from(document.getElementsByClassName('social-media'));
+socialMedia.forEach((social, i) => compileSocial(social, i + 1));
 
 // | Add Click Event Listners to Project Buttons
 const btns = Array.from(document.getElementsByClassName('btn-projects'));
