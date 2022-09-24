@@ -41,16 +41,40 @@ document.getElementById('menu').addEventListener('click', () => {
 
 const arrProjects = [
   {
-    no: '1', name: 'Tonic', summary: ['Canopy', 'Back End', '2015'], details: 'A daily selection of privately personalized reads; no accounts or sign-ups required.',
+    no: '1',
+    name: 'FB-Clone',
+    summary: ['Self-Employed', 'Solo', '2022'],
+    details: `A Simple Clone of Facebook with google signin facility. User can post message and image
+    . This app was built with React and Redux with backend support from firebase v9.`,
+    skills: ['javascripts', 'react-redux', 'firebase'],
+    links: ['https://fb-clone-angom.netlify.app/', 'https://github.com/AngomRanjan/fb-clone'],
   },
   {
-    no: '2', name: 'Multi-Post Stories', summary: ['Facebook', 'Full Stack', '2016'], details: 'Experimental content creation feature that allows users to add to an existing story over the course of a day without spamming their friends.',
+    no: '2',
+    name: 'FB-Clone',
+    summary: ['Self', 'Sole Developer', '2022'],
+    details: `A Simple Clone of Facebook with google signin facility. User can post message and image
+    . This app was built with React and Redux with backend support from firebase v9.`,
+    skills: ['javascripts', 'react', 'redux', 'firebase'],
+    links: ['https://fb-clone-angom.netlify.app/', 'https://github.com/AngomRanjan/fb-clone'],
   },
   {
-    no: '3', name: 'Facebook 360', summary: ['Canopy', 'Full Stack', '2017'], details: "Exploring the future of media in Facebook's first Virtual Reality app; a place to discover and enjoy 360 photos and videos on Gear VR.",
+    no: '3',
+    name: 'FB-Clone',
+    summary: ['Self', 'Sole Developer', '2022'],
+    details: `A Simple Clone of Facebook with google signin facility. User can post message and image
+    . This app was built with React and Redux with backend support from firebase v9.`,
+    skills: ['javascripts', 'react', 'redux', 'firebase'],
+    links: ['https://fb-clone-angom.netlify.app/', 'https://github.com/AngomRanjan/fb-clone'],
   },
   {
-    no: '4', name: 'Uber Navigation', summary: ['Canopy', 'Lead Role', '2018'], details: 'A smart assistant to make driving more safe, efficient, and fun by unlocking your most expensive computer: your car.',
+    no: '4',
+    name: 'FB-Clone',
+    summary: ['Self-Employed', 'Solo', '2022'],
+    details: `A Simple Clone of Facebook with google signin facility. User can post message and image
+    . This app was built with React and Redux with backend support from firebase v9.`,
+    skills: ['javascripts', 'react', 'redux', 'firebase'],
+    links: ['https://fb-clone-angom.netlify.app/', 'https://github.com/AngomRanjan/fb-clone'],
   },
 ];
 
@@ -72,10 +96,7 @@ function compileCards(project) {
   <p class="project-descriptions">
   ${project.details}</p>
   <ul class="inline-li">
-    <li class="tags">html</li>
-    <li class="tags">Ruby on rails</li>
-    <li class="tags">css</li>
-    <li class="tags">javascripts</li>
+  ${(project.skills.map((skill) => ("<li class='tags'>" + skill + "</li>"))).join(" ")}
   </ul>
   <button class="btn btn-projects" type="button" id="${project.no}">See Project</button>
 </div>`;
@@ -107,29 +128,21 @@ function compileModalCards(project) {
   <li class="year" id="mc-year">${project.summary[2]}</li>
   </ul>
   <div class="mc-snap-place">
-  <img class="mc-snapshoot" src="images/mcSnapshot.png" alt="Snapshot of Project" id="mc-img">
+  <img class="mc-snapshoot" src="images/SnapshootD${project.no}.jpg" alt="Snapshot of Project" id="mc-img">
   </div>
   <div class="mc-l-block">
   <div class="detail mc-l-block-l" id='mc-details'>
   <p class="project-descriptions" id="mc-desc">
-    Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
-    when an unknown printer took a galley of type and scrambled it to make a 
-    type specimen book. It has survived not only five centuries, but also the leap 
-    into electronic typesetting, remaining essent
+    ${project.details}
   </p>
   </div>
   <div class="mc-l-block-r">
   <ul class="inline-li">
-    <li class="tags mc-tags">html</li>
-    <li class="tags mc-tags">css</li>
-    <li class="tags mc-tags">javascripts</li>
-    <li class="tags mc-tags">github</li>
-    <li class="tags mc-tags">ruby</li>
+  ${(project.skills.map((skill) => ("<li class='tags  mc-tags'>" + skill + "</li>"))).join(" ")}
   </ul>
   <div class="modal-btn-area">
-    <button class="btn btn-modal" type="button" id="mc-btn1" onclick="location.href='https://angomranjan.github.io/Profile/'">See Live <img src="icons/Icon.png" alt="" class="btn-icn"></button>
-    <button class="btn btn-modal" type="button" id="mc-btn2" onclick="location.href='https://github.com/AngomRanjan/Profile'">See Source <img src="icons/Vector.png" alt="" class="btn-icn"></button>
+    <button class="btn btn-modal" type="button" id="mc-btn1" onclick="location.href='${project.links[0]}'">See Live <img src="icons/Icon.png" alt="" class="btn-icn"></button>
+    <button class="btn btn-modal" type="button" id="mc-btn2" onclick="location.href='${project.links[1]}'">See Source <img src="icons/Vector.png" alt="" class="btn-icn"></button>
   </div>
   </div>
   </div>`;

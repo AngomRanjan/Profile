@@ -75,7 +75,7 @@ h2 {
 
 .wrapper {
   display: grid;
-  grid-template-rows: minmax(calc(100vh - 48px), auto) repeat(3, auto);
+  grid-template-rows: minmax(calc(100vh - 28px), auto) repeat(3, auto);
   background-color: #e5e5e5;
   margin-top: 48px;
 }
@@ -101,11 +101,11 @@ h2 {
   display: flex;
   width: 85%;
   min-width: 325px;
-  height: auto;
+  min-height: calc(90vh);
   flex-direction: row;
   justify-content: center;
-  align-items: flex-start;
-  gap: 1%;
+  align-items: center;
+  gap: 3%;
   flex-wrap: wrap;
   background: #fff;
   border-radius: 8px;
@@ -118,11 +118,23 @@ h2 {
   width: 45%;
 }
 
+.snapshoot-placeholders {
+  background-color: #d4d4d4;
+  display: flex;
+  justify-content: center;
+  padding: 5px;
+  border-radius: 8px;
+}
+
+.about {
+  flex-direction: column;
+  background-color: transparent;
+}
+
 .snapshoot {
-  width: 98%;
+  width: 100%;
   height: auto;
   animation: all 2s;
-  margin: 4% 0;
 }
 
 .snapshoot:hover {
@@ -174,7 +186,7 @@ li.client::before {
 .tags {
   height: 25px;
   border: 1px solid #ebebff;
-  padding: 4px 12px;
+  padding: 4px 6px;
   border-radius: 8px;
   background-color: #ebebff;
   font-size: 12px;
