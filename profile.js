@@ -43,7 +43,7 @@ const arrProjects = [
   {
     no: '1',
     name: 'FB-Clone',
-    summary: ['Self-Employed', 'Solo', '2022'],
+    summaries: { client: 'Self-Employed', role: 'Solo', year: '2022' },
     details: `A Simple Clone of Facebook with google signin facility. User can post message and image
     . This app was built with React and Redux with backend support from firebase v9.`,
     skills: ['javascripts', 'react-redux', 'firebase'],
@@ -52,7 +52,7 @@ const arrProjects = [
   {
     no: '2',
     name: 'FB-Clone',
-    summary: ['Self', 'Sole Developer', '2022'],
+    summaries: { client: 'Self-Employed', role: 'Solo', year: '2022' },
     details: `A Simple Clone of Facebook with google signin facility. User can post message and image
     . This app was built with React and Redux with backend support from firebase v9.`,
     skills: ['javascripts', 'react', 'redux', 'firebase'],
@@ -61,7 +61,7 @@ const arrProjects = [
   {
     no: '3',
     name: 'FB-Clone',
-    summary: ['Self', 'Sole Developer', '2022'],
+    summaries: { client: 'Self-Employed', role: 'Solo', year: '2022' },
     details: `A Simple Clone of Facebook with google signin facility. User can post message and image
     . This app was built with React and Redux with backend support from firebase v9.`,
     skills: ['javascripts', 'react', 'redux', 'firebase'],
@@ -70,7 +70,7 @@ const arrProjects = [
   {
     no: '4',
     name: 'FB-Clone',
-    summary: ['Self-Employed', 'Solo', '2022'],
+    summaries: { client: 'Self-Employed', role: 'Solo', year: '2022' },
     details: `A Simple Clone of Facebook with google signin facility. User can post message and image
     . This app was built with React and Redux with backend support from firebase v9.`,
     skills: ['javascripts', 'react', 'redux', 'firebase'],
@@ -107,6 +107,7 @@ const arrSocialMedia = [
 ];
 
 function compileCards(project) {
+  console.log(Object.entries(project.summaries));
   const card = document.createElement('section');
   card.className = 'cards';
   if (project.no === '2' || project.no === '4') card.classList.add('reverse');
@@ -115,13 +116,11 @@ function compileCards(project) {
   <img class="snapshoot" src="images/SnapshootD${project.no}.jpg" alt="Snapshot of Project Uber Navigation">
 </div>
 <article class="projects">
-  <h2 class="project-titles">${project.name}</h2>
+  <h2 class="project-titles my-15">${project.name}</h2>
   <ul class="inline-li project-summary">
-    <li class="client">${project.summary[0]}</li>
-    <li class="type">${project.summary[1]}</li>
-    <li class="year">${project.summary[2]}</li>
+    ${(Object.entries(project.summaries).map((summary) => (`<li class='${summary[0]}'>${summary[1]}</li>`))).join(' ')}    
   </ul>
-  <p class="project-descriptions">
+  <p class="project-descriptions my-15">
   ${project.details}</p>
   <ul class="inline-li">
   ${(project.skills.map((skill) => (`<li class='tags'>${skill}</li>`))).join(' ')}
@@ -147,20 +146,18 @@ function compileModalCards(project) {
   modalCard.className = 'modal-card';
   modalCard.id = 'modal-card';
   modalCard.innerHTML = `<div class="mc-titlebar id="mc-titlebar">
-  <h2 class="mc-title" id="mc-title">${project.name}</h2>
+  <h2 class="mc-title my-15" id="mc-title">${project.name}</h2>
   <button type="button" class="mc-btn" id="mc-close"> &times;</button>
   </div>
   <ul class="inline-li project-summary">
-  <li class="client" id="mc-client">${project.summary[0]}</li>
-  <li class="type" id="mc-type">${project.summary[1]}</li>
-  <li class="year" id="mc-year">${project.summary[2]}</li>
+  ${(Object.entries(project.summaries).map((summary) => (`<li class='${summary[0]} id='mc-${summary[0]}'>${summary[1]}</li>`))).join(' ')}
   </ul>
   <div class="mc-snap-place">
   <img class="mc-snapshoot" src="images/SnapshootD${project.no}.jpg" alt="Snapshot of Project" id="mc-img">
   </div>
   <div class="mc-l-block">
   <div class="detail mc-l-block-l" id='mc-details'>
-  <p class="project-descriptions" id="mc-desc">
+  <p class="project-descriptions my-15" id="mc-desc">
     ${project.details}
   </p>
   </div>
@@ -196,9 +193,9 @@ function showProjectDetails(proID) {
 }
 
 function compileSocial(social, index) {
-  social.innerHTML = `<h3 class="head3" id="social-${index}">LET’S CONNECT</h3>
+  social.innerHTML = `<h3 class="head3 my-15" id="social-${index}">LET’S CONNECT</h3>
   <ul class='inline-li'>
-  ${(arrSocialMedia.map((soc) => `<li class='social-items'><a href='${soc.link}'><img src='${soc.icon}' alt='${soc.media}'></a></li>`)).join('')}
+  ${(arrSocialMedia.map((soc) => `<li class='social-items'><a href='${soc.link}'><img class='icons' src='${soc.icon}' alt='${soc.media}'></a></li>`)).join('')}
   </ul>`;
 }
 
