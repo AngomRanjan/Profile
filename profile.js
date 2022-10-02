@@ -1,6 +1,6 @@
 const main = document.getElementById('body');
 const mobMenu = document.createElement('div');
-mobMenu.className = 'overlay-container';
+mobMenu.classList.add('overlay-container', 'grid');
 mobMenu.id = 'mobMenu';
 
 function addItem(item, itemId, iTarget, iText) {
@@ -22,7 +22,7 @@ function hideMobMenu() {
   mobMenu.innerHTML = '';
   main.removeChild(mobMenu);
   document.body.classList.toggle('no-scroll');
-}
+};
 
 document.getElementById('menu').addEventListener('click', () => {
   mobMenu.appendChild(addItem('div'));
@@ -35,6 +35,7 @@ document.getElementById('menu').addEventListener('click', () => {
   document.getElementById('link1').addEventListener('click', hideMobMenu);
   document.getElementById('link2').addEventListener('click', hideMobMenu);
   document.getElementById('link3').addEventListener('click', hideMobMenu);
+  console.log('hi');
 });
 
 // || =========== Pop-Up Modal ============ ||*/
@@ -107,18 +108,18 @@ const arrSocialMedia = [
 ];
 
 function compileCards(project) {
-  console.log(Object.entries(project.summaries));
-  const card = document.createElement('section');
-  card.className = 'cards';
+  const card = document.createElement('article');
+  card.classList.add('cards', 'grid-responsive');
   if (project.no === '2' || project.no === '4') card.classList.add('reverse');
   card.id = `card${project.no}`;
   card.innerHTML = `<div class="snapshoot-placeholders">
   <img class="snapshoot" src="images/SnapshootD${project.no}.jpg" alt="Snapshot of Project Uber Navigation">
 </div>
-<article class="projects">
+<div class="projects">
   <h2 class="project-titles my-15">${project.name}</h2>
   <ul class="inline-li project-summary">
-    ${(Object.entries(project.summaries).map((summary) => (`<li class='${summary[0]}'>${summary[1]}</li>`))).join(' ')}    
+    ${(Object.entries(project.summaries).map((summary) => (
+      `<li class='${summary[0]}'>${summary[1]}</li>`))).join(' ')}    
   </ul>
   <p class="project-descriptions my-15">
   ${project.details}</p>
@@ -126,12 +127,12 @@ function compileCards(project) {
   ${(project.skills.map((skill) => (`<li class='tags'>${skill}</li>`))).join(' ')}
   </ul>
   <button class="btn btn-projects" type="button" id="${project.no}">See Project</button>
-</article>`;
+</div>`;
   return card;
 }
 
 const works = document.createElement('section');
-works.className = 'works';
+works.classList.add("works", "stack");
 works.id = 'works';
 
 for (let i = 0; i < arrProjects.length; i += 1) {
@@ -150,7 +151,8 @@ function compileModalCards(project) {
   <button type="button" class="mc-btn" id="mc-close"> &times;</button>
   </div>
   <ul class="inline-li project-summary">
-  ${(Object.entries(project.summaries).map((summary) => (`<li class='${summary[0]} id='mc-${summary[0]}'>${summary[1]}</li>`))).join(' ')}
+  ${(Object.entries(project.summaries).map((summary) => (
+    `<li class='${summary[0]} id='mc-${summary[0]}'>${summary[1]}</li>`))).join(' ')}
   </ul>
   <div class="mc-snap-place">
   <img class="mc-snapshoot" src="images/SnapshootD${project.no}.jpg" alt="Snapshot of Project" id="mc-img">
@@ -210,4 +212,5 @@ btns.forEach((btn) => {
     event.stopPropagation();
   });
 });
+
 // || =========== Pop-UP Ends ==============|| */
