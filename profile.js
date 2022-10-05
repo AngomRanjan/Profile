@@ -22,7 +22,7 @@ function hideMobMenu() {
   mobMenu.innerHTML = '';
   main.removeChild(mobMenu);
   document.body.classList.toggle('no-scroll');
-};
+}
 
 document.getElementById('menu').addEventListener('click', () => {
   mobMenu.appendChild(addItem('div'));
@@ -35,7 +35,6 @@ document.getElementById('menu').addEventListener('click', () => {
   document.getElementById('link1').addEventListener('click', hideMobMenu);
   document.getElementById('link2').addEventListener('click', hideMobMenu);
   document.getElementById('link3').addEventListener('click', hideMobMenu);
-  console.log('hi');
 });
 
 // || =========== Pop-Up Modal ============ ||*/
@@ -47,7 +46,7 @@ const arrProjects = [
     summaries: { client: 'Self-Employed', role: 'Solo', year: '2022' },
     details: `A Simple Clone of Facebook with google signin facility. User can post message and image
     . This app was built with React and Redux with backend support from firebase v9.`,
-    skills: ['javascripts', 'react-redux', 'firebase'],
+    skills: ['html', 'css', 'javascripts', 'react', 'redux', 'firebase'],
     links: ['https://fb-clone-angom.netlify.app/', 'https://github.com/AngomRanjan/fb-clone'],
   },
   {
@@ -109,22 +108,22 @@ const arrSocialMedia = [
 
 function compileCards(project) {
   const card = document.createElement('article');
-  card.classList.add('cards', 'grid-responsive');
+  card.classList.add('cards', 'grid', 'grid-responsive');
   if (project.no === '2' || project.no === '4') card.classList.add('reverse');
   card.id = `card${project.no}`;
   card.innerHTML = `<div class="snapshoot-placeholders">
-  <img class="snapshoot" src="images/SnapshootD${project.no}.jpg" alt="Snapshot of Project Uber Navigation">
+  <img class="snapshoot" src="images/SnapshootD${project.no}.jpg" alt="">
 </div>
 <div class="projects">
   <h2 class="project-titles my-15">${project.name}</h2>
   <ul class="inline-li project-summary">
     ${(Object.entries(project.summaries).map((summary) => (
-      `<li class='${summary[0]}'>${summary[1]}</li>`))).join(' ')}    
+    `<li class='${summary[0]}'>${summary[1]}</li>`))).join(' ')}    
   </ul>
   <p class="project-descriptions my-15">
   ${project.details}</p>
-  <ul class="inline-li">
-  ${(project.skills.map((skill) => (`<li class='tags'>${skill}</li>`))).join(' ')}
+  <ul class="tags">
+  ${(project.skills.map((skill) => (`<li class='tag'>${skill}</li>`))).join(' ')}
   </ul>
   <button class="btn btn-projects" type="button" id="${project.no}">See Project</button>
 </div>`;
@@ -132,7 +131,7 @@ function compileCards(project) {
 }
 
 const works = document.createElement('section');
-works.classList.add("works", "stack");
+works.classList.add('works', 'grid');
 works.id = 'works';
 
 for (let i = 0; i < arrProjects.length; i += 1) {
@@ -144,10 +143,10 @@ about.parentNode.insertBefore(works, about);
 
 function compileModalCards(project) {
   const modalCard = document.createElement('div');
-  modalCard.className = 'modal-card';
+  modalCard.className = 'modal-card grid';
   modalCard.id = 'modal-card';
   modalCard.innerHTML = `<div class="mc-titlebar id="mc-titlebar">
-  <h2 class="mc-title my-15" id="mc-title">${project.name}</h2>
+  <h2 class="mc-title" id="mc-title">${project.name}</h2>
   <button type="button" class="mc-btn" id="mc-close"> &times;</button>
   </div>
   <ul class="inline-li project-summary">
@@ -157,21 +156,15 @@ function compileModalCards(project) {
   <div class="mc-snap-place">
   <img class="mc-snapshoot" src="images/SnapshootD${project.no}.jpg" alt="Snapshot of Project" id="mc-img">
   </div>
-  <div class="mc-l-block">
-  <div class="detail mc-l-block-l" id='mc-details'>
-  <p class="project-descriptions my-15" id="mc-desc">
+  <p class="project-descriptions" id="mc-desc">
     ${project.details}
   </p>
-  </div>
-  <div class="mc-l-block-r">
-  <ul class="inline-li">
-  ${(project.skills.map((skill) => (`<li class='tags  mc-tags'>${skill}</li>`))).join(' ')}
+  <ul class="tags">
+  ${(project.skills.map((skill) => (`<li class='tag  mc-tags'>${skill}</li>`))).join(' ')}
   </ul>
   <div class="modal-btn-area">
     <button class="btn btn-modal" type="button" id="mc-btn1" onclick="location.href='${project.links[0]}'">See Live <img src="icons/Icon.png" alt="" class="btn-icn"></button>
     <button class="btn btn-modal" type="button" id="mc-btn2" onclick="location.href='${project.links[1]}'">See Source <img src="icons/Vector.png" alt="" class="btn-icn"></button>
-  </div>
-  </div>
   </div>`;
   return modalCard;
 }
