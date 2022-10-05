@@ -31,8 +31,10 @@
 
 body {
   font: var(--ff-primary);
-  background-color: var(--bg-main);
+  background-color: var(--bg-prime);
 }
+
+main { background-color: var(--bg-main); }
 
 a { text-decoration: none; }
 
