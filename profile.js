@@ -1,6 +1,6 @@
 const main = document.getElementById('body');
 const mobMenu = document.createElement('div');
-mobMenu.className = 'overlay-container';
+mobMenu.classList.add('overlay-container', 'grid');
 mobMenu.id = 'mobMenu';
 
 function addItem(item, itemId, iTarget, iText) {
@@ -41,41 +41,89 @@ document.getElementById('menu').addEventListener('click', () => {
 
 const arrProjects = [
   {
-    no: '1', name: 'Tonic', summary: ['Canopy', 'Back End', '2015'], details: 'A daily selection of privately personalized reads; no accounts or sign-ups required.',
+    no: '1',
+    name: 'FB-Clone',
+    summaries: { client: 'Self-Employed', role: 'Solo', year: '2022' },
+    details: `A Simple Clone of Facebook with google signin facility. User can post message and image
+    . This app was built with React and Redux with backend support from firebase v9.`,
+    skills: ['html', 'css', 'javascripts', 'react', 'redux', 'firebase'],
+    links: ['https://fb-clone-angom.netlify.app/', 'https://github.com/AngomRanjan/fb-clone'],
   },
   {
-    no: '2', name: 'Multi-Post Stories', summary: ['Facebook', 'Full Stack', '2016'], details: 'Experimental content creation feature that allows users to add to an existing story over the course of a day without spamming their friends.',
+    no: '2',
+    name: 'FB-Clone',
+    summaries: { client: 'Self-Employed', role: 'Solo', year: '2022' },
+    details: `A Simple Clone of Facebook with google signin facility. User can post message and image
+    . This app was built with React and Redux with backend support from firebase v9.`,
+    skills: ['javascripts', 'react', 'redux', 'firebase'],
+    links: ['https://fb-clone-angom.netlify.app/', 'https://github.com/AngomRanjan/fb-clone'],
   },
   {
-    no: '3', name: 'Facebook 360', summary: ['Canopy', 'Full Stack', '2017'], details: "Exploring the future of media in Facebook's first Virtual Reality app; a place to discover and enjoy 360 photos and videos on Gear VR.",
+    no: '3',
+    name: 'FB-Clone',
+    summaries: { client: 'Self-Employed', role: 'Solo', year: '2022' },
+    details: `A Simple Clone of Facebook with google signin facility. User can post message and image
+    . This app was built with React and Redux with backend support from firebase v9.`,
+    skills: ['javascripts', 'react', 'redux', 'firebase'],
+    links: ['https://fb-clone-angom.netlify.app/', 'https://github.com/AngomRanjan/fb-clone'],
   },
   {
-    no: '4', name: 'Uber Navigation', summary: ['Canopy', 'Lead Role', '2018'], details: 'A smart assistant to make driving more safe, efficient, and fun by unlocking your most expensive computer: your car.',
+    no: '4',
+    name: 'FB-Clone',
+    summaries: { client: 'Self-Employed', role: 'Solo', year: '2022' },
+    details: `A Simple Clone of Facebook with google signin facility. User can post message and image
+    . This app was built with React and Redux with backend support from firebase v9.`,
+    skills: ['javascripts', 'react', 'redux', 'firebase'],
+    links: ['https://fb-clone-angom.netlify.app/', 'https://github.com/AngomRanjan/fb-clone'],
+  },
+];
+
+const arrSocialMedia = [
+  {
+    media: 'twitter',
+    link: 'https://twitter.com/RanjanAngom',
+    icon: 'images/twitter.png',
+  },
+  {
+    media: 'linkedin',
+    link: 'https://linkedin.com/in/angom-chittaranjan',
+    icon: 'images/linkedin.png',
+  },
+  {
+    media: 'medium',
+    link: 'https://medium.com/',
+    icon: 'images/medium.png',
+  },
+  {
+    media: 'github',
+    link: 'https://github.com/AngomRanjan',
+    icon: 'images/github.png',
+  },
+  {
+    media: 'angellist',
+    link: 'https://angel.co/',
+    icon: 'images/angellist.png',
   },
 ];
 
 function compileCards(project) {
-  const card = document.createElement('div');
-  card.className = 'cards';
+  const card = document.createElement('article');
+  card.classList.add('cards', 'grid', 'grid-responsive');
   if (project.no === '2' || project.no === '4') card.classList.add('reverse');
   card.id = `card${project.no}`;
   card.innerHTML = `<div class="snapshoot-placeholders">
-  <img class="snapshoot" src="images/SnapshootD${project.no}.jpg" alt="Snapshot of Project Uber Navigation">
+  <img class="snapshoot" src="images/SnapshootD${project.no}.jpg" alt="">
 </div>
 <div class="projects">
-  <h2 class="project-titles">${project.name}</h2>
+  <h2 class="project-titles my-15">${project.name}</h2>
   <ul class="inline-li project-summary">
-    <li class="client">${project.summary[0]}</li>
-    <li class="type">${project.summary[1]}</li>
-    <li class="year">${project.summary[2]}</li>
+    ${(Object.entries(project.summaries).map((summary) => (
+    `<li class='${summary[0]}'>${summary[1]}</li>`))).join(' ')}    
   </ul>
-  <p class="project-descriptions">
+  <p class="project-descriptions my-15">
   ${project.details}</p>
-  <ul class="inline-li">
-    <li class="tags">html</li>
-    <li class="tags">Ruby on rails</li>
-    <li class="tags">css</li>
-    <li class="tags">javascripts</li>
+  <ul class="tags">
+  ${(project.skills.map((skill) => (`<li class='tag'>${skill}</li>`))).join(' ')}
   </ul>
   <button class="btn btn-projects" type="button" id="${project.no}">See Project</button>
 </div>`;
@@ -83,7 +131,7 @@ function compileCards(project) {
 }
 
 const works = document.createElement('section');
-works.className = 'works';
+works.classList.add('works', 'grid');
 works.id = 'works';
 
 for (let i = 0; i < arrProjects.length; i += 1) {
@@ -95,43 +143,28 @@ about.parentNode.insertBefore(works, about);
 
 function compileModalCards(project) {
   const modalCard = document.createElement('div');
-  modalCard.className = 'modal-card';
+  modalCard.className = 'modal-card grid';
   modalCard.id = 'modal-card';
   modalCard.innerHTML = `<div class="mc-titlebar id="mc-titlebar">
   <h2 class="mc-title" id="mc-title">${project.name}</h2>
   <button type="button" class="mc-btn" id="mc-close"> &times;</button>
   </div>
   <ul class="inline-li project-summary">
-  <li class="client" id="mc-client">${project.summary[0]}</li>
-  <li class="type" id="mc-type">${project.summary[1]}</li>
-  <li class="year" id="mc-year">${project.summary[2]}</li>
+  ${(Object.entries(project.summaries).map((summary) => (
+    `<li class='${summary[0]} id='mc-${summary[0]}'>${summary[1]}</li>`))).join(' ')}
   </ul>
   <div class="mc-snap-place">
-  <img class="mc-snapshoot" src="images/mcSnapshot.png" alt="Snapshot of Project" id="mc-img">
+  <img class="mc-snapshoot" src="images/SnapshootD${project.no}.jpg" alt="Snapshot of Project" id="mc-img">
   </div>
-  <div class="mc-l-block">
-  <div class="detail mc-l-block-l" id='mc-details'>
   <p class="project-descriptions" id="mc-desc">
-    Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
-    when an unknown printer took a galley of type and scrambled it to make a 
-    type specimen book. It has survived not only five centuries, but also the leap 
-    into electronic typesetting, remaining essent
+    ${project.details}
   </p>
-  </div>
-  <div class="mc-l-block-r">
-  <ul class="inline-li">
-    <li class="tags mc-tags">html</li>
-    <li class="tags mc-tags">css</li>
-    <li class="tags mc-tags">javascripts</li>
-    <li class="tags mc-tags">github</li>
-    <li class="tags mc-tags">ruby</li>
+  <ul class="tags">
+  ${(project.skills.map((skill) => (`<li class='tag  mc-tags'>${skill}</li>`))).join(' ')}
   </ul>
   <div class="modal-btn-area">
-    <button class="btn btn-modal" type="button" id="mc-btn1" onclick="location.href='https://angomranjan.github.io/Profile/'">See Live <img src="icons/Icon.png" alt="" class="btn-icn"></button>
-    <button class="btn btn-modal" type="button" id="mc-btn2" onclick="location.href='https://github.com/AngomRanjan/Profile'">See Source <img src="icons/Vector.png" alt="" class="btn-icn"></button>
-  </div>
-  </div>
+    <button class="btn btn-modal" type="button" id="mc-btn1" onclick="location.href='${project.links[0]}'">See Live <img src="icons/Icon.png" alt="" class="btn-icn"></button>
+    <button class="btn btn-modal" type="button" id="mc-btn2" onclick="location.href='${project.links[1]}'">See Source <img src="icons/Vector.png" alt="" class="btn-icn"></button>
   </div>`;
   return modalCard;
 }
@@ -154,6 +187,16 @@ function showProjectDetails(proID) {
   document.body.classList.toggle('no-scroll');
 }
 
+function compileSocial(social, index) {
+  social.innerHTML = `<h3 class="head3 my-15" id="social-${index}">LET’S CONNECT</h3>
+  <ul class='inline-li'>
+  ${(arrSocialMedia.map((soc) => `<li class='social-items'><a href='${soc.link}'><img class='icons' src='${soc.icon}' alt='${soc.media}'></a></li>`)).join('')}
+  </ul>`;
+}
+
+const socialMedia = Array.from(document.getElementsByClassName('social-media'));
+socialMedia.forEach((social, i) => compileSocial(social, i + 1));
+
 // | Add Click Event Listners to Project Buttons
 const btns = Array.from(document.getElementsByClassName('btn-projects'));
 btns.forEach((btn) => {
@@ -162,4 +205,5 @@ btns.forEach((btn) => {
     event.stopPropagation();
   });
 });
+
 // || =========== Pop-UP Ends ==============|| */

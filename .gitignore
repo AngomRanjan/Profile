@@ -5,5 +5,9 @@ node_modules/
 *.json
 .hintrc
 .st*.json
-
+style copy.css
+style copy 2.css
+index copy.css
+highlightNav.txt
+temptest/
 
