@@ -47,7 +47,7 @@ const arrProjects = [
     details: `A Simple Clone of Facebook with google signin facility. User can post message and image
     . This app was built with React and Redux with backend support from firebase v9.`,
     skills: ['html', 'css', 'javascripts', 'react', 'redux', 'firebase'],
-    links: ['https://fb-clone-angom.netlify2.app/', 'https://github.com/AngomRanjan/fb-clone'],
+    links: ['https://fb-clone-angom.netlify.app/', 'https://github.com/AngomRanjan/fb-clone'],
   },
   {
     no: '2',
