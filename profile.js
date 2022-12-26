@@ -47,34 +47,39 @@ const arrProjects = [
     details: `A Simple Clone of Facebook with google signin facility. User can post message and image
     . This app was built with React and Redux with backend support from firebase v9.`,
     skills: ['html', 'css', 'javascripts', 'react', 'redux', 'firebase'],
-    links: ['https://fb-clone-angom.netlify.app/', 'https://github.com/AngomRanjan/fb-clone'],
+    links: ['https://facebook-clone-993ad.web.app/', 'https://github.com/AngomRanjan/fb-clone'],
   },
   {
     no: '2',
-    name: 'FB-Clone',
+    name: 'Virtual Defense',
     summaries: { client: 'Self-Employed', role: 'Solo', year: '2022' },
-    details: `A Simple Clone of Facebook with google signin facility. User can post message and image
-    . This app was built with React and Redux with backend support from firebase v9.`,
-    skills: ['javascripts', 'react', 'redux', 'firebase'],
-    links: ['https://fb-clone-angom.netlify.app/', 'https://github.com/AngomRanjan/fb-clone'],
+    details: `In this Project I have created a site for 
+    an Imaginary cyber security company, Virtual Defense based on the 
+    design of creative commons global summit 2015 designed by Cindy Shin in Behance. 
+    Here I created only two pages Home page and About Page using HTML, CSS and Javascript.`,
+    skills: ['html', 'css', 'JavaScripts'],
+    links: ['https://angomranjan.github.io/CapstoneCyberSecurity/', 'https://github.com/AngomRanjan/CapstoneCyberSecurity'],
   },
   {
     no: '3',
-    name: 'FB-Clone',
+    name: 'Bookstore',
     summaries: { client: 'Self-Employed', role: 'Solo', year: '2022' },
-    details: `A Simple Clone of Facebook with google signin facility. User can post message and image
-    . This app was built with React and Redux with backend support from firebase v9.`,
-    skills: ['javascripts', 'react', 'redux', 'firebase'],
-    links: ['https://fb-clone-angom.netlify.app/', 'https://github.com/AngomRanjan/fb-clone'],
+    details: `The Bookstore is a website similar to the "Awesome Books" website 
+    built in the previous module. You will create an MVP version of it that allows you to:
+    Display a list of books. Add a book. Remove a selected book.`,
+    skills: ['HTML', 'CSS', 'JavaScripts', 'React', 'React-Redux'],
+    links: ['https://bookstore-angom.netlify.app/', 'https://github.com/AngomRanjan/bookstore'],
   },
   {
     no: '4',
-    name: 'FB-Clone',
+    name: 'Stay Tune',
     summaries: { client: 'Self-Employed', role: 'Solo', year: '2022' },
-    details: `A Simple Clone of Facebook with google signin facility. User can post message and image
-    . This app was built with React and Redux with backend support from firebase v9.`,
-    skills: ['javascripts', 'react', 'redux', 'firebase'],
-    links: ['https://fb-clone-angom.netlify.app/', 'https://github.com/AngomRanjan/fb-clone'],
+    details: `A Simple tv show sites, which gives information about Shows telecast on TV Maze. 
+    I choose a dark color theme for this particular project. I have used a shade of black (#1b1b1b). 
+    I would like to thank Nelson Sakwa on Behance for the original design idea. 
+    This app was build using HTML, CSS, JavaScript, React and Redux.`,
+    skills: ['HTML', 'CSS', 'JavaScript', 'React', 'Redux'],
+    links: ['https://stay-tune-angom.netlify.app/', 'https://github.com/AngomRanjan/stay-tune'],
   },
 ];
 
