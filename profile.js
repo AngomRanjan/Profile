@@ -51,12 +51,14 @@ const arrProjects = [
   },
   {
     no: '2',
-    name: 'FB-Clone',
+    name: 'Virtual Defense',
     summaries: { client: 'Self-Employed', role: 'Solo', year: '2022' },
-    details: `A Simple Clone of Facebook with google signin facility. User can post message and image
-    . This app was built with React and Redux with backend support from firebase v9.`,
-    skills: ['javascripts', 'react', 'redux', 'firebase'],
-    links: ['https://fb-clone-angom.netlify.app/', 'https://github.com/AngomRanjan/fb-clone'],
+    details: `In this Project I have created a site for 
+    an Imaginary cyber security company, Virtual Defense based on the 
+    design of creative commons global summit 2015 designed by Cindy Shin in Behance. 
+    Here I created only two pages Home page and About Page using HTML, CSS and Javascript.`,
+    skills: ['html', 'css', 'JavaScripts'],
+    links: ['https://angomranjan.github.io/CapstoneCyberSecurity/', 'https://github.com/AngomRanjan/CapstoneCyberSecurity'],
   },
   {
     no: '3',
