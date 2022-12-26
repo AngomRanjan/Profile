@@ -60,12 +60,13 @@ const arrProjects = [
   },
   {
     no: '3',
-    name: 'FB-Clone',
+    name: 'Bookstore',
     summaries: { client: 'Self-Employed', role: 'Solo', year: '2022' },
-    details: `A Simple Clone of Facebook with google signin facility. User can post message and image
-    . This app was built with React and Redux with backend support from firebase v9.`,
-    skills: ['javascripts', 'react', 'redux', 'firebase'],
-    links: ['https://fb-clone-angom.netlify.app/', 'https://github.com/AngomRanjan/fb-clone'],
+    details: `The Bookstore is a website similar to the "Awesome Books" website 
+    built in the previous module. You will create an MVP version of it that allows you to:
+    Display a list of books. Add a book. Remove a selected book.`,
+    skills: ['HTML', 'CSS', 'JavaScripts', 'React', 'React-Redux'],
+    links: ['https://bookstore-angom.netlify.app/', 'https://github.com/AngomRanjan/bookstore'],
   },
   {
     no: '4',
