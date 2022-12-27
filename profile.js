@@ -168,8 +168,9 @@ function compileModalCards(project) {
   ${(project.skills.map((skill) => (`<li class='tag  mc-tags'>${skill}</li>`))).join(' ')}
   </ul>
   <div class="modal-btn-area">
-    <button class="btn btn-modal" type="button" id="mc-btn1" onclick="location.href='${project.links[0]}'">See Live <img src="icons/Icon.png" alt="" class="btn-icn"></button>
-    <button class="btn btn-modal" type="button" id="mc-btn2" onclick="location.href='${project.links[1]}'">See Source <img src="icons/Vector.png" alt="" class="btn-icn"></button>
+  ${(Object.entries(project.links).map((link, index) => (
+    `<button class="btn btn-modal" type="button" id="mc-btn${index + 1}" onclick="location.href='${link[1]}'">
+    ${(index === 0 ? 'See Live' : 'See Source')} <img src="icons/Icon.png" alt="" class="btn-icn"></button>`))).join(' ')}
   </div>`;
   return modalCard;
 }
