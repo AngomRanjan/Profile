@@ -349,7 +349,7 @@ form {
 
 .mc-title {
   text-align: left;
-  font-size: var(--fs-xl);
+  font-size: var(--fs-l);
 }
 
 .mc-btn {
@@ -382,6 +382,7 @@ form {
   display: flex;
   gap: 0.5em;
   align-items: center;
+  border: 1px solid #6070ff;
 }
 
 .md-show { display: flex; }
@@ -438,6 +439,10 @@ form {
   form {
     background-image: none;
     flex-direction: column;
+  }
+
+  .mc-title {
+    font-size: var(--fs-xl);
   }
 
   .modal-card {
