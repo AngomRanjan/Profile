@@ -110,7 +110,83 @@ const arrSocialMedia = [
     icon: 'images/angellist.png',
   },
 ];
+// ref
+const projSnapshoot = (pImage) => {
+  const snapshoot = document.createElement('div');
+  snapshoot.className = 'snapshoot-placeholders';
+  const image = document.createElement('img');
+  image.className = 'snapshoot';
+  image.src = pImage;
+  snapshoot.appendChild(image);
+  return snapshoot;
+};
 
+const projTitle = (pName, addClass = 'project-titles my-15') => {
+  const title = document.createElement('h2');
+  title.classList = addClass;
+  if (addClass === 'mc-title') title.id = 'mc-title';
+  title.textContent = pName;
+  return title;
+};
+
+const mcTbar = (pName) => {
+  const titleBar = document.createElement('div');
+  titleBar.classList.add('mc-titlebar');
+  titleBar.id = 'mc-titlebar';
+  titleBar.appendChild(projTitle(pName, 'mc-title'));
+  const mcBtn = document.createElement('button');
+  mcBtn.type = 'button';
+  mcBtn.className = 'mc-btn';
+  mcBtn.id = 'mc-close';
+  mcBtn.textContent = '&times;';
+  titleBar.appendChild(mcBtn);
+  return titleBar;
+};
+
+const projSummary = (summaries) => {
+  const ulSummaries = document.createElement('ul');
+  ulSummaries.classList.add('inline-li', 'project-summary');
+  console.log(summaries);
+  Object.entries(summaries).map((summary) => {
+    const liSum = document.createElement('li');
+    liSum.className = summary[0];
+    liSum.id = summary[1];
+    liSum.textContent = summary[1];
+    ulSummaries.appendChild(liSum);
+  });
+  return ulSummaries;
+};
+
+const pDetails = (details, pid = null) => {
+  const pDescription = document.createElement('p');
+  pDescription.className = 'project-descriptions';
+  if (pid !== null) pDescription.id = pid;
+  pDescription.textContent = details;
+  return pDescription;
+};
+
+const pSkills = (skills, adClass = 'tag') => {
+  const ulSkills = document.createElement('ul');
+  ulSkills.className = 'tags';
+  skills.map((skill) => {
+    const liSkill = document.createElement('li');
+    liSkill.classList = adClass;
+    liSkill.textContent = skill;
+    ulSkills.appendChild(liSkill);
+  });
+  return ulSkills;
+};
+
+const cardBtn = (cClass, cid, btnCap) => {
+  const btn = document.createElement('button');
+  btn.classList = `btn ${cClass}`;
+  btn.type = 'button';
+  btn.id = cid;
+  btn.textContent = btnCap;
+  return btn;
+};
+
+// ref end
 function compileCards(project) {
   const card = document.createElement('article');
   card.classList.add('cards', 'grid', 'grid-responsive');
@@ -147,6 +223,7 @@ const about = document.getElementById('about');
 about.parentNode.insertBefore(works, about);
 
 function compileModalCards(project) {
+  console.log(cardBtn('btn-projects', project.no, 'See Project'));
   const modalCard = document.createElement('div');
   modalCard.className = 'modal-card grid';
   modalCard.id = 'modal-card';
