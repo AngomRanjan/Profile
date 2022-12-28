@@ -215,11 +215,9 @@ function compileCards(project) {
   card.appendChild(projSnapshoot(`images/SnapshootD${project.no}.jpg`));
   const divPro = document.createElement('div');
   divPro.className = 'projects';
-  divPro.appendChild(projTitle(project.name));
-  divPro.appendChild(projSummary(project.summaries));
-  divPro.appendChild(pDetails(project.details));
-  divPro.appendChild(pSkills(project.skills));
-  divPro.appendChild(cardBtn(project.no));
+  const arrFunc = [projTitle, projSummary, pDetails, pSkills, cardBtn];
+  const arr = [project.name, project.summaries, project.details, project.skills, project.no];
+  arrFunc.forEach((func, index) => divPro.appendChild(func(arr[index])));
   card.appendChild(divPro);
   return card;
 }
@@ -239,12 +237,9 @@ function compileModalCards(project) {
   const modalCard = document.createElement('div');
   modalCard.className = 'modal-card grid';
   modalCard.id = 'modal-card';
-  modalCard.appendChild(mcTbar(project.name));
-  modalCard.appendChild(projSummary(project.summaries));
-  modalCard.appendChild(projSnapshoot(`images/SnapshootD${project.no}.jpg`, 'mc-snapshoot'));
-  modalCard.appendChild(pDetails(project.details, 'mc-desc'));
-  modalCard.appendChild(pSkills(project.skills, 'tag mc-tags'));
-  modalCard.appendChild(modalBtnArea(project.links));
+  const arrFunc = [mcTbar, projSummary, projSnapshoot, pDetails, pSkills, modalBtnArea];
+  const arr = [[project.name], [project.summaries], [`images/SnapshootD${project.no}.jpg`, 'mc-snapshoot'], [project.details, 'mc-desc'], [project.skills, 'tag mc-tags'], [project.links]];
+  arrFunc.forEach((func, index) => modalCard.appendChild(func(...arr[index])));
   return modalCard;
 }
 
