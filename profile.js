@@ -1,3 +1,4 @@
+// || =========== Pop-Up menu ============ ||*/
 const main = document.getElementById('body');
 const mobMenu = document.createElement('div');
 mobMenu.classList.add('overlay-container', 'grid');
@@ -28,7 +29,7 @@ document.getElementById('menu').addEventListener('click', () => {
   popChildren.forEach((child) => child.addEventListener('click', hideMobMenu));
 });
 
-// || =========== Pop-Up Modal ============ ||*/
+// || =========== Pop-Up Menu Ends============ ||*/
 
 const arrProjects = [
   {
@@ -122,14 +123,10 @@ const projTitle = (pName, addClass = 'project-titles my-15') => {
 
 const mcTbar = (pName) => {
   const titleBar = document.createElement('div');
-  titleBar.classList.add('mc-titlebar');
-  titleBar.id = 'mc-titlebar';
+  [titleBar.classList, titleBar.id] = ['mc-titlebar', 'mc-titlebar'];
   titleBar.appendChild(projTitle(pName, 'mc-title'));
   const mcBtn = document.createElement('button');
-  mcBtn.type = 'button';
-  mcBtn.className = 'mc-btn';
-  mcBtn.id = 'mc-close';
-  mcBtn.textContent = 'X';
+  [mcBtn.type, mcBtn.className, mcBtn.id, mcBtn.textContent] = ['button', 'mc-btn', 'mc-close', '\u2715'];
   titleBar.appendChild(mcBtn);
   return titleBar;
 };
@@ -160,8 +157,7 @@ const pSkills = (skills, adClass = 'tag') => {
   ulSkills.className = 'tags';
   const liSkills = skills.map((skill) => {
     const liSkill = document.createElement('li');
-    liSkill.classList = adClass;
-    liSkill.textContent = skill;
+    [liSkill.classList, liSkill.textContent] = [adClass, skill];
     return liSkill;
   });
   liSkills.forEach((skill) => ulSkills.appendChild(skill));
@@ -170,10 +166,7 @@ const pSkills = (skills, adClass = 'tag') => {
 
 const cardBtn = (cid) => {
   const btn = document.createElement('button');
-  btn.classList = 'btn btn-projects';
-  btn.type = 'button';
-  btn.id = cid;
-  btn.textContent = 'See Project';
+  [btn.classList, btn.type, btn.id, btn.textContent] = ['btn btn-projects', 'button', cid, 'See Project'];
   return btn;
 };
 
@@ -182,12 +175,9 @@ const modalBtnArea = (pLinks) => {
   divBtn.className = 'modal-btn-area';
   const mlink = pLinks.map((link, index) => {
     const imgIcon = document.createElement('img');
-    imgIcon.src = 'icons/Icon.png';
-    imgIcon.className = 'btn-icn';
+    [imgIcon.src, imgIcon.className] = ['icons/Icon.png', 'btn-icn'];
     const aLink = document.createElement('a');
-    aLink.classList = 'btn btn-modal';
-    aLink.href = link;
-    aLink.id = `mc-btn${index + 1}`;
+    [aLink.classList, aLink.href, aLink.id] = ['btn btn-modal', link, `mc-btn${index + 1}`];
     aLink.textContent = (index === 0 ? 'See Live' : 'See Source');
     aLink.appendChild(imgIcon);
     return aLink;
