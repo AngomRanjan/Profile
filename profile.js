@@ -3,19 +3,14 @@ const mobMenu = document.createElement('div');
 mobMenu.classList.add('overlay-container', 'grid');
 mobMenu.id = 'mobMenu';
 
-function addItem(item, itemId, iTarget, iText) {
+function addItem(item, ...arg) {
+  const pop = document.createElement(item);
   if (item === 'div') {
-    item = document.createElement('div');
-    item.textContent = '\u2715';
-    item.id = 'close';
+    [pop.textContent, pop.id] = ['\u2715', 'close'];
   } else {
-    item = document.createElement('a');
-    item.id = itemId;
-    item.href = iTarget;
-    item.textContent = iText;
-    item.className = 'overlay';
+    [pop.id, pop.href, pop.textContent, pop.className] = [...arg, 'overlay'];
   }
-  return item;
+  return pop;
 }
 
 function hideMobMenu() {
@@ -25,16 +20,12 @@ function hideMobMenu() {
 }
 
 document.getElementById('menu').addEventListener('click', () => {
-  mobMenu.appendChild(addItem('div'));
-  mobMenu.appendChild(addItem('a', 'link1', '#works', 'Portfolio'));
-  mobMenu.appendChild(addItem('a', 'link2', '#about', 'About'));
-  mobMenu.appendChild(addItem('a', 'link3', '#contacts', 'Contact'));
+  const arr = [['div'], ['a', 'link1', '#works', 'Portfolio'], ['a', 'link2', '#about', 'About'], ['a', 'link3', '#contacts', 'Contact']];
+  arr.forEach((item) => mobMenu.appendChild(addItem(...item)));
   main.appendChild(mobMenu);
   document.body.classList.toggle('no-scroll');
-  document.getElementById('close').addEventListener('click', hideMobMenu);
-  document.getElementById('link1').addEventListener('click', hideMobMenu);
-  document.getElementById('link2').addEventListener('click', hideMobMenu);
-  document.getElementById('link3').addEventListener('click', hideMobMenu);
+  const popChildren = Array.from(mobMenu.children);
+  popChildren.forEach((child) => child.addEventListener('click', hideMobMenu));
 });
 
 // || =========== Pop-Up Modal ============ ||*/
