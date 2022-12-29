@@ -1,21 +1,17 @@
+// || =========== Pop-Up menu ============ ||*/
 const main = document.getElementById('body');
 const mobMenu = document.createElement('div');
 mobMenu.classList.add('overlay-container', 'grid');
 mobMenu.id = 'mobMenu';
 
-function addItem(item, itemId, iTarget, iText) {
+function addItem(item, ...arg) {
+  const pop = document.createElement(item);
   if (item === 'div') {
-    item = document.createElement('div');
-    item.textContent = '\u2715';
-    item.id = 'close';
+    [pop.textContent, pop.id] = ['\u2715', 'close'];
   } else {
-    item = document.createElement('a');
-    item.id = itemId;
-    item.href = iTarget;
-    item.textContent = iText;
-    item.className = 'overlay';
+    [pop.id, pop.href, pop.textContent, pop.className] = [...arg, 'overlay'];
   }
-  return item;
+  return pop;
 }
 
 function hideMobMenu() {
@@ -25,19 +21,15 @@ function hideMobMenu() {
 }
 
 document.getElementById('menu').addEventListener('click', () => {
-  mobMenu.appendChild(addItem('div'));
-  mobMenu.appendChild(addItem('a', 'link1', '#works', 'Portfolio'));
-  mobMenu.appendChild(addItem('a', 'link2', '#about', 'About'));
-  mobMenu.appendChild(addItem('a', 'link3', '#contacts', 'Contact'));
+  const arr = [['div'], ['a', 'link1', '#works', 'Portfolio'], ['a', 'link2', '#about', 'About'], ['a', 'link3', '#contacts', 'Contact']];
+  arr.forEach((item) => mobMenu.appendChild(addItem(...item)));
   main.appendChild(mobMenu);
   document.body.classList.toggle('no-scroll');
-  document.getElementById('close').addEventListener('click', hideMobMenu);
-  document.getElementById('link1').addEventListener('click', hideMobMenu);
-  document.getElementById('link2').addEventListener('click', hideMobMenu);
-  document.getElementById('link3').addEventListener('click', hideMobMenu);
+  const popChildren = Array.from(mobMenu.children);
+  popChildren.forEach((child) => child.addEventListener('click', hideMobMenu));
 });
 
-// || =========== Pop-Up Modal ============ ||*/
+// || =========== Pop-Up Menu Ends============ ||*/
 
 const arrProjects = [
   {
@@ -110,28 +102,104 @@ const arrSocialMedia = [
     icon: 'images/angellist.png',
   },
 ];
+// ref
+const projSnapshoot = (pImage, addClass = '') => {
+  const snapshoot = document.createElement('div');
+  snapshoot.className = 'snapshoot-placeholders';
+  const image = document.createElement('img');
+  image.className = (addClass === '' ? 'snapshoot' : 'mc-snapshoot');
+  image.src = pImage;
+  snapshoot.appendChild(image);
+  return snapshoot;
+};
 
+const projTitle = (pName, addClass = 'project-titles my-15') => {
+  const title = document.createElement('h2');
+  title.classList = addClass;
+  if (addClass === 'mc-title') title.id = 'mc-title';
+  title.textContent = pName;
+  return title;
+};
+
+const mcTbar = (pName) => {
+  const titleBar = document.createElement('div');
+  [titleBar.classList, titleBar.id] = ['mc-titlebar', 'mc-titlebar'];
+  titleBar.appendChild(projTitle(pName, 'mc-title'));
+  const mcBtn = document.createElement('button');
+  [mcBtn.type, mcBtn.className, mcBtn.id, mcBtn.textContent] = ['button', 'mc-btn', 'mc-close', '\u2715'];
+  titleBar.appendChild(mcBtn);
+  return titleBar;
+};
+
+const projSummary = (summaries) => {
+  const ulSummaries = document.createElement('ul');
+  ulSummaries.classList.add('inline-li', 'project-summary');
+  const liSummaries = Object.entries(summaries).map((summary) => {
+    const liSum = document.createElement('li');
+    [liSum.className, liSum.id] = summary;
+    liSum.textContent = liSum.id;
+    return liSum;
+  });
+  liSummaries.forEach((summary) => ulSummaries.appendChild(summary));
+  return ulSummaries;
+};
+
+const pDetails = (details, pid = null) => {
+  const pDescription = document.createElement('p');
+  pDescription.className = 'project-descriptions';
+  if (pid !== null) pDescription.id = pid;
+  pDescription.textContent = details;
+  return pDescription;
+};
+
+const pSkills = (skills, adClass = 'tag') => {
+  const ulSkills = document.createElement('ul');
+  ulSkills.className = 'tags';
+  const liSkills = skills.map((skill) => {
+    const liSkill = document.createElement('li');
+    [liSkill.classList, liSkill.textContent] = [adClass, skill];
+    return liSkill;
+  });
+  liSkills.forEach((skill) => ulSkills.appendChild(skill));
+  return ulSkills;
+};
+
+const cardBtn = (cid) => {
+  const btn = document.createElement('button');
+  [btn.classList, btn.type, btn.id, btn.textContent] = ['btn btn-projects', 'button', cid, 'See Project'];
+  return btn;
+};
+
+const modalBtnArea = (pLinks) => {
+  const divBtn = document.createElement('div');
+  divBtn.className = 'modal-btn-area';
+  const mlink = pLinks.map((link, index) => {
+    const imgIcon = document.createElement('img');
+    [imgIcon.src, imgIcon.className] = ['icons/Icon.png', 'btn-icn'];
+    const aLink = document.createElement('a');
+    [aLink.classList, aLink.href, aLink.id] = ['btn btn-modal', link, `mc-btn${index + 1}`];
+    aLink.textContent = (index === 0 ? 'See Live' : 'See Source');
+    aLink.appendChild(imgIcon);
+    return aLink;
+  });
+
+  mlink.forEach((link) => divBtn.appendChild(link));
+  return divBtn;
+};
+
+// ref end
 function compileCards(project) {
   const card = document.createElement('article');
-  card.classList.add('cards', 'grid', 'grid-responsive');
-  if (project.no === '2' || project.no === '4') card.classList.add('reverse');
+  card.classList = 'cards grid grid-responsive';
+  if (project.no % 2 === 0) card.classList.add('reverse');
   card.id = `card${project.no}`;
-  card.innerHTML = `<div class="snapshoot-placeholders">
-  <img class="snapshoot" src="images/SnapshootD${project.no}.jpg" alt="">
-</div>
-<div class="projects">
-  <h2 class="project-titles my-15">${project.name}</h2>
-  <ul class="inline-li project-summary">
-    ${(Object.entries(project.summaries).map((summary) => (
-    `<li class='${summary[0]}'>${summary[1]}</li>`))).join(' ')}    
-  </ul>
-  <p class="project-descriptions my-15">
-  ${project.details}</p>
-  <ul class="tags">
-  ${(project.skills.map((skill) => (`<li class='tag'>${skill}</li>`))).join(' ')}
-  </ul>
-  <button class="btn btn-projects" type="button" id="${project.no}">See Project</button>
-</div>`;
+  card.appendChild(projSnapshoot(`images/SnapshootD${project.no}.jpg`));
+  const divPro = document.createElement('div');
+  divPro.className = 'projects';
+  const arrFunc = [projTitle, projSummary, pDetails, pSkills, cardBtn];
+  const arr = [project.name, project.summaries, project.details, project.skills, project.no];
+  arrFunc.forEach((func, index) => divPro.appendChild(func(arr[index])));
+  card.appendChild(divPro);
   return card;
 }
 
@@ -150,28 +218,9 @@ function compileModalCards(project) {
   const modalCard = document.createElement('div');
   modalCard.className = 'modal-card grid';
   modalCard.id = 'modal-card';
-  modalCard.innerHTML = `<div class="mc-titlebar id="mc-titlebar">
-  <h2 class="mc-title" id="mc-title">${project.name}</h2>
-  <button type="button" class="mc-btn" id="mc-close"> &times;</button>
-  </div>
-  <ul class="inline-li project-summary">
-  ${(Object.entries(project.summaries).map((summary) => (
-    `<li class='${summary[0]} id='mc-${summary[0]}'>${summary[1]}</li>`))).join(' ')}
-  </ul>
-  <div class="mc-snap-place">
-  <img class="mc-snapshoot" src="images/SnapshootD${project.no}.jpg" alt="Snapshot of Project" id="mc-img">
-  </div>
-  <p class="project-descriptions" id="mc-desc">
-    ${project.details}
-  </p>
-  <ul class="tags">
-  ${(project.skills.map((skill) => (`<li class='tag  mc-tags'>${skill}</li>`))).join(' ')}
-  </ul>
-  <div class="modal-btn-area">
-  ${(Object.entries(project.links).map((link, index) => (
-    `<button class="btn btn-modal" type="button" id="mc-btn${index + 1}" onclick="location.href='${link[1]}'">
-    ${(index === 0 ? 'See Live' : 'See Source')} <img src="icons/Icon.png" alt="" class="btn-icn"></button>`))).join(' ')}
-  </div>`;
+  const arrFunc = [mcTbar, projSummary, projSnapshoot, pDetails, pSkills, modalBtnArea];
+  const arr = [[project.name], [project.summaries], [`images/SnapshootD${project.no}.jpg`, 'mc-snapshoot'], [project.details, 'mc-desc'], [project.skills, 'tag mc-tags'], [project.links]];
+  arrFunc.forEach((func, index) => modalCard.appendChild(func(...arr[index])));
   return modalCard;
 }
 
