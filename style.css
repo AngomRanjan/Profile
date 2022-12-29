@@ -29,6 +29,10 @@
   color: var(--fg-prime);
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font: var(--ff-primary);
   background-color: var(--bg-prime);
