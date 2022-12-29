@@ -67,8 +67,6 @@ const arrProjects = [
     name: 'Stay Tune',
     summaries: { client: 'Self-Employed', role: 'Solo', year: '2022' },
     details: `A Simple tv show sites, which gives information about Shows telecast on TV Maze. 
-    I choose a dark color theme for this particular project. I have used a shade of black (#1b1b1b). 
-    I would like to thank Nelson Sakwa on Behance for the original design idea. 
     This app was build using HTML, CSS, JavaScript, React and Redux.`,
     skills: ['HTML', 'CSS', 'JavaScript', 'React', 'Redux'],
     links: ['https://stay-tune-angom.netlify.app/', 'https://github.com/AngomRanjan/stay-tune'],
