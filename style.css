@@ -110,8 +110,7 @@ nav > ul { display: none; }
   background-color: #fff;
 }
 
-.nav-links-desktop:hover,
-.btn:hover {
+:is(.nav-links-desktop, .btn):hover {
   background-color: var(--bg-sec);
   color: var(--bg-prime);
   box-shadow: var(--box-shadow);
