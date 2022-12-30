@@ -1,6 +1,6 @@
 const arrLang = [['images/js.png', 'JavaScripts'], ['images/html.png', 'HTML'], ['images/css.png', 'CSS'], ['images/css.png', 'Ruby']];
-const arrFw = [['images/js.png', 'React'], ['images/html.png', 'Rails'], ['images/html.png', 'Tailwindcss']];
-const arrSkl = [['images/js.png', 'name'], ['images/js.png', 'name2']];
+const arrFw = [['images/js.png', 'React'], ['images/html.png', 'Rails'], ['images/html.png', 'Bootstrap'], ['images/html.png', 'Tailwindcss']];
+const arrSkl = [['images/js.png', 'Mentoring'], ['images/js.png', 'Leadership'], ['images/js.png', 'Pair Programming'], ['images/js.png', 'Teamwork']];
 
 const toggleAcCtrl = (acCtrl) => {
   acCtrl.name = acCtrl.name === 'close' ? 'open' : 'close';
