@@ -45,9 +45,9 @@ const arrProjects = [
     no: '2',
     name: 'Virtual Defense',
     summaries: { client: 'Self-Employed', role: 'Solo', year: '2022' },
-    details: `In this Project I have created a site for 
-    an Imaginary cyber security company, Virtual Defense based on the 
-    design of creative commons global summit 2015 designed by Cindy Shin in Behance. 
+    details: `In this Project I have created a site for
+    an Imaginary cyber security company, Virtual Defense based on the
+    design of creative commons global summit 2015 designed by Cindy Shin in Behance.
     Here I created only two pages Home page and About Page using HTML, CSS and Javascript.`,
     skills: ['html', 'css', 'JavaScripts'],
     links: ['https://angomranjan.github.io/CapstoneCyberSecurity/', 'https://github.com/AngomRanjan/CapstoneCyberSecurity'],
@@ -56,7 +56,7 @@ const arrProjects = [
     no: '3',
     name: 'Bookstore',
     summaries: { client: 'Self-Employed', role: 'Solo', year: '2022' },
-    details: `The Bookstore is a website similar to the "Awesome Books" website 
+    details: `The Bookstore is a website similar to the "Awesome Books" website
     built in the previous module. You will create an MVP version of it that allows you to:
     Display a list of books. Add a book. Remove a selected book.`,
     skills: ['HTML', 'CSS', 'JavaScripts', 'React', 'React-Redux'],
@@ -66,7 +66,7 @@ const arrProjects = [
     no: '4',
     name: 'Stay Tune',
     summaries: { client: 'Self-Employed', role: 'Solo', year: '2022' },
-    details: `A Simple tv show sites, which gives information about Shows telecast on TV Maze. 
+    details: `A Simple tv show sites, which gives information about Shows telecast on TV Maze.
     This app was build using HTML, CSS, JavaScript, React and Redux.`,
     skills: ['HTML', 'CSS', 'JavaScript', 'React', 'Redux'],
     links: ['https://stay-tune-angom.netlify.app/', 'https://github.com/AngomRanjan/stay-tune'],
@@ -148,12 +148,6 @@ const pSkills = (skills) => {
   });
   liSkills.forEach((skill) => ulSkills.appendChild(skill));
   return ulSkills;
-};
-
-const cardBtn = (cid) => {
-  const btn = document.createElement('button');
-  [btn.classList, btn.type, btn.id, btn.textContent] = ['btn btn-projects', 'button', cid, 'See Project'];
-  return btn;
 };
 
 const cardBtnCtn = (pLinks) => {

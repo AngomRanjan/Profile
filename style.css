@@ -327,51 +327,6 @@ form {
 
 /* || Modal Cards  */
 
-.modal-ui {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  background-color: #c1c7d080;
-  padding: 1em;
-}
-
-.modal-card {
-  padding: 1em;
-  height: 100%;
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 48px 48px 0 #252f8914;
-}
-
-.mc-titlebar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.mc-title {
-  text-align: left;
-  font-size: var(--fs-l);
-}
-
-.mc-btn {
-  font-size: 30px;
-  border: none;
-  background-color: #fff;
-  align-self: flex-start;
-}
-
-.mc-snap-place { padding: 0.5em; }
-
-.modal-card > * { align-items: center; }
-
-.mc-snapshoot {
-  width: 100%;
-  height: 100%;
-  border-radius: 6px;
-}
-
 .modal-btn-area {
   display: flex;
   justify-content: center;
@@ -388,9 +343,7 @@ form {
   border: 1px solid #6070ff;
 }
 
-.md-show { display: flex; }
-
-/* || Modal Cards Ends */
+.skills-dropdown > .icons > img:hover { cursor: pointer; }
 
 @media only screen and (min-width: 769px) {
   /* || Deskstop Responsive */
@@ -416,7 +369,7 @@ form {
 
   .language-ul {
     display: grid;
-    grid-template-columns: 100px repeat(2, 70px);
+    grid-template-columns: 100px repeat(3, 70px);
     gap: var(--spacer-1);
     padding: var(--spacer-2);
   }
@@ -443,37 +396,4 @@ form {
     background-image: none;
     flex-direction: column;
   }
-
-  .mc-title {
-    font-size: var(--fs-xl);
-  }
-
-  .modal-card {
-    aspect-ratio: 7/5;
-    gap: 0.5em;
-    grid-template-rows: 3em 1em 3fr 1fr stretch; /* stylelint-disable-line */
-    grid-template-areas:
-      'title title title'
-      'summary summary summary'
-      'image image image'
-      'details details tags'
-      'details details buttons';
-  }
-
-  .modal-card > :nth-child(1) {
-    grid-area: title;
-    font-size: 3em;
-  }
-
-  .modal-card > :nth-child(2) { grid-area: summary; }
-
-  .modal-card > :nth-child(3) { grid-area: image; }
-
-  .modal-card > :nth-child(4) { grid-area: details; }
-
-  .modal-card > :nth-child(5) { grid-area: tags; }
-
-  .modal-card > :nth-child(6) { grid-area: buttons; }
-
-  .mc-snapshoot { aspect-ratio: 3/1; }
 }
