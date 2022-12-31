@@ -79,12 +79,21 @@
         with it
       </p>
       <form class="form flex" action="https://formspree.io/f/xbjwpzkw" method="post">
-        <input class="form-input input-line" type="text" placeholder="Enter your name" name="name" maxlength="30"
-          required />
-        <input class="form-input input-line" type="email" id="email" name="email" placeholder="yourid@gmail.com"
-          required />
-        <textarea class="form-input" rows="10" maxlength="500" placeholder="Write your message here" name="message"
-          required></textarea>
+        <div class="input__container">
+          <input class="form-input input-line" type="text" placeholder="Enter your name" id="name" name="name" maxlength="30"
+            required />
+          <label for="name" class="input__label">Enter your name</label>
+        </div>
+        <div class="input__container">
+          <input class="form-input input-line" type="email" id="email" name="email" placeholder="yourid@gmail.com"
+            required />
+          <label for="email" class="input__label">Enter your email</label>
+        </div>
+        <div class="input__container">
+          <textarea class="form-input" rows="10" maxlength="500" placeholder="Write your message here" id="message" name="message"
+            required></textarea>
+          <label for="message" class="input__label" id="message">Write your message here</label>
+        </div>
         <input class="btn form-button" type="submit" value="Get It Touch" />
       </form>
     </div>
