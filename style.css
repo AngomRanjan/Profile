@@ -263,13 +263,11 @@ form {
   width: 100%;
   border: 1px solid #cfd8dc;
   border-radius: 8px;
-  padding: 0.5em 24px;
-  margin-bottom: 0.5em;
-  margin-top: 0.5em;
+  padding: 0.5em 12px;
   transition: all 0.5s;
 }
 
-.form-input:hover::placeholder { transform: translate(0.5em, 0); }
+/* .form-input:hover::placeholder { transform: translate(0.5em, 0); } */
 
 .input-line { height: 2.5em; }
 
@@ -395,6 +393,35 @@ form {
 .skills-dropdown > .icons > img:hover { cursor: pointer; }
 
 .border-b { border-bottom: 1px solid #dfe1e6; }
+
+/* float */
+
+.input__container {
+  width: 100%;
+  position: relative;
+  margin-top: 26px;
+}
+
+::placeholder { color: transparent; }
+
+.input__label {
+  position: absolute;
+  z-index: 100;
+  left: 12px;
+  top: 5px;
+  color: #6b7687;
+  transition: all 600ms;
+}
+
+.form-input:is(:focus, :not(:placeholder-shown)) + .input__label {
+  font-size: 0.8em;
+  font-weight: 600;
+  top: -22px;
+  left: 6px;
+  color: #344563;
+}
+
+/* f end */
 
 @media only screen and (min-width: 769px) {
   /* || Deskstop Responsive */
