@@ -56,9 +56,8 @@ const arrProjects = [
     no: '3',
     name: 'Bookstore',
     summaries: { client: 'Self-Employed', role: 'Solo', year: '2022' },
-    details: `The Bookstore is a website similar to the "Awesome Books" website
-    built in the previous module. You will create an MVP version of it that allows you to:
-    Display a list of books. Add a book. Remove a selected book.`,
+    details: `The Bookstore is a simple yet effective web application for maintaining a collection of books. 
+    Users can display a list of books, add a new book, and remove a selected book.`,
     skills: ['HTML', 'CSS', 'JavaScripts', 'React', 'React-Redux'],
     links: ['https://bookstore-angom.netlify.app/', 'https://github.com/AngomRanjan/bookstore'],
   },
