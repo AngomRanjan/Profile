@@ -388,6 +388,10 @@ form {
 
 /* || Modal Cards Ends */
 
+.skills-dropdown > .icons > img:hover { cursor: pointer; }
+
+.border-b { border-bottom: 1px solid #dfe1e6; }
+
 @media only screen and (min-width: 769px) {
   /* || Deskstop Responsive */
 
@@ -412,7 +416,7 @@ form {
 
   .language-ul {
     display: grid;
-    grid-template-columns: 100px repeat(2, 70px);
+    grid-template-columns: repeat(4, auto);
     gap: var(--spacer-1);
     padding: var(--spacer-2);
   }
@@ -420,7 +424,7 @@ form {
   .language-ul > li {
     display: flex;
     flex-wrap: wrap;
-    line-height: 0.3em;
+    line-height: 0.8em;
     justify-content: center;
     padding: 0.4em;
   }
