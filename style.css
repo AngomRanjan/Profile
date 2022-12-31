@@ -144,6 +144,8 @@ nav > ul { display: none; }
 
 .my-25 { margin: 2.5em 0; }
 
+.clr-p { color: var(--bg-sec); }
+
 .head-1 {
   font-size: var(--fs-xl);
   line-height: 1.2em;
