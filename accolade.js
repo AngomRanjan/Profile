@@ -1,6 +1,6 @@
-const arrLang = [['images/js.png', 'JavaScripts'], ['images/html.png', 'HTML'], ['images/css.png', 'CSS'], ['images/css.png', 'Ruby']];
-const arrFw = [['images/js.png', 'React'], ['images/html.png', 'Rails'], ['images/html.png', 'Bootstrap'], ['images/html.png', 'Tailwindcss']];
-const arrSkl = [['images/js.png', 'Mentoring'], ['images/js.png', 'Leadership'], ['images/js.png', 'Pair Programming'], ['images/js.png', 'Teamwork']];
+const arrLang = [['images/js.png', 'JavaScripts'], ['images/html.png', 'HTML'], ['images/css.png', 'CSS'], ['images/ruby.png', 'Ruby']];
+const arrFw = [['images/react.png', 'React JS'], ['images/rails.png', 'Rails'], ['images/bootstrap.png', 'Bootstrap'], ['images/tailwind.png', 'Tailwindcss']];
+const arrSkl = [['images/mentor.png', 'Mentoring'], ['images/leadership.png', 'Leadership'], ['images/pairpro.png', 'Remote Pair Programming'], ['images/team.png', 'Teamwork']];
 
 const toggleAcCtrl = (acCtrl) => {
   acCtrl.name = acCtrl.name === 'close' ? 'open' : 'close';
