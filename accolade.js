@@ -10,6 +10,8 @@ const toggleAcCtrl = (acCtrl) => {
 const resetAc = () => {
   const acs = Array.from(document.querySelectorAll('.skills-dropdown > .icons > img'));
   acs.forEach((item) => { [item.name, item.src] = ['close', 'icons/open.png']; });
+  const acSib = Array.from(document.querySelectorAll('.skills-dropdown'));
+  acSib.forEach((item) => { item.classList = 'flex skills-dropdown border-b'; });
 };
 
 const removeAcc = (acNode) => {
@@ -18,8 +20,9 @@ const removeAcc = (acNode) => {
 
 const appendAcc = (curNode) => {
   const newUl = document.createElement('ul');
-  [newUl.id, newUl.classList] = ['ta', 'language-ul'];
+  [newUl.id, newUl.classList] = ['ta', 'language-ul border-b'];
   const proj = curNode.parentNode.parentNode;
+  proj.classList.toggle('border-b');
   let arr = [];
   if (proj.textContent.trim(' ') === 'Skills') {
     arr = arrSkl;
@@ -46,6 +49,7 @@ const handleAcClick = (e) => {
     appendAcc(curNode);
   }
   toggleAcCtrl(curNode);
+  if (curNode.name === 'close') curNode.parentNode.parentNode.classList = 'flex skills-dropdown border-b';
   e.stopPropagation();
 };
 const acc = Array.from(document.querySelectorAll('.skills-dropdown > .icons > img'));
