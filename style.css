@@ -90,8 +90,7 @@ header > * { padding: var(--spacer-2); }
   color: var(--bg-sec);
 }
 
-.logo,
-.logo:hover {
+:is(.logo, .logo:hover) {
   transform: rotateY(360deg);
   transition: all 10s ease-in-out 1s;
 }
@@ -124,8 +123,9 @@ nav > ul { display: none; }
   letter-spacing: 0.02em;
   font-weight: 700;
   border: 1px solid #396df2;
-}/* || Intro */
+}
 
+/* || Intro */
 #headlines {
   background-image: url(images/topL.png), url(images/topC.png), url(images/topR.png), url(images/bottomL.png), url(images/bottomC.png), url(images/bottomR.png);
   background-position: left top, center top, right top, left bottom, center 95%, right bottom;
@@ -231,9 +231,6 @@ footer .content-placeholder {
   font-size: 1.2em;
 }
 
-#frameworks,
-#skills { border-bottom: 1px solid #dfe1e6; }
-
 /* || Foooter */
 
 .footer {
@@ -247,9 +244,6 @@ footer .content-placeholder {
   background-position: center top, right top;
   background-repeat: no-repeat;
 }
-
-#contact-msg,
-#contact-me { color: #fff; }
 
 form {
   width: 100%;
@@ -267,8 +261,6 @@ form {
   transition: all 0.5s;
 }
 
-/* .form-input:hover::placeholder { transform: translate(0.5em, 0); } */
-
 .input-line { height: 2.5em; }
 
 .form-button { margin: 0.5em 0; }
@@ -279,8 +271,7 @@ form {
 
 .no-scroll { overflow: hidden; }
 
-.modal-ui,
-.overlay-container {
+:is(.modal-ui, .overlay-container) {
   height: 100vh;
   width: 100vw;
   position: fixed;
@@ -315,16 +306,17 @@ form {
   margin: 1em;
 }
 
-#close:hover,
-.overlay:hover {
+:is(#close, .overlay):hover {
   cursor: pointer;
   color: var(--bg-sec);
 }
 
 /* || Overlay Ends */
+:is(#frameworks, #skills) { border-bottom: 1px solid #dfe1e6; }
 
-/* || Modal Cards  */
+:is(#contact-msg, #contact-me) { color: #fff; }
 
+/* Modal Cards starts */
 .modal-ui {
   display: flex;
   flex-direction: row;
@@ -394,7 +386,7 @@ form {
 
 .border-b { border-bottom: 1px solid #dfe1e6; }
 
-/* float */
+/* float label */
 
 .input__container {
   width: 100%;
@@ -464,12 +456,6 @@ form {
 
   .footer { background-image: url(images/dtp-contact-bg.svg); }
 
-  #headlines,
-  .footer {
-    background-position: 50% 50%;
-    background-size: contain;
-  }
-
   form {
     background-image: none;
     flex-direction: column;
@@ -507,4 +493,9 @@ form {
   .modal-card > :nth-child(6) { grid-area: buttons; }
 
   .mc-snapshoot { aspect-ratio: 3/1; }
+
+  :is(#headlines, .footer) {
+    background-position: 50% 50%;
+    background-size: contain;
+  }
 }
