@@ -8,10 +8,10 @@ const toggleAcCtrl = (acCtrl) => {
 };
 
 const resetAc = () => {
-  const acs = Array.from(document.querySelectorAll('.skills-dropdown > .icons > img'));
+  const acs = Array.from(document.querySelectorAll('.accordion-header > .icons > img'));
   acs.forEach((item) => { [item.name, item.src] = ['close', 'icons/open.png']; });
-  const acSib = Array.from(document.querySelectorAll('.skills-dropdown'));
-  acSib.forEach((item) => { item.classList = 'flex skills-dropdown border-b'; });
+  const acSib = Array.from(document.querySelectorAll('.accordion-header'));
+  acSib.forEach((item) => { item.classList = 'flex accordion-header border-b'; });
 };
 
 const removeAcc = (acNode) => {
@@ -49,10 +49,10 @@ const handleAcClick = (e) => {
     appendAcc(curNode);
   }
   toggleAcCtrl(curNode);
-  if (curNode.name === 'close') curNode.parentNode.parentNode.classList = 'flex skills-dropdown border-b';
+  if (curNode.name === 'close') curNode.parentNode.parentNode.classList = 'flex accordion-header border-b';
   e.stopPropagation();
 };
-const acc = Array.from(document.querySelectorAll('.skills-dropdown > .icons > img'));
+const acc = Array.from(document.querySelectorAll('.accordion-header > .icons > img'));
 acc.forEach((item) => item.addEventListener('click', handleAcClick));
 
 document.getElementById('t').click();

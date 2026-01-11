@@ -407,8 +407,16 @@ nav > ul { display: none; }
 }
 
 /* =========================
-   EVERYTHING BELOW IS YOUR ORIGINAL UNCHANGED
+   Accordion Component
 ========================= */
+
+.accordion-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 48px;
+  font-size: 1.2em;
+}
 
 .language-ul { display: block; }
 
@@ -455,11 +463,6 @@ footer .content-placeholder {
 
 .panel-spacing {
   padding-right: 2rem;
-}
-
-.skills-dropdown {
-  height: 48px;
-  font-size: 1.2em;
 }
 
 /* || Footer */
@@ -557,7 +560,7 @@ form {
   font-size: var(--fs-lg);
 }
 
-.skills-dropdown > .icons > img:hover { cursor: pointer; }
+.accordion-header > .icons > img:hover { cursor: pointer; }
 
 .border-b { border-bottom: 1px solid var(--clr-border-muted); }
 
