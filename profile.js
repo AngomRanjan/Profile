@@ -193,7 +193,7 @@ function compileCards(project) {
   card.id = `card${project.no}`;
   card.appendChild(projSnapshoot(`images/SnapshootD${project.no}.jpg`));
   const divPro = document.createElement('div');
-  divPro.className = 'projects';
+  divPro.className = 'projects panel panel-spacing';
   const arrFunc = [projTitle, projSummary, pDetails, pSkills, cardBtn];
   const arr = [project.name, project.summaries, project.details, project.skills, project.no];
   arrFunc.forEach((func, index) => divPro.appendChild(func(arr[index])));

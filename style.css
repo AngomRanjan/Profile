@@ -98,6 +98,11 @@ ul {
 }
 
 /* || Utilities styles */
+.panel {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
 
 .fw-bold { font-weight: var(--fw-bold); }
 .fw-medium { font-weight: var(--fw-medium); }
@@ -120,6 +125,39 @@ ul {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+/* =========================
+   Layout System
+========================= */
+
+.layout-grid {
+  display: grid;
+  gap: var(--space-1);
+}
+
+/* =========================
+   Surface System
+========================= */
+
+.surface-card {
+  background: var(--clr-bg-surface);
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+
+/* =========================
+   Container System
+========================= */
+
+.section-container {
+  width: 90%;
+  max-width: 650px;
+  margin: auto;
+}
+
+.section-spacing {
+  padding-block: var(--space-section);
 }
 
 /* =========================
@@ -259,9 +297,10 @@ nav > ul { display: none; }
   gap: var(--space-1);
 }
 
-.cards { border-radius: 0.5rem; }
+.cards { border-radius: 0.5rem; justify-items: start; }
 
 .cards > * { padding: var(--space-1); }
+
 
 .snapshoot { width: 100%; }
 
@@ -403,6 +442,19 @@ footer .content-placeholder {
   gap: 2em;
   padding: 5em 8%;
   border-top-right-radius: 100px;
+}
+
+/* =========================
+   About Section Panel
+========================= */
+
+.about-panel {
+  display: flex;
+  flex-direction: column;
+}
+
+.panel-spacing {
+  padding-right: 2rem;
 }
 
 .skills-dropdown {
