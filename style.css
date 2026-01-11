@@ -100,13 +100,10 @@ ul {
 /* || Utilities styles */
 
 .fw-bold { font-weight: var(--fw-bold); }
-
 .fw-medium { font-weight: var(--fw-medium); }
 
 .my-15 { margin: 15px 0; }
-
 .w-100 { width: 100%; }
-
 .vh-100 { height: var(--vh-offset); }
 
 .icons {
@@ -124,6 +121,10 @@ ul {
   justify-content: space-between;
   align-items: center;
 }
+
+/* =========================
+   HEADER
+========================= */
 
 header {
   position: sticky;
@@ -180,8 +181,6 @@ nav > ul { display: none; }
     transform 0.3s ease;
 }
 
-/* interactive */
-
 .btn:hover,
 .btn:focus-visible {
   background-color: var(--clr-accent);
@@ -193,8 +192,6 @@ nav > ul { display: none; }
   font-weight: var(--fw-bold);
   cursor: pointer;
 }
-
-/* disabled */
 
 .btn:disabled {
   opacity: 0.6;
@@ -303,6 +300,77 @@ nav > ul { display: none; }
   white-space: nowrap;
 }
 
+/* =========================
+   Form Field Component (Normalized)
+========================= */
+
+.input__container {
+  width: 100%;
+  position: relative;
+  margin-top: 26px;
+}
+
+.form-input {
+  --input-border: #cfd8dc;
+  --input-focus: var(--clr-accent-soft);
+
+  width: 100%;
+  display: block;
+
+  border: 1px solid var(--input-border);
+  border-radius: 8px;
+
+  padding: 0.5em 0.75em;
+
+  font-size: var(--fs-md);
+  font-family: inherit;
+  color: var(--clr-text-primary);
+  background-color: var(--clr-bg-surface);
+
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.input-line { height: 2.5em; }
+
+.form-input::placeholder { color: transparent; }
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--input-focus);
+}
+
+.input__label {
+  position: absolute;
+  z-index: 1;
+  left: 12px;
+  top: 5px;
+
+  font-size: var(--fs-sm);
+  color: var(--clr-text-muted);
+
+  pointer-events: none;
+
+  transition:
+    top 0.4s ease,
+    left 0.4s ease,
+    font-size 0.4s ease,
+    color 0.4s ease;
+}
+
+.form-input:is(:focus, :not(:placeholder-shown)) + .input__label {
+  font-size: 0.75em;
+  font-weight: var(--fw-medium);
+  top: -22px;
+  left: 6px;
+  color: var(--clr-text-primary);
+}
+
+/* =========================
+   EVERYTHING BELOW IS YOUR ORIGINAL UNCHANGED
+========================= */
+
 .language-ul { display: block; }
 
 .language-ul li {
@@ -363,16 +431,6 @@ form {
   background-repeat: no-repeat;
   flex-wrap: wrap;
 }
-
-.form-input {
-  width: 100%;
-  border: 1px solid #cfd8dc;
-  border-radius: 8px;
-  padding: 0.5em 12px;
-  transition: all 0.5s;
-}
-
-.input-line { height: 2.5em; }
 
 .form-button { margin: 0.5em 0; }
 
@@ -451,33 +509,6 @@ form {
 
 .border-b { border-bottom: 1px solid var(--clr-border-muted); }
 
-/* Float label */
-
-.input__container {
-  width: 100%;
-  position: relative;
-  margin-top: 26px;
-}
-
-::placeholder { color: transparent; }
-
-.input__label {
-  position: absolute;
-  z-index: 100;
-  left: 12px;
-  top: 5px;
-  color: var(--clr-text-muted);
-  transition: all 600ms;
-}
-
-.form-input:is(:focus, :not(:placeholder-shown)) + .input__label {
-  font-size: 0.8em;
-  font-weight: 600;
-  top: -22px;
-  left: 6px;
-  color: var(--clr-text-primary);
-}
-
 /* =========================
    MODAL RESTORE FIX
 ========================= */
@@ -550,8 +581,9 @@ form {
 
 .md-show { display: flex; }
 
-
-/* Responsive */
+/* =========================
+   Responsive
+========================= */
 
 @media only screen and (min-width: 769px) {
 
