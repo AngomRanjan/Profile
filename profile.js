@@ -270,7 +270,7 @@ function compileCards(project) {
   card.appendChild(projSnapshoot(`images/SnapshootD${project.no}.jpg`));
 
   const panel = document.createElement('div');
-  panel.className = 'projects panel panel-spacing';
+  panel.className = 'panel panel--projects panel-spacing';
 
   panel.append(
     projTitle(project.name),

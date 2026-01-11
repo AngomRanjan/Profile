@@ -104,6 +104,11 @@ ul {
   align-items: flex-start;
 }
 
+.panel--project {
+  /* project-specific panel hook
+     (no styles yet by design) */
+}
+
 .fw-bold { font-weight: var(--fw-bold); }
 .fw-medium { font-weight: var(--fw-medium); }
 
