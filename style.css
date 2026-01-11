@@ -23,6 +23,10 @@
   --space-1: 0.5rem;
   --space-2: 1rem;
 
+  /* Macro layout spacing */
+--space-section: clamp(2.5rem, 6vw, 5rem);
+--space-page: clamp(1.5rem, 4vw, 3rem);
+
   /* Colors */
   --clr-bg-page: #e5e5e5;
   --clr-bg-surface: #fff;
@@ -64,6 +68,24 @@ body {
   line-height: var(--lh-base);
   background-color: var(--clr-bg-surface);
 }
+
+/* =========================
+   Heading System
+========================= */
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: var(--fw-bold);
+  color: var(--clr-text-heading);
+  line-height: 1.25;
+  margin: 0;
+}
+
+h1 { font-size: var(--fs-xl); }
+h2 { font-size: var(--fs-lg); }
+h3 { font-size: var(--fs-md); }
+h4 { font-size: var(--fs-md); }
+h5 { font-size: var(--fs-sm); }
+h6 { font-size: var(--fs-sm); }
 
 main { background-color: var(--clr-bg-page); }
 
@@ -168,7 +190,7 @@ nav > ul { display: none; }
   width: 90%;
   max-width: 650px;
   margin: auto;
-  padding: 10% 0;
+  padding: var(--space-section) 0;
 }
 
 .my-25 { margin: 2.5em 0; }
@@ -192,6 +214,7 @@ nav > ul { display: none; }
 .works {
   gap: 5em;
   padding: 5em 8%;
+  padding: var(--space-section) var(--space-page);
 }
 
 .grid-responsive {
