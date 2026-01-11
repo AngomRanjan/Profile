@@ -419,6 +419,11 @@ nav > ul { display: none; }
    Accordion Component
 ========================= */
 
+.accordion {
+  /* layout-agnostic container
+     for reusable accordion component */
+}
+
 .accordion-header {
   display: flex;
   justify-content: space-between;
@@ -426,6 +431,8 @@ nav > ul { display: none; }
   height: 48px;
   font-size: 1.2em;
 }
+
+.accordion-header > .icons > img:hover { cursor: pointer; }
 
 .language-ul { display: block; }
 
@@ -464,11 +471,6 @@ footer .content-placeholder {
 /* =========================
    About Section Panel
 ========================= */
-
-.about-panel {
-  display: flex;
-  flex-direction: column;
-}
 
 .panel-spacing {
   padding-right: 2rem;
@@ -568,8 +570,6 @@ form {
   text-align: left;
   font-size: var(--fs-lg);
 }
-
-.accordion-header > .icons > img:hover { cursor: pointer; }
 
 .border-b { border-bottom: 1px solid var(--clr-border-muted); }
 
