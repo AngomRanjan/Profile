@@ -310,6 +310,10 @@ nav > ul { display: none; }
    Tag / Pill Component (Normalized)
 ========================= */
 
+.tags-group {
+  display: block;
+}
+
 .tags {
   display: flex;
   flex-wrap: wrap;
