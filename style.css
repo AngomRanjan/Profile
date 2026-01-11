@@ -395,6 +395,79 @@ form {
   color: var(--clr-text-primary);
 }
 
+/* =========================
+   MODAL RESTORE FIX
+========================= */
+
+.modal-ui {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #c1c7d080;
+  padding: 1em;
+  z-index: 9999;
+}
+
+.modal-card {
+  background-color: var(--clr-bg-surface);
+  border-radius: 10px;
+  box-shadow: 0 48px 48px 0 #252f8914;
+  padding: 1em;
+  height: 100%;
+}
+
+.modal-card.grid {
+  display: grid;
+}
+
+.mc-titlebar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mc-title {
+  font-size: var(--fs-lg);
+  color: var(--clr-text-heading);
+}
+
+.mc-btn {
+  font-size: 30px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.project-descriptions {
+  color: var(--clr-text-primary);
+  line-height: var(--lh-base);
+}
+
+.mc-snapshoot {
+  width: 100%;
+  border-radius: 6px;
+}
+
+.modal-btn-area {
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+  border-top: 1px solid var(--clr-border-muted);
+  padding-top: 1em;
+}
+
+.btn-modal {
+  display: flex;
+  gap: 0.5em;
+  align-items: center;
+  border: 1px solid var(--clr-accent-soft);
+  padding: 0.5em 1em;
+  border-radius: 6px;
+}
+
+.md-show { display: flex; }
+
+
 /* Responsive */
 
 @media only screen and (min-width: 769px) {
@@ -443,4 +516,53 @@ form {
     background-position: 50% 50%;
     background-size: contain;
   }
+
+  .modal-card {
+    display: grid;
+    aspect-ratio: 7 / 5;
+    gap: 1rem;
+    padding: 1.5rem;
+
+    grid-template-rows: auto auto 1fr auto auto;
+    grid-template-areas:
+      "title title title"
+      "summary summary summary"
+      "image image image"
+      "details details tags"
+      "details details buttons";
+  }
+
+  .modal-card > :nth-child(1) { grid-area: title; }
+  .modal-card > :nth-child(2) { grid-area: summary; }
+  .modal-card > :nth-child(3) { grid-area: image; }
+  .modal-card > :nth-child(4) { grid-area: details; }
+  .modal-card > :nth-child(5) { grid-area: tags; }
+  .modal-card > :nth-child(6) { grid-area: buttons; }
+
+  .mc-snapshoot {
+    aspect-ratio: 16 / 6;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+
+  .project-descriptions {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .tags {
+    align-self: start;
+  }
+
+  .modal-btn-area {
+    justify-content: flex-end;
+    padding-top: 1rem;
+  }
+
+  .modal-card > :nth-child(1) { grid-area: title; }
+  .modal-card > :nth-child(2) { grid-area: summary; }
+  .modal-card > :nth-child(3) { grid-area: image; }
+  .modal-card > :nth-child(4) { grid-area: details; }
+  .modal-card > :nth-child(5) { grid-area: tags; }
+  .modal-card > :nth-child(6) { grid-area: buttons; }
 }
