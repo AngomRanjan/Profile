@@ -146,23 +146,62 @@ header > * { padding: var(--space-2); }
 
 nav > ul { display: none; }
 
+/* =========================
+   Button Component (Normalized)
+========================= */
+
 .btn {
-  border-radius: 0.4em;
+  --btn-bg: var(--clr-bg-surface);
+  --btn-color: #396df2;
+  --btn-border: var(--clr-accent-soft);
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
   padding: 0.6em;
+  border-radius: 0.4em;
+
   font-size: var(--fs-md);
   font-weight: var(--fw-medium);
+  font-family: inherit;
+
+  background-color: var(--btn-bg);
+  color: var(--btn-color);
+  border: 1px solid var(--btn-border);
+
   text-align: center;
-  margin: 1rem 0;
-  transition: all 1s;
+  text-decoration: none;
+
+  transition:
+    background-color 0.4s ease,
+    color 0.4s ease,
+    box-shadow 0.4s ease,
+    transform 0.3s ease;
 }
 
-.btn:enabled {
-  border: 1px solid var(--clr-accent-soft);
-  color: #396df2;
-  background-color: #fff;
+/* interactive */
+
+.btn:hover,
+.btn:focus-visible {
+  background-color: var(--clr-accent);
+  color: var(--clr-bg-surface);
+  box-shadow: var(--shadow-soft);
+  border-color: #396df2;
+  transform: scale(0.95);
+  letter-spacing: 0.02em;
+  font-weight: var(--fw-bold);
+  cursor: pointer;
 }
 
-:is(.nav-links-desktop, .btn):hover {
+/* disabled */
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.nav-links-desktop:hover {
   background-color: var(--clr-accent);
   color: var(--clr-bg-surface);
   box-shadow: var(--shadow-soft);
@@ -231,17 +270,37 @@ nav > ul { display: none; }
 
 .project-summary { gap: 2em; }
 
-.tags { flex-wrap: wrap; }
+/* =========================
+   Tag / Pill Component (Normalized)
+========================= */
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4em;
+}
 
 .tag {
-  height: 1.6em;
-  border: 1px solid var(--clr-tag-bg);
-  padding: 0.25em 0.3em;
+  --tag-bg: var(--clr-tag-bg);
+  --tag-color: #505dd5;
+  --tag-border: var(--clr-tag-bg);
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0.25em 0.4em;
+
   border-radius: 0.5em;
-  background-color: var(--clr-tag-bg);
-  font-size: 0.75em;
-  line-height: 1em;
-  color: #505dd5;
+  border: 1px solid var(--tag-border);
+
+  background-color: var(--tag-bg);
+  color: var(--tag-color);
+
+  font-size: var(--fs-sm);
+  line-height: 1;
+
+  white-space: nowrap;
 }
 
 .language-ul { display: block; }
