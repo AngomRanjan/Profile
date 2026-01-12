@@ -143,10 +143,10 @@ const arrSocialMedia = [
 
 const projSnapshoot = (pImage, addClass = '') => {
   const snapshoot = document.createElement('div');
-  snapshoot.className = 'snapshoot-placeholders';
+  snapshoot.className = 'card-media snapshoot-placeholders';
 
   const image = document.createElement('img');
-  image.className = (addClass === '' ? 'snapshoot' : 'mc-snapshoot');
+  image.className = (`card-image ${addClass === '' ? 'snapshoot' : 'mc-snapshoot'}`);
   image.src = pImage;
 
   snapshoot.appendChild(image);
@@ -155,7 +155,7 @@ const projSnapshoot = (pImage, addClass = '') => {
 
 const projTitle = (pName, addClass = 'project-titles my-15') => {
   const title = document.createElement('h2');
-  title.classList = addClass;
+  title.classList = `card-title ${addClass}`;
   if (addClass === 'mc-title') title.id = 'mc-title';
   title.textContent = pName;
   return title;
@@ -177,7 +177,7 @@ const mcTbar = (pName) => {
 
 const projSummary = (summaries) => {
   const ulSummaries = document.createElement('ul');
-  ulSummaries.classList.add('inline-li', 'project-summary');
+  ulSummaries.classList.add('card-meta','inline-li', 'project-summary');
 
   Object.entries(summaries).forEach((summary) => {
     const li = document.createElement('li');
@@ -190,7 +190,7 @@ const projSummary = (summaries) => {
 
 const pDetails = (details, pid = null) => {
   const p = document.createElement('p');
-  p.className = 'project-descriptions';
+  p.className = 'card-description project-descriptions';
   if (pid) p.id = pid;
   p.textContent = details;
   return p;
@@ -263,21 +263,25 @@ const modalBtnArea = (links) => {
 
 function compileCards(project) {
   const card = document.createElement('article');
-  card.classList = 'cards grid grid-responsive';
+  card.classList = 'card cards grid grid-responsive';
   if (project.no % 2 === 0) card.classList.add('reverse');
   card.id = `card${project.no}`;
 
   card.appendChild(projSnapshoot(`images/SnapshootD${project.no}.jpg`));
 
   const panel = document.createElement('div');
-  panel.className = 'panel panel--projects panel-spacing';
+  panel.className = 'card-body panel panel--projects panel-spacing';
+
+  const actions = document.createElement('div');
+actions.className = 'card-actions';
+actions.appendChild(cardBtn(project.no));
 
   panel.append(
     projTitle(project.name),
     projSummary(project.summaries),
     pDetails(project.details),
     pSkills(project.skills),
-    cardBtn(project.no),
+    actions,
   );
 
   card.appendChild(panel);
