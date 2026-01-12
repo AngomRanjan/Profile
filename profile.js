@@ -263,7 +263,7 @@ const modalBtnArea = (links) => {
 
 function compileCards(project) {
   const card = document.createElement('article');
-  card.classList = 'card cards grid grid-responsive';
+  card.classList = 'card grid grid-responsive';
   if (project.no % 2 === 0) card.classList.add('reverse');
   card.id = `card${project.no}`;
 
@@ -298,17 +298,9 @@ works.classList.add('works', 'grid');
 works.id = 'works';
 
 arrProjects.forEach((project) => {
-  const item = document.createElement('div');
-  item.className = 'works-item';
-
   const card = compileCards(project);
 
-  if (project.no % 2 === 0) {
-    item.classList.add('reverse');
-  }
-
-  item.appendChild(card);
-  works.appendChild(item);
+  works.appendChild(card);
 });
 
 const about = document.getElementById('about');

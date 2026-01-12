@@ -295,16 +295,45 @@ nav > ul { display: none; }
   padding: 5em 8%;
   padding: var(--space-section) var(--space-page);
 }
-
+/* Legacy utility
+   - Currently used by cards
+   - Scheduled for review/removal
+     after card normalization completes
+*/
 .grid-responsive {
   background: var(--clr-bg-surface);
   padding: 1rem;
   gap: var(--space-1);
 }
 
-.cards, .card { border-radius: 0.5rem; justify-items: start; }
+/* ============================================================
+   Card Component — Canonical Structure
+   ------------------------------------------------------------
+   .card
+     ├─ .card-media   → visual / banner slot
+     └─ .card-body    → content stack
+          ├─ h2        (title)
+          ├─ ul        (summary)
+          ├─ p         (description)
+          ├─ .tags-group
+          └─ .card-actions
+============================================================ */
 
-.cards > *, .card > * { padding: var(--space-1); }
+.card {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-1);
+  background: var(--clr-bg-surface);
+  border-radius: 0.5rem;
+}
+
+.card-body {
+  padding: var(--space-1);
+}
+
+.card-media {
+  padding: var(--space-1);
+}
 
 .card-image, .snapshoot { width: 100%; }
 
@@ -455,7 +484,11 @@ footer .content-placeholder {
   text-align: center;
   padding: 1.7em 5px;
 }
-
+/* Legacy utility
+   - Currently used by cards
+   - Scheduled for review/removal
+     after card normalization completes
+*/
 .grid-responsive > .content-placeholder {
   padding: 0;
   margin: 0;
@@ -660,11 +693,42 @@ form {
 
   .nav-links-mobile { display: none; }
 
-  .grid-responsive { grid-template-columns: repeat(2, 1fr); }
+  /* Legacy utility
+   - Currently used by cards
+   - Scheduled for review/removal
+     after card normalization completes
+*/
 
+  .grid-responsive { grid-template-columns: repeat(2, 1fr); }
+/* 
   .reverse > * { grid-row: 1/2; }
 
-  .reverse > .snapshoot-placeholders { grid-column: 2/3; }
+  .reverse > .snapshoot-placeholders { grid-column: 2/3; } */
+
+.card {
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+  }
+
+  .card-description, .project-descriptions {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  /* Reverse layout note:
+   - Uses direction flip for now
+   - DOM order remains semantic
+   - Will be replaced by .card--reverse
+     using grid/order in a later phase
+*/
+
+  .card.reverse {
+    direction: rtl;
+  }
+
+  .card.reverse > * {
+    direction: ltr;
+  }
 
   .projects { padding-right: 2rem; }
 
@@ -725,11 +789,6 @@ form {
     aspect-ratio: 16 / 6;
     object-fit: cover;
     border-radius: 8px;
-  }
-
-  .card-description, .project-descriptions {
-    font-size: 0.95rem;
-    line-height: 1.6;
   }
 
   .tags {
