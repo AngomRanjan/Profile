@@ -297,7 +297,19 @@ const works = document.createElement('section');
 works.classList.add('works', 'grid');
 works.id = 'works';
 
-arrProjects.forEach((project) => works.appendChild(compileCards(project)));
+arrProjects.forEach((project) => {
+  const item = document.createElement('div');
+  item.className = 'works-item';
+
+  const card = compileCards(project);
+
+  if (project.no % 2 === 0) {
+    item.classList.add('reverse');
+  }
+
+  item.appendChild(card);
+  works.appendChild(item);
+});
 
 const about = document.getElementById('about');
 about.parentNode.insertBefore(works, about);
