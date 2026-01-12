@@ -264,7 +264,7 @@ const modalBtnArea = (links) => {
 function compileCards(project) {
   const card = document.createElement('article');
   card.classList = 'card grid grid-responsive';
-  if (project.no % 2 === 0) card.classList.add('reverse');
+  if (project.no % 2 === 0) card.classList.add('card--reverse');
   card.id = `card${project.no}`;
 
   card.appendChild(projSnapshoot(`images/SnapshootD${project.no}.jpg`));

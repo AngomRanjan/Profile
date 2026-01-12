@@ -8,10 +8,10 @@
   --ff-base: "Poppins", sans-serif;
 
   /* Fluid type scale */
---fs-xl: clamp(2rem, 4vw, 2.668rem);
---fs-lg: clamp(1.3rem, 2.5vw, 1.5rem);
---fs-md: clamp(0.95rem, 1.5vw, 1rem);
---fs-sm: clamp(0.75rem, 1vw, 0.8rem);
+  --fs-xl: clamp(2rem, 4vw, 2.668rem);
+  --fs-lg: clamp(1.3rem, 2.5vw, 1.5rem);
+  --fs-md: clamp(0.95rem, 1.5vw, 1rem);
+  --fs-sm: clamp(0.75rem, 1vw, 0.8rem);
 
   --fw-regular: 400;
   --fw-medium: 500;
@@ -24,8 +24,8 @@
   --space-2: 1rem;
 
   /* Macro layout spacing */
---space-section: clamp(2.5rem, 6vw, 5rem);
---space-page: clamp(1.5rem, 4vw, 3rem);
+  --space-section: clamp(2.5rem, 6vw, 5rem);
+  --space-page: clamp(1.5rem, 4vw, 3rem);
 
   /* Colors */
   --clr-bg-page: #e5e5e5;
@@ -73,23 +73,49 @@ body {
    Heading System
 ========================= */
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-weight: var(--fw-bold);
   color: var(--clr-text-heading);
   line-height: 1.25;
   margin: 0;
 }
 
-h1 { font-size: var(--fs-xl); }
-h2 { font-size: var(--fs-lg); }
-h3 { font-size: var(--fs-md); }
-h4 { font-size: var(--fs-md); }
-h5 { font-size: var(--fs-sm); }
-h6 { font-size: var(--fs-sm); }
+h1 {
+  font-size: var(--fs-xl);
+}
 
-main { background-color: var(--clr-bg-page); }
+h2 {
+  font-size: var(--fs-lg);
+}
 
-a { text-decoration: none; }
+h3 {
+  font-size: var(--fs-md);
+}
+
+h4 {
+  font-size: var(--fs-md);
+}
+
+h5 {
+  font-size: var(--fs-sm);
+}
+
+h6 {
+  font-size: var(--fs-sm);
+}
+
+main {
+  background-color: var(--clr-bg-page);
+}
+
+a {
+  text-decoration: none;
+}
 
 ul {
   list-style: none;
@@ -109,12 +135,25 @@ ul {
      (no styles yet by design) */
 }
 
-.fw-bold { font-weight: var(--fw-bold); }
-.fw-medium { font-weight: var(--fw-medium); }
+.fw-bold {
+  font-weight: var(--fw-bold);
+}
 
-.my-15 { margin: 15px 0; }
-.w-100 { width: 100%; }
-.vh-100 { height: var(--vh-offset); }
+.fw-medium {
+  font-weight: var(--fw-medium);
+}
+
+.my-15 {
+  margin: 15px 0;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.vh-100 {
+  height: var(--vh-offset);
+}
 
 .icons {
   width: 24px;
@@ -176,7 +215,9 @@ header {
   backdrop-filter: blur(6px);
 }
 
-header > * { padding: var(--space-2); }
+header>* {
+  padding: var(--space-2);
+}
 
 .logo-text {
   font-size: 1.125em;
@@ -188,7 +229,9 @@ header > * { padding: var(--space-2); }
   transition: all 10s ease-in-out 1s;
 }
 
-nav > ul { display: none; }
+nav>ul {
+  display: none;
+}
 
 /* =========================
    Button Component (Normalized)
@@ -256,14 +299,16 @@ nav > ul { display: none; }
 /* || Intro */
 #headlines {
   background-image: url(images/topL.png), url(images/topC.png), url(images/topR.png),
-                    url(images/bottomL.png), url(images/bottomC.png), url(images/bottomR.png);
+    url(images/bottomL.png), url(images/bottomC.png), url(images/bottomR.png);
   background-position: left top, center top, right top,
-                       left bottom, center 95%, right bottom;
+    left bottom, center 95%, right bottom;
   background-repeat: no-repeat;
   border-bottom-left-radius: 100px;
 }
 
-.wrapper > :first-child { background-color: var(--clr-bg-surface); }
+.wrapper> :first-child {
+  background-color: var(--clr-bg-surface);
+}
 
 .content-placeholder {
   width: 90%;
@@ -272,7 +317,9 @@ nav > ul { display: none; }
   padding: var(--space-section) 0;
 }
 
-.my-25 { margin: 2.5em 0; }
+.my-25 {
+  margin: 2.5em 0;
+}
 
 .head-1 {
   font-size: var(--fs-xl);
@@ -295,6 +342,7 @@ nav > ul { display: none; }
   padding: 5em 8%;
   padding: var(--space-section) var(--space-page);
 }
+
 /* Legacy utility
    - Currently used by cards
    - Scheduled for review/removal
@@ -335,9 +383,15 @@ nav > ul { display: none; }
   padding: var(--space-1);
 }
 
-.card-image, .snapshoot { width: 100%; }
+.card-image,
+.snapshoot {
+  width: 100%;
+}
 
-.card-meta, .project-summary { gap: 2em; }
+.card-meta,
+.project-summary {
+  gap: 2em;
+}
 
 /* =========================
    Tag / Pill Component (Normalized)
@@ -408,9 +462,13 @@ nav > ul { display: none; }
     box-shadow 0.3s ease;
 }
 
-.input-line { height: 2.5em; }
+.input-line {
+  height: 2.5em;
+}
 
-.form-input::placeholder { color: transparent; }
+.form-input::placeholder {
+  color: transparent;
+}
 
 .form-input:focus {
   outline: none;
@@ -435,7 +493,7 @@ nav > ul { display: none; }
     color 0.4s ease;
 }
 
-.form-input:is(:focus, :not(:placeholder-shown)) + .input__label {
+.form-input:is(:focus, :not(:placeholder-shown))+.input__label {
   font-size: 0.75em;
   font-weight: var(--fw-medium);
   top: -22px;
@@ -460,9 +518,13 @@ nav > ul { display: none; }
   font-size: 1.2em;
 }
 
-.accordion-header > .icons > img:hover { cursor: pointer; }
+.accordion-header>.icons>img:hover {
+  cursor: pointer;
+}
 
-.language-ul { display: block; }
+.language-ul {
+  display: block;
+}
 
 .language-ul li {
   margin: 2px auto;
@@ -475,7 +537,7 @@ nav > ul { display: none; }
   display: flex;
 }
 
-.project-summary > li:not(:first-child) {
+.project-summary>li:not(:first-child) {
   list-style: disc;
   color: var(--clr-text-muted);
 }
@@ -484,17 +546,18 @@ footer .content-placeholder {
   text-align: center;
   padding: 1.7em 5px;
 }
+
 /* Legacy utility
    - Currently used by cards
    - Scheduled for review/removal
      after card normalization completes
 */
-.grid-responsive > .content-placeholder {
+.grid-responsive>.content-placeholder {
   padding: 0;
   margin: 0;
 }
 
-#about > .grid-responsive {
+#about>.grid-responsive {
   gap: 2em;
   padding: 5em 8%;
   border-top-right-radius: 100px;
@@ -530,11 +593,15 @@ form {
   flex-wrap: wrap;
 }
 
-.form-button { margin: 0.5em 0; }
+.form-button {
+  margin: 0.5em 0;
+}
 
 /* || Overlay Menu */
 
-.no-scroll { overflow: hidden; }
+.no-scroll {
+  overflow: hidden;
+}
 
 :is(.modal-ui, .overlay-container) {
   height: 100vh;
@@ -576,9 +643,13 @@ form {
   color: var(--clr-accent);
 }
 
-:is(#frameworks, #skills) { border-bottom: 1px solid var(--clr-border-muted); }
+:is(#frameworks, #skills) {
+  border-bottom: 1px solid var(--clr-border-muted);
+}
 
-:is(#contact-msg, #contact-me) { color: #fff; }
+:is(#contact-msg, #contact-me) {
+  color: #fff;
+}
 
 /* Modal Cards */
 
@@ -603,7 +674,9 @@ form {
   font-size: var(--fs-lg);
 }
 
-.border-b { border-bottom: 1px solid var(--clr-border-muted); }
+.border-b {
+  border-bottom: 1px solid var(--clr-border-muted);
+}
 
 /* =========================
    MODAL RESTORE FIX
@@ -648,7 +721,8 @@ form {
   cursor: pointer;
 }
 
-.card-description, .project-descriptions {
+.card-description,
+.project-descriptions {
   color: var(--clr-text-primary);
   line-height: var(--lh-base);
 }
@@ -679,7 +753,9 @@ form {
   border-radius: 6px;
 }
 
-.md-show { display: flex; }
+.md-show {
+  display: flex;
+}
 
 /* =========================
    Responsive
@@ -687,11 +763,18 @@ form {
 
 @media only screen and (min-width: 769px) {
 
-  nav > ul { display: flex; gap: 1rem; }
+  nav>ul {
+    display: flex;
+    gap: 1rem;
+  }
 
-  .nav-links-desktop { padding: 0 var(--space-1); }
+  .nav-links-desktop {
+    padding: 0 var(--space-1);
+  }
 
-  .nav-links-mobile { display: none; }
+  .nav-links-mobile {
+    display: none;
+  }
 
   /* Legacy utility
    - Currently used by cards
@@ -699,38 +782,45 @@ form {
      after card normalization completes
 */
 
-  .grid-responsive { grid-template-columns: repeat(2, 1fr); }
-/* 
+  .grid-responsive {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* 
   .reverse > * { grid-row: 1/2; }
 
   .reverse > .snapshoot-placeholders { grid-column: 2/3; } */
 
-.card {
+  .card {
     grid-template-columns: 1fr 1fr;
     align-items: start;
   }
 
-  .card-description, .project-descriptions {
+  .card-description,
+  .project-descriptions {
     font-size: 0.95rem;
     line-height: 1.6;
   }
 
-  /* Reverse layout note:
-   - Uses direction flip for now
-   - DOM order remains semantic
-   - Will be replaced by .card--reverse
-     using grid/order in a later phase
-*/
+  /* ============================================================
+   Card Reverse Modifier
+============================================================ */
 
-  .card.reverse {
-    direction: rtl;
+  .card--reverse {
+    grid-template-columns: 1fr 1fr;
   }
 
-  .card.reverse > * {
-    direction: ltr;
+  .card--reverse .card-media {
+    order: 2;
   }
 
-  .projects { padding-right: 2rem; }
+  .card--reverse .card-body {
+    order: 1;
+  }
+
+  .projects {
+    padding-right: 2rem;
+  }
 
   .language-ul {
     display: grid;
@@ -739,7 +829,7 @@ form {
     padding: var(--space-2);
   }
 
-  .language-ul > li {
+  .language-ul>li {
     display: flex;
     flex-wrap: wrap;
     line-height: 0.8em;
@@ -747,16 +837,22 @@ form {
     padding: 0.4em;
   }
 
-  #headlines { background-image: url(images/dtp-header-bg.svg); }
+  #headlines {
+    background-image: url(images/dtp-header-bg.svg);
+  }
 
-  .footer { background-image: url(images/dtp-contact-bg.svg); }
+  .footer {
+    background-image: url(images/dtp-contact-bg.svg);
+  }
 
   form {
     background-image: none;
     flex-direction: column;
   }
 
-  .mc-title { font-size: var(--fs-xl); }
+  .mc-title {
+    font-size: var(--fs-xl);
+  }
 
   :is(#headlines, .footer) {
     background-position: 50% 50%;
@@ -778,12 +874,29 @@ form {
       "details details buttons";
   }
 
-  .modal-card > :nth-child(1) { grid-area: title; }
-  .modal-card > :nth-child(2) { grid-area: summary; }
-  .modal-card > :nth-child(3) { grid-area: image; }
-  .modal-card > :nth-child(4) { grid-area: details; }
-  .modal-card > :nth-child(5) { grid-area: tags; }
-  .modal-card > :nth-child(6) { grid-area: buttons; }
+  .modal-card> :nth-child(1) {
+    grid-area: title;
+  }
+
+  .modal-card> :nth-child(2) {
+    grid-area: summary;
+  }
+
+  .modal-card> :nth-child(3) {
+    grid-area: image;
+  }
+
+  .modal-card> :nth-child(4) {
+    grid-area: details;
+  }
+
+  .modal-card> :nth-child(5) {
+    grid-area: tags;
+  }
+
+  .modal-card> :nth-child(6) {
+    grid-area: buttons;
+  }
 
   .mc-snapshoot {
     aspect-ratio: 16 / 6;
@@ -800,10 +913,27 @@ form {
     padding-top: 1rem;
   }
 
-  .modal-card > :nth-child(1) { grid-area: title; }
-  .modal-card > :nth-child(2) { grid-area: summary; }
-  .modal-card > :nth-child(3) { grid-area: image; }
-  .modal-card > :nth-child(4) { grid-area: details; }
-  .modal-card > :nth-child(5) { grid-area: tags; }
-  .modal-card > :nth-child(6) { grid-area: buttons; }
+  .modal-card> :nth-child(1) {
+    grid-area: title;
+  }
+
+  .modal-card> :nth-child(2) {
+    grid-area: summary;
+  }
+
+  .modal-card> :nth-child(3) {
+    grid-area: image;
+  }
+
+  .modal-card> :nth-child(4) {
+    grid-area: details;
+  }
+
+  .modal-card> :nth-child(5) {
+    grid-area: tags;
+  }
+
+  .modal-card> :nth-child(6) {
+    grid-area: buttons;
+  }
 }
