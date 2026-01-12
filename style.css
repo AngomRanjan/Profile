@@ -302,14 +302,13 @@ nav > ul { display: none; }
   gap: var(--space-1);
 }
 
-.cards { border-radius: 0.5rem; justify-items: start; }
+.cards, .card { border-radius: 0.5rem; justify-items: start; }
 
-.cards > * { padding: var(--space-1); }
+.cards > *, .card > * { padding: var(--space-1); }
 
+.card-image, .snapshoot { width: 100%; }
 
-.snapshoot { width: 100%; }
-
-.project-summary { gap: 2em; }
+.card-meta, .project-summary { gap: 2em; }
 
 /* =========================
    Tag / Pill Component (Normalized)
@@ -616,9 +615,13 @@ form {
   cursor: pointer;
 }
 
-.project-descriptions {
+.card-description, .project-descriptions {
   color: var(--clr-text-primary);
   line-height: var(--lh-base);
+}
+
+.card-actions {
+  display: contents;
 }
 
 .mc-snapshoot {
@@ -724,7 +727,7 @@ form {
     border-radius: 8px;
   }
 
-  .project-descriptions {
+  .card-description, .project-descriptions {
     font-size: 0.95rem;
     line-height: 1.6;
   }
