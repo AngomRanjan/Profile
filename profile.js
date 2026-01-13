@@ -141,16 +141,17 @@ const arrSocialMedia = [
    UI FACTORY FUNCTIONS (STRUCTURE ONLY)
 ============================================================ */
 
-const projSnapshoot = (pImage, addClass = '') => {
-  const snapshoot = document.createElement('div');
-  snapshoot.className = 'card-media snapshoot-placeholders';
+const cardMedia = (projectNo) => {
+  const mediaContainer = document.createElement('div');
+  mediaContainer.className = 'card-media snapshoot-placeholders';
 
   const image = document.createElement('img');
-  image.className = (`card-image ${addClass === '' ? 'snapshoot' : 'mc-snapshoot'}`);
-  image.src = pImage;
-
-  snapshoot.appendChild(image);
-  return snapshoot;
+  image.className = 'snapshoot';
+  image.src = `images/SnapshootD${projectNo}.jpg`;
+  image.alt = 'Project Looks'
+  
+  mediaContainer.appendChild(image);
+  return mediaContainer;
 };
 
 const projTitle = (pName, addClass = 'project-titles my-15') => {
@@ -159,20 +160,6 @@ const projTitle = (pName, addClass = 'project-titles my-15') => {
   if (addClass === 'mc-title') title.id = 'mc-title';
   title.textContent = pName;
   return title;
-};
-
-const mcTbar = (pName) => {
-  const titleBar = document.createElement('div');
-  [titleBar.classList, titleBar.id] = ['mc-titlebar', 'mc-titlebar'];
-
-  titleBar.appendChild(projTitle(pName, 'mc-title'));
-
-  const mcBtn = document.createElement('button');
-  [mcBtn.type, mcBtn.className, mcBtn.id, mcBtn.textContent] =
-    ['button', 'mc-btn', 'mc-close', '\u2715'];
-
-  titleBar.appendChild(mcBtn);
-  return titleBar;
 };
 
 const projSummary = (summaries) => {
@@ -225,36 +212,45 @@ const pSkills = (skills, adClass = 'tag') => {
 
 
 /* ============================================================
-   CARD + MODAL BUTTON FACTORIES
+   CARD BUTTON FACTORIES
 ============================================================ */
 
-const cardBtn = (cid) => {
-  const btn = document.createElement('button');
-  [btn.classList, btn.type, btn.id, btn.textContent] =
-    ['btn btn-projects', 'button', cid, 'See Project'];
-  return btn;
-};
-
-const modalBtnArea = (links) => {
+const cardActions = (links) => {
   const div = document.createElement('div');
-  div.className = 'modal-btn-area';
+  div.className = 'card-actions';
 
   links.forEach((link, index) => {
     const a = document.createElement('a');
-    a.className = 'btn btn-modal';
+    a.className = 'btn';
     a.href = link;
-    a.textContent = index === 0 ? 'See Live' : 'See Source';
+    a.target = '_blank'
+    a.textContent = index === 0 ? 'Go Live' : 'View Source';
 
     const img = document.createElement('img');
     img.src = 'icons/Icon.png';
     img.className = 'btn-icn';
 
-    a.appendChild(img);
+    a.prepend(img);
     div.appendChild(a);
   });
 
   return div;
 };
+
+const cardBody = (project) => {
+  const panel = document.createElement('div');
+  panel.className = 'card-body panel panel--projects panel-spacing';
+
+  panel.append(
+    projTitle(project.name),
+    projSummary(project.summaries),
+    pDetails(project.details),
+    pSkills(project.skills),
+    cardActions(project.links)
+  );
+
+  return panel
+}
 
 
 /* ============================================================
@@ -267,24 +263,8 @@ function compileCards(project) {
   if (project.no % 2 === 0) card.classList.add('card--reverse');
   card.id = `card${project.no}`;
 
-  card.appendChild(projSnapshoot(`images/SnapshootD${project.no}.jpg`));
-
-  const panel = document.createElement('div');
-  panel.className = 'card-body panel panel--projects panel-spacing';
-
-  const actions = document.createElement('div');
-actions.className = 'card-actions';
-actions.appendChild(cardBtn(project.no));
-
-  panel.append(
-    projTitle(project.name),
-    projSummary(project.summaries),
-    pDetails(project.details),
-    pSkills(project.skills),
-    actions,
-  );
-
-  card.appendChild(panel);
+  card.appendChild(cardMedia(project.no));
+  card.appendChild(cardBody(project));
   return card;
 }
 
@@ -297,59 +277,17 @@ const works = document.createElement('section');
 works.classList.add('works', 'grid');
 works.id = 'works';
 
-arrProjects.forEach((project) => {
-  const card = compileCards(project);
+const container = document.createElement('div');
+container.className = 'container container--narrow';
 
-  works.appendChild(card);
+arrProjects.forEach((project) => {
+  container.appendChild(compileCards(project));
 });
+
+works.appendChild(container);
 
 const about = document.getElementById('about');
 about.parentNode.insertBefore(works, about);
-
-
-/* ============================================================
-   MODAL SYSTEM (UNCHANGED BEHAVIOR)
-============================================================ */
-
-function compileModalCards(project) {
-  const modalCard = document.createElement('div');
-  modalCard.className = 'modal-card grid';
-  modalCard.id = 'modal-card';
-
-  const parts = [
-    mcTbar(project.name),
-    projSummary(project.summaries),
-    projSnapshoot(`images/SnapshootD${project.no}.jpg`, 'mc-snapshoot'),
-    pDetails(project.details, 'mc-desc'),
-    pSkills(project.skills, 'tag mc-tags'),
-    modalBtnArea(project.links),
-  ];
-
-  parts.forEach((p) => modalCard.appendChild(p));
-  return modalCard;
-}
-
-function hideModal() {
-  const modal = document.getElementById('modal-ui-wrapper');
-  modal.classList.toggle('md-show');
-  document.body.classList.toggle('no-scroll');
-  document.body.removeChild(document.body.lastChild);
-}
-
-function showProjectDetails(proID) {
-  const modal = document.createElement('div');
-  modal.className = 'modal-ui';
-  modal.id = 'modal-ui-wrapper';
-
-  modal.appendChild(compileModalCards(arrProjects[proID - 1]));
-  document.body.appendChild(modal);
-
-  document.getElementById('mc-close')
-    .addEventListener('click', hideModal);
-
-  document.body.classList.toggle('no-scroll');
-}
-
 
 /* ============================================================
    SOCIAL LINKS RENDERING
@@ -369,18 +307,3 @@ function compileSocial(social, index) {
 
 Array.from(document.getElementsByClassName('social-media'))
   .forEach((social, i) => compileSocial(social, i + 1));
-
-
-/* ============================================================
-   EVENT WIRING — PROJECT MODALS
-============================================================ */
-
-Array.from(document.getElementsByClassName('btn-projects'))
-  .forEach((btn) => {
-    btn.addEventListener('click', (e) => {
-      showProjectDetails(btn.id);
-      e.stopPropagation();
-    });
-  });
-
-// || =========== Pop-UP Ends ==============|| */
