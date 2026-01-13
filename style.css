@@ -171,6 +171,8 @@ ul {
   align-items: center;
 }
 
+.border-b { border-bottom: 1px solid var(--clr-border-muted); }
+
 /* =========================
    Layout System
 ========================= */
@@ -369,7 +371,6 @@ nav>ul {
 
 .works {
   gap: 5em;
-  padding: 5em 8%;
   padding: var(--space-section) var(--space-page);
 }
 
@@ -596,10 +597,6 @@ footer .content-placeholder {
    - Scheduled for review/removal
      after card normalization completes
 */
-.grid-responsive>.content-placeholder {
-  padding: 0;
-  margin: 0;
-}
 
 #about>.grid-responsive {
   gap: 2em;
@@ -745,10 +742,6 @@ form {
 
   .card--reverse {
     grid-template-areas: "body media";
-  }
-
-  .projects {
-    padding-right: 2rem;
   }
 
   .language-ul {
