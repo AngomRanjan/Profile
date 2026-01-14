@@ -31,7 +31,7 @@
    5. Theme variants override tokens, never components
 ============================================================ */
 
-:root {
+  :root {
 
     /* Typography */
     --ff-base: "Poppins", sans-serif;
@@ -71,12 +71,60 @@
 
     /* Layout */
     --vh-offset: calc(100svh - 56px);
+
+    &[data-theme="dark"] {
+
+      /* =========================
+       Surfaces
+    ========================= */
+
+      --clr-bg-page: #0f1214;
+      --clr-bg-surface: #171b1e;
+      --clr-bg-surface-alpha: #171b1ecc;
+
+      /* =========================
+       Text
+    ========================= */
+
+      --clr-text-heading: #f2f4f8;
+      --clr-text-primary: #e6e6e6;
+      --clr-text-muted: #a8a8a8;
+
+      /* =========================
+       Accent
+    ========================= */
+
+      /* --clr-accent: #3dd6c6;
+      --clr-accent-soft: #6fe9dc; */
+      --clr-accent: #4cc9f0;
+      --clr-accent-soft: #7ddcff;
+
+
+
+      /* =========================
+       Borders / UI chrome
+    ========================= */
+
+      --clr-border-muted: #2a2f33;
+
+      /* =========================
+       Tags / Pills
+    ========================= */
+
+      --clr-tag-bg: #20262b;
+
+      /* =========================
+       Elevation
+    ========================= */
+
+      --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.6);
+    }
   }
 
 }
 
 @layer base {
-  
+
   body {
     font-family: var(--ff-base);
     font-size: var(--fs-md);
@@ -241,7 +289,7 @@
 
   .btn {
     --btn-bg: var(--clr-bg-surface);
-    --btn-color: #396df2;
+    --btn-color: var(--clr-accent);
     --btn-border: var(--clr-accent-soft);
 
     display: inline-flex;
@@ -271,10 +319,10 @@
 
   .btn:hover,
   .btn:focus-visible {
-    background-color: var(--clr-accent);
-    color: var(--clr-bg-surface);
+    background-color: var(--btn-color);
+    color: var(--btn-bg);
     box-shadow: var(--shadow-soft);
-    border-color: #396df2;
+    border-color: var(--btn-bg);
     transform: scale(0.95);
     letter-spacing: 0.02em;
     font-weight: var(--fw-bold);
@@ -286,16 +334,9 @@
     cursor: not-allowed;
   }
 
-  .nav-links-desktop:hover {
-    background-color: var(--clr-accent);
-    color: var(--clr-bg-surface);
-    box-shadow: var(--shadow-soft);
-    border-radius: 5px;
-    cursor: pointer;
-    transform: scale(0.95);
-    letter-spacing: 0.02em;
-    font-weight: var(--fw-bold);
-    border: 1px solid #396df2;
+  .btn img,
+  .btn-icn {
+    filter: brightness(0) saturate(100%);
   }
 
   /* social-media */
@@ -303,6 +344,24 @@
   .social-media {
     /* This exact design is needed but open for better way of implementation*/
     padding-block: var(--space-1);
+
+    a {
+    color: var(--clr-text-muted);
+
+    img {
+    filter: brightness(0) saturate(100%);
+    opacity: 0.85;
+  }
+
+    &:hover,
+    &:focus-visible {
+      color: var(--clr-accent);
+      img {
+      opacity: 1;
+      box-shadow: var(--shadow-soft);
+  }
+    }
+  }
 
     ul {
       display: flex;
@@ -377,7 +436,7 @@
 
   .tag {
     --tag-bg: var(--clr-tag-bg);
-    --tag-color: #505dd5;
+    --tag-color: var(--clr-accent);
     --tag-border: var(--clr-tag-bg);
 
     display: inline-flex;
@@ -493,6 +552,7 @@
     align-items: center;
     height: 48px;
     font-size: 1.2em;
+    color: var(--clr-text-primary);
   }
 
   .accordion-header>.icons>img:hover {
@@ -602,7 +662,20 @@
   }
 
   .nav-links-desktop {
+    color: var(--clr-text-primary);
     padding: 0 var(--space-1);
+
+    &:hover {
+    background-color: var(--clr-accent);
+    color: var(--clr-bg-surface);
+    box-shadow: var(--shadow-soft);
+    border-radius: 5px;
+    cursor: pointer;
+    transform: scale(0.95);
+    letter-spacing: 0.02em;
+    font-weight: var(--fw-bold);
+    border: 1px solid var(--btn-border);
+  }
   }
 
   .nav-links-mobile {
