@@ -1,6 +1,6 @@
 @import url(https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap);
 
-@layer reset, base, layout, components, utilities;
+@layer reset, tokens, base, layout, components, utilities;
 
 @layer reset {
   * {
@@ -19,8 +19,19 @@
   }
 }
 
-@layer base {
-  :root {
+@layer tokens {
+  /* ============================================================
+   Design Tokens — Contract
+   ------------------------------------------------------------
+   Rules:
+   1. Tokens define design decisions, not implementation
+   2. Tokens must not reference components or layout
+   3. Tokens are consumed by base, layout, components
+   4. Tokens are stable once extracted (versioned changes only)
+   5. Theme variants override tokens, never components
+============================================================ */
+
+:root {
 
     /* Typography */
     --ff-base: "Poppins", sans-serif;
@@ -28,7 +39,6 @@
     /* Fluid type scale */
     --fs-xl: clamp(2rem, 4vw, 2.668rem);
     --fs-lg: clamp(1.3rem, 2.5vw, 1.5rem);
-    /* rarely used; legacy did not rely on it strongly */
     --fs-md: clamp(0.95rem, 1.5vw, 1rem);
     --fs-sm: clamp(0.75rem, 1vw, 0.8rem);
 
@@ -41,8 +51,6 @@
     /* Spacing */
     --space-1: 0.5rem;
     --space-2: 1rem;
-
-    /* Macro layout spacing */
     --space-section: clamp(2.5rem, 6vw, 5rem);
     --space-page: clamp(1.5rem, 4vw, 3rem);
 
@@ -50,16 +58,12 @@
     --clr-bg-page: #e5e5e5;
     --clr-bg-surface: #fff;
     --clr-bg-surface-alpha: #ffffffba;
-
     --clr-accent: #5867eb;
     --clr-accent-soft: #6070ff;
-
     --clr-tag-bg: #ebebff;
-
     --clr-text-heading: #172b4d;
     --clr-text-primary: #344563;
     --clr-text-muted: #6b7687;
-
     --clr-border-muted: #dfe1e6;
 
     /* Shadow */
@@ -69,6 +73,10 @@
     --vh-offset: calc(100svh - 56px);
   }
 
+}
+
+@layer base {
+  
   body {
     font-family: var(--ff-base);
     font-size: var(--fs-md);
