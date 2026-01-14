@@ -4,21 +4,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Web Developer at Jobscan | Full Stack Engineer | Front End Specialist | HTML5, CSS3, Bootstrap</title>
+  <title>Web Developer at Jobscan | Full Stack Engineer | Front End Specialist</title>
+
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap"
-    rel='stylesheet'>
+        rel="stylesheet">
+
   <meta name="description"
-    content="Angom Chittaranjan &nbsp; Frontend Developer with 5+ years of professional experiences in 
-                                      Web Designing and User Interfac Development.  Tech Skill: HTML(5), Css(3), Sass, Less, 
-                                      Bootstrap, JavaScript, jQuery, Reactjs.  Experts in responsive Web Design.  Strong experience with Cross Browser Compatibility issues and Optimization for web">
+        content="Angom Chittaranjan — Frontend Developer with 5+ years of experience in HTML, CSS, JavaScript, React, responsive UI, and performance optimization.">
+
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body class="grid" id="body">
+
   <header class="flex bg-prime" id="header">
     <div class="logo" id="logo">
-      <a class="logo-text fw-bold" href="#">Angom</a>
+      <a class="logo-text" href="#">Angom</a>
     </div>
+
     <nav class="navbar">
       <ul class="fw-medium">
         <li><a class="nav-links-desktop" href="#works">Portfolio</a></li>
@@ -26,80 +29,131 @@
         <li><a class="nav-links-desktop" href="#contacts">Contact</a></li>
       </ul>
       <img class="nav-links-mobile" id="menu" src="icons/menu.png" alt="menu">
+    </nav>
   </header>
+
   <main class="wrapper grid" id="main-container">
-    <section class="flex vh-100 bg-prime" id="headlines">
-      <div class="content-placeholder section-container section-spacing">
-        <h1 class="head-1 my-15 fw-bold" id="main-title">
+
+    <!-- INTRO -->
+    <section id="headlines" class="bg-surface">
+      <div class="container container--hero vh-100">
+        <h1 class="fs-xl" id="main-title">
           I’m Angom,<br>
           Glad to see you!
         </h1>
-        <p class="description my-25" id="title-desc">
+
+        <p class="description" id="title-desc">
           I’m a software developer! I can help you build a product,
           feature or website. Look through some of my work and experience!
-          If you like what you see and have a project you need coding, don’t hesitate to contact me.
+          If you like what you see and have a project you need coding,
+          don’t hesitate to contact me.
         </p>
-        <div class="social-media">
-        </div>
+
+        <div class="social-media"></div>
       </div>
     </section>
-    <section id="about">
-      <div class="grid grid-responsive layout-grid surface-card">
-        <div class="snapshoot-placeholders content-placeholder section-container section-spacing">
-          <h2 class="head-1 my-15 fw-bold" id="about-title">About Myself</h2>
-          <p class="description my-25" id="about-desc">
-            I’m a software developer! I can help you build a product , feature or website Look through some
-            of my work and experience! If you like what you see and have a project you need coding, don’t
-            hesitate to contact me.
-          </p>
-          <div class="social-media">
+
+    <!-- ABOUT -->
+    <section id="about" class="bg-surface radius-tr">
+      <div class="container container--narrow">
+        <article class="card card--about">
+
+          <div class="card-media">
+            <h2 class="fs-xl" id="about-title">About Myself</h2>
+
+            <p class="card-description" id="about-desc">
+              I’m a software developer! I can help you build a product,
+              feature or website. Look through my work and experience!
+              If you like what you see and have a project you need coding,
+              don’t hesitate to contact me.
+            </p>
+
+            <div class="social-media"></div>
           </div>
-        </div>
-        <div class="accordion">
-          <div class="flex accordion-header accordion-header border-b">Languages<div class="icons"><img src="icons/open.png" name="close" alt="" id = "t"></div>
+
+          <div class="card-body">
+            <div class="accordion">
+
+              <div class="flex accordion-header border-b">
+                <div>Languages</div>
+                <div class="icons"><img src="icons/open.png" name="close" alt="" id = "t"></div>
+              </div>
+
+              <div class="flex accordion-header border-b" id="frameworks">
+                <div>Frameworks</div>
+                <div class="icons"><img src="icons/open.png"  name="close"  alt=""></div>
+              </div>
+
+              <div class="flex accordion-header border-b" id="skills">
+                <div>Skills</div>
+                <div class="icons"><img src="icons/open.png"  name="close" alt=""></div>
+              </div>
+
+            </div>
           </div>
-          <div class="flex accordion-header accordion-header border-b" id="frameworks">
-            <div>Frameworks</div>
-            <div class="icons"><img src="icons/open.png" name="close" alt=""></div>
-          </div>
-          <div class="flex accordion-header accordion-header border-b" id="skills">
-            <div>Skills</div>
-            <div class="icons"><img src="icons/open.png" name="close" alt=""></div>
-          </div>
-        </div>
+
+        </article>
       </div>
     </section>
+
   </main>
-  <footer class="footer" id="contacts">
-    <div class="content-placeholder section-container section-spacing" id="contact-placeholder">
-      <h2 class="head-1 my-15 fw-bold" id="contact-me">Contact Me</h2>
-      <p class="my-15" id="contact-msg">
-        If you have an application you are interested in developing, a feature
-        that you need to built or a project that needs coding. I’d love to help
-        with it
+
+  <!-- CONTACT -->
+  <footer id="contacts">
+    <div class="container container--hero">
+
+      <h2 class="fs-xl" id="contact-me">Contact Me</h2>
+
+      <p class="description" id="contact-msg">
+        If you have an application you’re interested in developing,
+        a feature that you need built, or a project that needs coding,
+        I’d love to help with it.
       </p>
-      <form class="form flex" action="https://formspree.io/f/xbjwpzkw" method="post">
+
+      <form class="form flex"
+            action="https://formspree.io/f/xbjwpzkw"
+            method="post">
+
         <div class="input__container">
-          <input class="form-input input-line" type="text" placeholder="Enter your name" id="name" name="name" maxlength="30"
-            required />
-          <label for="name" class="input__label">Enter your name</label>
+          <input class="form-input input-line"
+                 type="text"
+                 id="name"
+                 name="name"
+                 placeholder="Enter your name"
+                 maxlength="30"
+                 required>
+          <label class="input__label" for="name">Enter your name</label>
         </div>
+
         <div class="input__container">
-          <input class="form-input input-line" type="email" id="email" name="email" placeholder="yourid@gmail.com"
-            required />
-          <label for="email" class="input__label">Enter your email</label>
+          <input class="form-input input-line"
+                 type="email"
+                 id="email"
+                 name="email"
+                 placeholder="yourid@gmail.com"
+                 required>
+          <label class="input__label" for="email">Enter your email</label>
         </div>
+
         <div class="input__container">
-          <textarea class="form-input" rows="10" maxlength="500" placeholder="Write your message here" id="message" name="message"
-            required></textarea>
-          <label for="message" class="input__label">Write your message here</label>
+          <textarea class="form-input"
+                    id="message"
+                    name="message"
+                    rows="10"
+                    maxlength="500"
+                    placeholder="Write your message here"
+                    required></textarea>
+          <label class="input__label" for="message">Write your message here</label>
         </div>
-        <input class="btn form-button" type="submit" value="Get It Touch" />
+
+        <input class="btn form-button" type="submit" value="Get In Touch">
       </form>
+
     </div>
   </footer>
-  <script src="profile.js" async defer></script>
-  <script src="accolade.js" async defer></script>
-</body>
 
+  <script src="profile.js" defer></script>
+  <script src="accolade.js" defer></script>
+
+</body>
 </html>

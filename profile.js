@@ -143,10 +143,9 @@ const arrSocialMedia = [
 
 const cardMedia = (projectNo) => {
   const mediaContainer = document.createElement('div');
-  mediaContainer.className = 'card-media snapshoot-placeholders';
+  mediaContainer.className = 'card-media';
 
   const image = document.createElement('img');
-  image.className = 'snapshoot';
   image.src = `images/SnapshootD${projectNo}.jpg`;
   image.alt = 'Project Looks'
   
@@ -154,21 +153,20 @@ const cardMedia = (projectNo) => {
   return mediaContainer;
 };
 
-const projTitle = (pName, addClass = 'project-titles my-15') => {
+const projTitle = (pName) => {
   const title = document.createElement('h2');
-  title.classList = `card-title ${addClass}`;
-  if (addClass === 'mc-title') title.id = 'mc-title';
+  title.classList = `card-title`;
   title.textContent = pName;
   return title;
 };
 
 const projSummary = (summaries) => {
   const ulSummaries = document.createElement('ul');
-  ulSummaries.classList.add('card-meta','inline-li', 'project-summary');
+  ulSummaries.className = 'card-meta';
 
   Object.entries(summaries).forEach((summary) => {
     const li = document.createElement('li');
-    li.textContent = summary[0];
+    li.textContent = summary[1];
     ulSummaries.appendChild(li);
   });
 
@@ -177,7 +175,7 @@ const projSummary = (summaries) => {
 
 const pDetails = (details, pid = null) => {
   const p = document.createElement('p');
-  p.className = 'card-description project-descriptions';
+  p.className = 'card-description';
   if (pid) p.id = pid;
   p.textContent = details;
   return p;
@@ -239,7 +237,7 @@ const cardActions = (links) => {
 
 const cardBody = (project) => {
   const panel = document.createElement('div');
-  panel.className = 'card-body panel panel--projects panel-spacing';
+  panel.className = 'card-body';
 
   panel.append(
     projTitle(project.name),
@@ -259,7 +257,7 @@ const cardBody = (project) => {
 
 function compileCards(project) {
   const card = document.createElement('article');
-  card.classList = 'card grid grid-responsive';
+  card.classList = 'card bg-surface';
   if (project.no % 2 === 0) card.classList.add('card--reverse');
   card.id = `card${project.no}`;
 
@@ -295,7 +293,7 @@ about.parentNode.insertBefore(works, about);
 
 function compileSocial(social, index) {
   social.innerHTML = `
-    <h3 class="head3 my-15" id="social-${index}">LET’S CONNECT</h3>
+    <h3 class="fs-md fw-medium text-accent" id="social-${index}">LET’S CONNECT</h3>
     <ul class="inline-li">
       ${arrSocialMedia.map(
         (s) => `<li><a href="${s.link}">
