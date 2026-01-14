@@ -72,53 +72,78 @@
     /* Layout */
     --vh-offset: calc(100svh - 56px);
 
-    &[data-theme="dark"] {
+    /* transition */
+    --motion-theme: 250ms cubic-bezier(.4, 0, .2, 1);
+  }
 
-      /* =========================
-       Surfaces
-    ========================= */
+  /* ==========================
+     SYSTEM DARK MODE
+  ========================== */
+  @media (prefers-color-scheme: dark) {
+    body:not(:has(.theme-switch input:checked)) {
 
       --clr-bg-page: #0f1214;
       --clr-bg-surface: #171b1e;
       --clr-bg-surface-alpha: #171b1ecc;
 
-      /* =========================
-       Text
-    ========================= */
-
       --clr-text-heading: #f2f4f8;
       --clr-text-primary: #e6e6e6;
       --clr-text-muted: #a8a8a8;
 
-      /* =========================
-       Accent
-    ========================= */
-
-      /* --clr-accent: #3dd6c6;
-      --clr-accent-soft: #6fe9dc; */
       --clr-accent: #4cc9f0;
       --clr-accent-soft: #7ddcff;
 
-
-
-      /* =========================
-       Borders / UI chrome
-    ========================= */
-
       --clr-border-muted: #2a2f33;
-
-      /* =========================
-       Tags / Pills
-    ========================= */
-
       --clr-tag-bg: #20262b;
-
-      /* =========================
-       Elevation
-    ========================= */
 
       --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.6);
     }
+  }
+
+  /* ==========================
+     MANUAL THEME DARK OVERRIDE
+  ========================== */
+
+  body:has(#theme-dark:checked) {
+
+    --clr-bg-page: #0f1214;
+    --clr-bg-surface: #171b1e;
+    --clr-bg-surface-alpha: #171b1ecc;
+
+    --clr-text-heading: #f2f4f8;
+    --clr-text-primary: #e6e6e6;
+    --clr-text-muted: #a8a8a8;
+
+    --clr-accent: #4cc9f0;
+    --clr-accent-soft: #7ddcff;
+
+    --clr-border-muted: #2a2f33;
+
+    --clr-tag-bg: #20262b;
+
+    --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.6);
+  }
+
+  /* ==========================
+     BRAND THEME
+  ========================== */
+  body:has(#theme-brand:checked) {
+    --clr-bg-page: #eee7dc;
+    --clr-bg-surface: #fffaf2;
+    --clr-bg-surface-alpha: #fffaf2cc;
+
+    --clr-text-heading: #2b1f14;
+    --clr-text-primary: #3b2f2f;
+    --clr-text-muted: #7a5c3d;
+
+    --clr-border-muted: #f2d9b1;
+
+    --clr-tag-bg: #fff1d6;
+
+    --clr-accent: #f59e0b;
+    --clr-accent-soft: #fbbf24;
+
+    --shadow-soft: 0 10px 25px rgba(245, 158, 11, 0.25);
   }
 
 }
@@ -132,6 +157,9 @@
     line-height: var(--lh-base);
     color: var(--clr-text-primary);
     background-color: var(--clr-bg-surface);
+    transition:
+      background-color var(--motion-theme),
+      color var(--motion-theme);
   }
 
   h1,
@@ -180,6 +208,19 @@
   a {
     text-decoration: none;
   }
+
+  @media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 1ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 1ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
 }
 
 @layer layout {
@@ -212,6 +253,16 @@
     max-width: 750px;
     align-content: center;
     padding: var(--space-page);
+
+    /* Temporary hack, must resolve a better way at during fine tuning */
+
+    .description {
+      padding-block: var(--space-2);
+
+      &#title-desc {
+        padding-block: calc(5 * var(--space-2));
+      }
+    }
   }
 
   /* HEADER */
@@ -221,6 +272,10 @@
     top: 0;
     background-color: var(--clr-bg-surface-alpha);
     backdrop-filter: blur(6px);
+
+    &> :nth-child(2) {
+      margin-left: auto;
+    }
   }
 
   header>* {
@@ -346,22 +401,23 @@
     padding-block: var(--space-1);
 
     a {
-    color: var(--clr-text-muted);
+      color: var(--clr-text-muted);
 
-    img {
-    filter: brightness(0) saturate(100%);
-    opacity: 0.85;
-  }
-
-    &:hover,
-    &:focus-visible {
-      color: var(--clr-accent);
       img {
-      opacity: 1;
-      box-shadow: var(--shadow-soft);
-  }
+        filter: brightness(0) saturate(100%);
+        opacity: 0.85;
+      }
+
+      &:hover,
+      &:focus-visible {
+        color: var(--clr-accent);
+
+        img {
+          opacity: 1;
+          box-shadow: var(--shadow-soft);
+        }
+      }
     }
-  }
 
     ul {
       display: flex;
@@ -613,6 +669,86 @@
     color: var(--clr-accent);
   }
 
+  /* Theme Switcher */
+  .theme-switch {
+
+    input[type="radio"] {
+      appearance: none;
+      -webkit-appearance: none;
+      width: 24px;
+      height: 24px;
+      cursor: pointer;
+      display: inline-block;
+      vertical-align: middle;
+      background-color: var(--clr-text-muted);
+      /* Default "off" color */
+
+      /* Step 4: Apply the mask properties */
+      mask-size: contain;
+      -webkit-mask-size: contain;
+      mask-repeat: no-repeat;
+      -webkit-mask-repeat: no-repeat;
+      mask-position: center;
+      -webkit-mask-position: center;
+
+      /* Specific icon class */
+      &#theme-light {
+        mask-image: url('icons/light.svg');
+        -webkit-mask-image: url('icons/light.svg');
+      }
+
+      &#theme-dark {
+        mask-image: url('icons/dark.svg');
+        -webkit-mask-image: url('icons/dark.svg');
+      }
+
+      &#theme-brand {
+        mask-image: url('icons/brand.svg');
+        -webkit-mask-image: url('icons/brand.svg');
+      }
+
+      /* Change color when checked */
+      &:checked {
+        background-color: var(--clr-accent);
+        /* Blue accent when active */
+      }
+    }
+
+
+
+    /* ==========================
+       SYSTEM THEME VISUAL SYNC
+    ========================== */
+    @media (prefers-color-scheme: light) {
+      &:not(:has(input:checked)) #theme-light {
+        background: var(--clr-accent);
+      }
+    }
+
+    @media (prefers-color-scheme: dark) {
+      &:not(:has(input:checked)) {
+        #theme-dark {
+          background: var(--clr-accent);
+        }
+      }
+    }
+  }
+
+  /* Theme Transition */
+
+  .card,
+  header,
+  footer,
+  section,
+  .btn,
+  .form-input {
+    transition:
+      background-color var(--motion-theme),
+      color var(--motion-theme),
+      border-color var(--motion-theme),
+      box-shadow var(--motion-theme);
+  }
+
 }
 
 @layer utilities {
@@ -666,16 +802,16 @@
     padding: 0 var(--space-1);
 
     &:hover {
-    background-color: var(--clr-accent);
-    color: var(--clr-bg-surface);
-    box-shadow: var(--shadow-soft);
-    border-radius: 5px;
-    cursor: pointer;
-    transform: scale(0.95);
-    letter-spacing: 0.02em;
-    font-weight: var(--fw-bold);
-    border: 1px solid var(--btn-border);
-  }
+      background-color: var(--clr-accent);
+      color: var(--clr-bg-surface);
+      box-shadow: var(--shadow-soft);
+      border-radius: 5px;
+      cursor: pointer;
+      transform: scale(0.95);
+      letter-spacing: 0.02em;
+      font-weight: var(--fw-bold);
+      border: 1px solid var(--btn-border);
+    }
   }
 
   .nav-links-mobile {
@@ -694,9 +830,6 @@
     color: var(--clr-text-primary);
     line-height: var(--lh-base);
   }
-
-  /* ===================================Card Reverse Modifier
-============================================================ */
 
   .card--reverse {
     grid-template-areas: "body media";

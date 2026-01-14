@@ -305,3 +305,24 @@ function compileSocial(social, index) {
 
 Array.from(document.getElementsByClassName('social-media'))
   .forEach((social, i) => compileSocial(social, i + 1));
+
+/* ============================================================
+   THEME PERSISTENCE 
+============================================================ */
+
+const themeRadios = document.querySelectorAll('.theme-switch input[type="radio"]');
+
+// Save on change
+themeRadios.forEach(radio => {
+  radio.addEventListener('change', () => {
+    localStorage.setItem('theme', radio.id);
+  });
+});
+
+// Restore on load
+const savedTheme = localStorage.getItem('theme');
+
+if (savedTheme) {
+  const input = document.getElementById(savedTheme);
+  if (input) input.checked = true;
+}

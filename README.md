@@ -1,12 +1,10 @@
-![](https://img.shields.io/badge/Microverse-blueviolet)
+[![](https://img.shields.io/badge/Micronaut-Angom%20Chittaranjan-blue)](https://github.com/AngomRanjan)
 
 # Profile
 
-> This project is a part of Microverse Software Developers Course Module-1.
-Here I am developing a Responsive Profile Website. The project is in the initial stage of development.
-Currently, it showcase a simple mobile and desktop responsive model. 
-
-
+> This project is part of the Microverse Software Developers Course and represents a continuously evolving personal profile / portfolio website.
+> 
+> The project has now been refactored into a CSS design-system architecture with layered styling, design tokens, and a professional multi-theme system (Light, Dark, Brand) while preserving the original visual identity.
 
 ## Built With
 
