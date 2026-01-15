@@ -7,7 +7,6 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    /* color: var(--clr-text-primary); */
   }
 
   ul {
@@ -640,34 +639,42 @@
 
   .accordion {
     /* layout-agnostic container */
-  }
 
-  .accordion-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 48px;
-    font-size: 1.2em;
-    color: var(--clr-text-primary);
+    summary {
+      list-style: none;
+    }
 
-    &[data-state="open"] .icon {
+    summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .accordion-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 48px;
+      font-size: 1.2em;
+      color: var(--clr-text-primary);
+
+      .icon {
+        --icon-url: url("icons/chevron.svg");
+
+        transition:
+          transform var(--motion-theme),
+          color var(--motion-theme);
+      }
+
+    }
+
+    .accordion-item[open]>summary .icon {
       transform: rotate(90deg);
       color: var(--clr-accent);
     }
 
-    &[data-state="closed"] .icon {
+    .accordion-item:not([open])>summary .icon {
       transform: rotate(0deg);
       color: var(--clr-text-muted);
     }
-
-    .icon {
-      --icon-url: url("icons/chevron.svg");
-
-      transition:
-        transform var(--motion-theme),
-        color var(--motion-theme);
-    }
-
   }
 
   .language-ul {
@@ -802,7 +809,7 @@
     cursor: pointer;
   }
 
-  .u-hover-muted{
+  .u-hover-muted {
     transition:
       transform 0.3s ease,
       box-shadow 0.3s ease;
