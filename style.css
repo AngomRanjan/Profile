@@ -277,16 +277,6 @@
     max-width: 750px;
     align-content: center;
     padding: var(--space-page);
-
-    /* Temporary hack, must resolve a better way at during fine tuning */
-
-    .description {
-      padding-block: var(--space-2);
-
-      &#title-desc {
-        padding-block: calc(5 * var(--space-2));
-      }
-    }
   }
 
   /* HEADER */
@@ -871,7 +861,7 @@
 }
 
 .space-lg {
-  margin-block: var(--space-section);
+  margin-block: var(--space-page);
 }
 
 /* Directional overrides (escape hatch only) */
