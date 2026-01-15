@@ -692,7 +692,7 @@
     display: flex;
   }
 
-  /* || Overlay Menu */
+  /* || Overlay Menu
 
   .overlay-container {
     height: 100vh;
@@ -729,7 +729,7 @@
   :is(#close, .overlay):hover {
     cursor: pointer;
     color: var(--clr-accent);
-  }
+  } */
 
   /* Theme Switcher */
   .theme-switch {
@@ -926,10 +926,6 @@
   :is(.logo, .logo:hover) {
     transform: rotateY(360deg);
     transition: all 10s ease-in-out 1s;
-  }
-
-  .no-scroll {
-    overflow: hidden;
   }
 
   :focus-visible {

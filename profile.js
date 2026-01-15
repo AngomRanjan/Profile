@@ -3,7 +3,7 @@
    ------------------------------------------------------------
    Purpose:
    - Handles all dynamic UI generation for the profile site:
-     mobile menu, projects, modals, tags, and social links.
+     -projects, tags, and social links.
 
    Architecture Principles:
    - JS creates STRUCTURE and BEHAVIOR only
@@ -18,59 +18,6 @@
      boundaries during refactor.
 
 ============================================================ */
-
-
-/* ============================================================
-   MOBILE OVERLAY MENU SYSTEM
-   ------------------------------------------------------------
-   Responsibility:
-   - Creates and manages the mobile navigation overlay
-   - Toggles body scroll lock
-
-   Notes:
-   - Structure-only generation
-   - Visual appearance controlled entirely by CSS
-============================================================ */
-
-// || =========== Pop-Up menu ============ ||*/
-const main = document.getElementById('body');
-const mobMenu = document.createElement('div');
-mobMenu.classList.add('overlay-container', 'grid');
-mobMenu.id = 'mobMenu';
-
-function addItem(item, ...arg) {
-  const pop = document.createElement(item);
-  if (item === 'div') {
-    [pop.textContent, pop.id] = ['\u2715', 'close'];
-  } else {
-    [pop.id, pop.href, pop.textContent, pop.className] = [...arg, 'overlay'];
-  }
-  return pop;
-}
-
-function hideMobMenu() {
-  mobMenu.innerHTML = '';
-  main.removeChild(mobMenu);
-  document.body.classList.toggle('no-scroll');
-}
-
-document.getElementById('menu').addEventListener('click', () => {
-  const arr = [
-    ['div'],
-    ['a', 'link1', '#works', 'Portfolio'],
-    ['a', 'link2', '#about', 'About'],
-    ['a', 'link3', '#contacts', 'Contact'],
-  ];
-
-  arr.forEach((item) => mobMenu.appendChild(addItem(...item)));
-  main.appendChild(mobMenu);
-  document.body.classList.toggle('no-scroll');
-
-  const popChildren = Array.from(mobMenu.children);
-  popChildren.forEach((child) => child.addEventListener('click', hideMobMenu));
-});
-
-// || =========== Pop-Up Menu Ends============ ||*/
 
 
 /* ============================================================
