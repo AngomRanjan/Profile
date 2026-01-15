@@ -9,7 +9,28 @@
 ## Built With
 
 - HTML
-- CSS
+
+- CSS (Design Tokens, CSS Layers, CSS-first theming)
+
+- JavaScript (theme persistence only)
+
+## ✨ Features
+
+- Responsive layout (mobile & desktop)
+
+- Token-governed CSS design system
+
+- Layered CSS architecture
+
+- Light, Dark, High Contrast and Brand themes
+
+- System theme sync
+
+- Persistent user theme preference
+
+- Smooth theme transitions
+
+- Accessibility-aware motion handling
 
 ## Live Demo
 
