@@ -146,6 +146,29 @@
     --shadow-soft: 0 10px 25px rgba(245, 158, 11, 0.25);
   }
 
+  /* ==========================
+   HIGH CONTRAST THEME
+========================== */
+body:has(#theme-contrast:checked) {
+
+  --clr-bg-page: #000000;
+  --clr-bg-surface: #0f0f0f;
+  --clr-bg-surface-alpha: #0f0f0fcc;
+
+  --clr-text-heading: #ffffff;
+  --clr-text-primary: #ffffff;
+  --clr-text-muted: #e5e5e5;
+
+  --clr-border-muted: #ffffff;
+
+  --clr-accent: #ffff00;        /* WCAG-compliant yellow */
+  --clr-accent-soft: #ffff00;
+
+  --clr-tag-bg: #000000;
+
+  --shadow-soft: none;           /* Shadows reduce clarity */
+}
+
 }
 
 @layer base {
@@ -681,9 +704,7 @@
       display: inline-block;
       vertical-align: middle;
       background-color: var(--clr-text-muted);
-      /* Default "off" color */
-
-      /* Step 4: Apply the mask properties */
+      
       mask-size: contain;
       -webkit-mask-size: contain;
       mask-repeat: no-repeat;
@@ -707,18 +728,18 @@
         -webkit-mask-image: url('icons/brand.svg');
       }
 
-      /* Change color when checked */
+      &#theme-contrast {
+        mask-image: url('icons/contrast.svg');
+        -webkit-mask-image: url('icons/contrast.svg');
+      }
+      
       &:checked {
         background-color: var(--clr-accent);
-        /* Blue accent when active */
       }
     }
+    
+    /* SYSTEM THEME VISUAL SYNC */
 
-
-
-    /* ==========================
-       SYSTEM THEME VISUAL SYNC
-    ========================== */
     @media (prefers-color-scheme: light) {
       &:not(:has(input:checked)) #theme-light {
         background: var(--clr-accent);
@@ -783,6 +804,11 @@
 
   .no-scroll {
     overflow: hidden;
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--clr-accent);
+    outline-offset: 3px;
   }
 
 }
