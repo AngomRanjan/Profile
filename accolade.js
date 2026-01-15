@@ -8,10 +8,11 @@ const toggleAcCtrl = (acCtrl) => {
 };
 
 const resetAc = () => {
-  const acs = Array.from(document.querySelectorAll('.accordion-header > .icons > img'));
-  acs.forEach((item) => { [item.name, item.src] = ['close', 'icons/open.png']; });
-  const acSib = Array.from(document.querySelectorAll('.accordion-header'));
-  acSib.forEach((item) => { item.classList = 'flex accordion-header border-b'; });
+  document
+    .querySelectorAll('.accordion-header')
+    .forEach(h => h.dataset.state = 'closed');
+
+  removeAcc(document.getElementById('ta'));
 };
 
 const removeAcc = (acNode) => {
@@ -21,8 +22,8 @@ const removeAcc = (acNode) => {
 const appendAcc = (curNode) => {
   const newUl = document.createElement('ul');
   [newUl.id, newUl.classList] = ['ta', 'language-ul border-b'];
-  const proj = curNode.parentNode.parentNode;
-  proj.classList.toggle('border-b');
+  const proj = curNode;
+  
   let arr = [];
   if (proj.textContent.trim(' ') === 'Skills') {
     arr = arrSkl;
@@ -39,20 +40,28 @@ const appendAcc = (curNode) => {
     return myLi;
   });
   newLi.map((i) => newUl.appendChild(i));
-  proj.parentNode.insertBefore(newUl, proj.nextElementSibling);
+  proj.insertAdjacentElement('afterend', newUl);
 };
+
 const handleAcClick = (e) => {
-  const curNode = e.target;
-  removeAcc(document.getElementById('ta'));
-  if (curNode.name === 'close') {
-    resetAc();
-    appendAcc(curNode);
+  const header = e.currentTarget;
+  const isOpen = header.dataset.state === 'open';
+
+  resetAc();
+
+  if (!isOpen) {
+    header.dataset.state = 'open';
+    appendAcc(header);
+  } else {
+    header.dataset.state = 'closed';
   }
-  toggleAcCtrl(curNode);
-  if (curNode.name === 'close') curNode.parentNode.parentNode.classList = 'flex accordion-header border-b';
-  e.stopPropagation();
 };
-const acc = Array.from(document.querySelectorAll('.accordion-header > .icons > img'));
+
+const acc = Array.from(
+  document.querySelectorAll('.accordion-header')
+);
 acc.forEach((item) => item.addEventListener('click', handleAcClick));
 
-document.getElementById('t').click();
+document
+  .querySelector('.accordion-header')
+  ?.dispatchEvent(new Event('click'));

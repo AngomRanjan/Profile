@@ -224,11 +224,11 @@ const cardActions = (links) => {
     a.target = '_blank'
     a.textContent = index === 0 ? 'Go Live' : 'View Source';
 
-    const img = document.createElement('img');
-    img.src = 'icons/Icon.png';
-    img.className = 'btn-icn';
+    const icon = document.createElement('span');
+    icon.className = 'icon icon--sm';
+    icon.dataset.icon = index === 0 ? 'live-project' : 'source-code';
 
-    a.prepend(img);
+    a.prepend(icon);
     div.appendChild(a);
   });
 
@@ -296,8 +296,8 @@ function compileSocial(social, index) {
     <h3 class="fs-md fw-medium text-accent" id="social-${index}">LET’S CONNECT</h3>
     <ul class="inline-li">
       ${arrSocialMedia.map(
-        (s) => `<li><a href="${s.link}">
-          <img class="icons" src="${s.icon}" alt="${s.media}">
+        (s) => `<li><a href="${s.link}" target="_blank">
+          <span class="icon" data-icon="${s.media}" aria-hidden="true"></span>
         </a></li>`
       ).join('')}
     </ul>`;
