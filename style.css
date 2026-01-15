@@ -149,25 +149,27 @@
   /* ==========================
    HIGH CONTRAST THEME
 ========================== */
-body:has(#theme-contrast:checked) {
+  body:has(#theme-contrast:checked) {
 
-  --clr-bg-page: #000000;
-  --clr-bg-surface: #0f0f0f;
-  --clr-bg-surface-alpha: #0f0f0fcc;
+    --clr-bg-page: #000000;
+    --clr-bg-surface: #0f0f0f;
+    --clr-bg-surface-alpha: #0f0f0fcc;
 
-  --clr-text-heading: #ffffff;
-  --clr-text-primary: #ffffff;
-  --clr-text-muted: #e5e5e5;
+    --clr-text-heading: #ffffff;
+    --clr-text-primary: #ffffff;
+    --clr-text-muted: #e5e5e5;
 
-  --clr-border-muted: #ffffff;
+    --clr-border-muted: #ffffff;
 
-  --clr-accent: #ffff00;        /* WCAG-compliant yellow */
-  --clr-accent-soft: #ffff00;
+    --clr-accent: #ffff00;
+    /* WCAG-compliant yellow */
+    --clr-accent-soft: #ffff00;
 
-  --clr-tag-bg: #000000;
+    --clr-tag-bg: #000000;
 
-  --shadow-soft: none;           /* Shadows reduce clarity */
-}
+    --shadow-soft: none;
+    /* Shadows reduce clarity */
+  }
 
 }
 
@@ -704,7 +706,7 @@ body:has(#theme-contrast:checked) {
       display: inline-block;
       vertical-align: middle;
       background-color: var(--clr-text-muted);
-      
+
       mask-size: contain;
       -webkit-mask-size: contain;
       mask-repeat: no-repeat;
@@ -732,12 +734,12 @@ body:has(#theme-contrast:checked) {
         mask-image: url('icons/contrast.svg');
         -webkit-mask-image: url('icons/contrast.svg');
       }
-      
+
       &:checked {
         background-color: var(--clr-accent);
       }
     }
-    
+
     /* SYSTEM THEME VISUAL SYNC */
 
     @media (prefers-color-scheme: light) {
@@ -773,6 +775,58 @@ body:has(#theme-contrast:checked) {
 }
 
 @layer utilities {
+
+  /* =========================================
+     Global Interaction Utilities
+     -----------------------------------------
+     Purpose:
+     - Centralize hover / focus behavior
+     - Remove duplicated interaction logic
+     - Opt-in usage only
+  ========================================= */
+
+  .u-interactive {
+    cursor: pointer;
+  }
+
+  .u-hover-lift {
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
+
+    &:is(:hover, :focus-visible) {
+      transform: scale(0.96);
+      box-shadow: var(--shadow-soft);
+    }
+
+  }
+
+  .u-hover-accent {
+    transition:
+      background-color 0.3s ease,
+      color 0.3s ease,
+      border-color 0.3s ease;
+
+    &:is(:hover, :focus-visible) {
+      background-color: var(--clr-accent);
+      color: var(--clr-bg-surface);
+      border-color: var(--clr-accent);
+    }
+  }
+
+  /* Single Focus Authority */
+  .u-focus-ring:focus-visible {
+    outline: 3px solid var(--clr-accent);
+    outline-offset: 3px;
+  }
+
+  /* Inset focus ring — safe inside clipped containers */
+.u-focus-inset:focus-visible {
+  outline: none;
+  box-shadow:
+    inset 0 0 0 3px var(--clr-accent);
+}
+
   /* || Utilities styles */
 
   .fw-medium {
