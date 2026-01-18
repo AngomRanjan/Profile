@@ -13,11 +13,12 @@
     content="Angom Chittaranjan — Frontend Developer with 5+ years of experience in HTML, CSS, JavaScript, React, responsive UI, and performance optimization.">
 
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="icons.css"> <!-- icons data registry -->
 </head>
 
-<body class="grid" id="body">
+<body class="" id="body">
 
-  <header class="flex bg-prime" id="header">
+  <header class="bg-prime" id="header">
     <div class="logo" id="logo">
       <a class="logo-text" href="#">Angom</a>
     </div>
@@ -31,25 +32,27 @@
     </nav>
 
     <div class="theme-switch" aria-label="theme selector">
-      <input type="radio" name="theme" class="icon icon--lg u-interactive u-hover-muted" id="theme-light">
-      <input type="radio" name="theme" class="icon icon--lg u-interactive u-hover-muted" id="theme-dark">
-      <input type="radio" name="theme" class="icon icon--lg u-interactive u-hover-muted" id="theme-contrast">
-      <input type="radio" name="theme" class="icon icon--lg u-interactive u-hover-muted" id="theme-brand">
+      <input type="radio" name="theme" class="icon icon--lg u-interactive u-hover-muted" data-icon="light"
+        id="theme-light">
+      <input type="radio" name="theme" class="icon icon--lg u-interactive u-hover-muted" data-icon="dark"
+        id="theme-dark">
+      <input type="radio" name="theme" class="icon icon--lg u-interactive u-hover-muted" data-icon="contrast"
+        id="theme-contrast">
+      <input type="radio" name="theme" class="icon icon--lg u-interactive u-hover-muted" data-icon="brand"
+        id="theme-brand">
     </div>
-
   </header>
 
-  <main class="wrapper grid" id="main-container">
-
+  <main>
     <!-- INTRO -->
     <section id="headlines" class="bg-surface">
-      <div class="container container--hero vh-100">
+      <div class="container container--narrow">
         <h1 class="fs-xl" id="main-title">
           I’m Angom,<br>
           Glad to see you!
         </h1>
 
-        <p class="description space-lg" id="title-desc">
+        <p class="description" id="title-desc">
           I’m a software developer! I can help you build a product,
           feature or website. Look through some of my work and experience!
           If you like what you see and have a project you need coding,
@@ -59,16 +62,18 @@
         <div class="social-media"></div>
       </div>
     </section>
+    <!-- WORKS to be injected from js -->
+    
 
     <!-- ABOUT -->
     <section id="about" class="bg-surface radius-tr">
-      <div class="container container--narrow">
-        <article class="card card--about">
+      <div class="container card-item">
+        <article class="card card--about card--reverse">
 
-          <div class="card-media">
+          <div class="card-body">
             <h2 class="fs-xl" id="about-title">About Myself</h2>
 
-            <p class="card-description space-lg" id="about-desc">
+            <p class="card-description" id="about-desc">
               I’m a software developer! I can help you build a product,
               feature or website. Look through my work and experience!
               If you like what you see and have a project you need coding,
@@ -78,54 +83,52 @@
             <div class="social-media"></div>
           </div>
 
-          <div class="card-body">
-            <div class="accordion">
-              <!-- Languages (default open) -->
-              <details class="accordion-item" name="stacks" open>
-                <summary class="accordion-header border-b">
-                  <span>Languages</span>
-                  <span class="icon icon--sm u-interactive u-focus-inset" data-icon="chevron" aria-hidden="true"></span>
-                </summary>
+          <div class="accordion">
+            <!-- Languages (default open) -->
+            <details class="accordion-item" name="stacks" open>
+              <summary class="accordion-header border-b">
+                <span>Languages</span>
+                <span class="icon icon--sm u-interactive u-focus-inset" data-icon="chevron" aria-hidden="true"></span>
+              </summary>
 
-                <ul class="language-ul border-b">
-                  <li><img src="images/js.png">JavaScripts</li>
-                  <li><img src="images/html.png">HTML</li>
-                  <li><img src="images/css.png">CSS</li>
-                  <li><img src="images/ruby.png">Ruby</li>
-                </ul>
-              </details>
+              <ul class="language-ul border-b">
+                <li><img src="images/js.png">JavaScripts</li>
+                <li><img src="images/html.png">HTML</li>
+                <li><img src="images/css.png">CSS</li>
+                <li><img src="images/ruby.png">Ruby</li>
+              </ul>
+            </details>
 
-              <!-- Frameworks -->
-              <details class="accordion-item" name="stacks">
-                <summary class="accordion-header border-b">
-                  <span>Frameworks</span>
-                  <span class="icon icon--sm u-interactive u-focus-inset" data-icon="chevron" aria-hidden="true"></span>
-                </summary>
+            <!-- Frameworks -->
+            <details class="accordion-item" name="stacks">
+              <summary class="accordion-header border-b">
+                <span>Frameworks</span>
+                <span class="icon icon--sm u-interactive u-focus-inset" data-icon="chevron" aria-hidden="true"></span>
+              </summary>
 
-                <ul class="language-ul border-b">
-                  <li><img src="images/react.png">React JS</li>
-                  <li><img src="images/rails.png">Rails</li>
-                  <li><img src="images/bootstrap.png">Bootstrap</li>
-                  <li><img src="images/tailwind.png">Tailwindcss</li>
-                </ul>
-              </details>
+              <ul class="language-ul border-b">
+                <li><img src="images/react.png">React JS</li>
+                <li><img src="images/rails.png">Rails</li>
+                <li><img src="images/bootstrap.png">Bootstrap</li>
+                <li><img src="images/tailwind.png">Tailwindcss</li>
+              </ul>
+            </details>
 
-              <!-- Skills -->
-              <details class="accordion-item" name="stacks">
-                <summary class="accordion-header border-b">
-                  <span>Skills</span>
-                  <span class="icon icon--sm u-interactive u-focus-inset" data-icon="chevron" aria-hidden="true"></span>
-                </summary>
+            <!-- Skills -->
+            <details class="accordion-item" name="stacks">
+              <summary class="accordion-header border-b">
+                <span>Skills</span>
+                <span class="icon icon--sm u-interactive u-focus-inset" data-icon="chevron" aria-hidden="true"></span>
+              </summary>
 
-                <ul class="language-ul border-b">
-                  <li><img src="images/mentor.png">Mentoring</li>
-                  <li><img src="images/leadership.png">Leadership</li>
-                  <li><img src="images/pairpro.png">Remote Pair Programming</li>
-                  <li><img src="images/team.png">Teamwork</li>
-                </ul>
-              </details>
+              <ul class="language-ul border-b">
+                <li><img src="images/mentor.png">Mentoring</li>
+                <li><img src="images/leadership.png">Leadership</li>
+                <li><img src="images/pairpro.png">Remote Pair Programming</li>
+                <li><img src="images/team.png">Teamwork</li>
+              </ul>
+            </details>
 
-            </div>           
           </div>
       </div>
 
@@ -140,17 +143,17 @@
 
   <!-- CONTACT -->
   <footer id="contacts">
-    <div class="container container--hero">
+    <div class="container container--narrow">
 
-      <h2 class="fs-xl space-md" id="contact-me">Contact Me</h2>
+      <h2 class="fs-xl" id="contact-me">Contact Me</h2>
 
-      <p class="description space-md" id="contact-msg">
+      <p class="description" id="contact-msg">
         If you have an application you’re interested in developing,
         a feature that you need built, or a project that needs coding,
         I’d love to help with it.
       </p>
 
-      <form class="form flex" action="https://formspree.io/f/xbjwpzkw" method="post">
+      <form class="form" action="https://formspree.io/f/xbjwpzkw" method="post">
 
         <div class="input__container">
           <input class="form-input input-line" type="text" id="name" name="name" placeholder="Enter your name"
@@ -165,12 +168,12 @@
         </div>
 
         <div class="input__container">
-          <textarea class="form-input" id="message" name="message" rows="10" maxlength="500"
+          <textarea class="form-input" id="message" name="message" rows="5" maxlength="500"
             placeholder="Write your message here" required></textarea>
           <label class="input__label" for="message">Write your message here</label>
         </div>
 
-        <input class="btn form-button space-md" type="submit" value="Get In Touch">
+        <input class="btn form-button" type="submit" value="Get In Touch">
       </form>
 
     </div>
