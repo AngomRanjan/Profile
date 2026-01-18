@@ -215,7 +215,7 @@
   .container {
     max-width: 1100px;
     margin-inline: auto;
-    padding-block: var(--space-1);
+    padding: var(--space-1);
 
     &.container--narrow {
       max-width: 650px;
@@ -499,8 +499,8 @@
     background-color: var(--clr-bg-surface);
 
     transition:
-      border-color 0.3s ease,
-      box-shadow 0.3s ease;
+      border-color var(--motion-theme),
+      box-shadow var(--motion-theme);
   }
 
   .input-line { height: 2.5em; }
