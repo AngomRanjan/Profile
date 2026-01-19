@@ -328,9 +328,7 @@
     text-align: center;
     text-decoration: none;
 
-    transition:
-      box-shadow 0.4s ease,
-      transform 0.3s ease;
+    transition: transform var(--motion-theme);
   }
 
   .btn:hover,
@@ -687,8 +685,6 @@
   .space-sm { margin-block: var(--space-1); }
   .space-md { margin-block: var(--space-2); }
   .space-lg { margin-block: var(--space-page); }
-  .space-t-sm { margin-top: var(--space-1); }
-  .space-b-sm { margin-bottom: var(--space-1); }
 
   /* || Utilities styles */
 
@@ -734,8 +730,6 @@
         border-radius: 5px;
       }
     }
-
-  .nav-links-mobile {  display: none; }
 
   .language-ul {
     display: grid;
