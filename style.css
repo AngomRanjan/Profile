@@ -332,15 +332,6 @@
     transition: transform var(--motion-theme);
   }
 
-  .btn:hover,
-  .btn:focus-visible {
-    background-color: var(--btn-color);
-    color: var(--btn-bg);
-    box-shadow: var(--shadow-soft);
-    border-color: var(--btn-bg);
-    cursor: pointer;
-  }
-
   .btn:disabled {
     opacity: 0.6;
     cursor: not-allowed;
@@ -349,14 +340,7 @@
   /* social-media */
 
   .social-media {
-    a {
-      color: var(--clr-text-muted);
-
-      &:hover,
-      &:focus-visible {
-        color: var(--clr-accent);
-      }
-    }
+    a { color: var(--clr-text-muted); }
 
     ul {
       display: flex;
@@ -394,7 +378,7 @@
 
    .card-details {
     display: grid;
-    gap: var(--space-1);
+    gap: 0.25em;
   }
   }
 
@@ -449,7 +433,7 @@
   .tag {
     display: grid;
     place-items: center;
-    padding: var(--space-1);
+    padding: 0.25rem;
 
     border-radius: var(--space-1);
     border: 1px solid var(--clr-tag-bg);
@@ -621,6 +605,53 @@
       box-shadow var(--motion-theme);
   }
 
+/* responsive */
+
+@media only screen and (min-width: 769px) {
+  nav>ul {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .nav-links-desktop {
+      color: var(--clr-text-primary);
+      padding: 0 var(--space-1);
+      border-radius: var(--space-1);
+    }
+
+  .language-ul {
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    gap: var(--space-1);
+    padding: var(--space-2);
+  }
+
+  .language-ul>li {
+    display: flex;
+    flex-wrap: wrap;
+    line-height: 0.8em;
+    justify-content: center;
+    padding: 0.4em;
+  }
+
+  #headlines { background-image: url(images/dtp-header-bg.svg); }
+  .footer { background-image: url(images/dtp-contact-bg.svg); }
+
+  form {
+    background-image: none;
+    flex-direction: column;
+  }
+
+  :is(#headlines, .footer) {
+    background-position: 50% 50%;
+    background-size: contain;
+  }
+
+  .tags {
+    align-self: start;
+  }
+}
+
 }
 
 @layer utilities {
@@ -629,23 +660,36 @@
 
   .u-interactive { cursor: pointer; }
 
+  .u-hover-accent,
   .u-hover-muted {
-    transition:
-      transform 0.3s ease,
-      box-shadow 0.3s ease;
-
-    &:is(:hover, :focus-visible) {
-      transform: scale(1.15);
-      color: var(--clr-text-muted);
-      filter: drop-shadow(var(--shadow-soft));
-    }
+  transition:
+    background-color var(--motion-theme),
+    color var(--motion-theme),
+    box-shadow var(--motion-theme),
+    transform var(--motion-theme);
   }
 
+  .u-hover-muted:is(:hover, :focus-visible) {
+    transform: scale(1.15);
+    color: var(--clr-text-muted);
+    filter: drop-shadow(var(--shadow-soft));
+  
+    &:is(.icon) {
+      color: var(--clr-accent);
+    }
+  }
+  
   /* Inset focus ring — safe inside clipped containers */
   .u-focus-inset:focus-visible {
     outline: none;
     box-shadow:
       inset 0 0 0 3px var(--clr-accent);
+  }
+
+  .u-hover-accent:is(:hover, :focus-visible) {
+    background-color: var(--clr-accent);
+    color: var(--clr-bg-surface);
+    box-shadow: var(--shadow-soft);
   }
 
   /* Global SVG Icon Utility */
@@ -704,64 +748,5 @@
     transition: all 10s ease-in-out 1s;
   }
 
-  :focus-visible {
-    outline: 3px solid var(--clr-accent);
-    outline-offset: 3px;
-  }
-
 }
 
-@media only screen and (min-width: 769px) {
-  nav>ul {
-    display: flex;
-    gap: 1rem;
-  }
-
-  .nav-links-desktop {
-      color: var(--clr-text-primary);
-      padding: 0 var(--space-1);
-      transition:
-        background-color var(--motion-theme),
-        color var(--motion-theme),
-        box-shadow var(--motion-theme);
-
-      &:is(:hover, :focus-visible) {
-        background-color: var(--clr-accent);
-        color: var(--clr-bg-surface);
-        box-shadow: var(--shadow-soft);
-        border-radius: 5px;
-      }
-    }
-
-  .language-ul {
-    display: grid;
-    grid-template-columns: repeat(4, auto);
-    gap: var(--space-1);
-    padding: var(--space-2);
-  }
-
-  .language-ul>li {
-    display: flex;
-    flex-wrap: wrap;
-    line-height: 0.8em;
-    justify-content: center;
-    padding: 0.4em;
-  }
-
-  #headlines { background-image: url(images/dtp-header-bg.svg); }
-  .footer { background-image: url(images/dtp-contact-bg.svg); }
-
-  form {
-    background-image: none;
-    flex-direction: column;
-  }
-
-  :is(#headlines, .footer) {
-    background-position: 50% 50%;
-    background-size: contain;
-  }
-
-  .tags {
-    align-self: start;
-  }
-}

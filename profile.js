@@ -193,7 +193,7 @@ const cardActions = (links) => {
 
   links.forEach((link, index) => {
     const a = document.createElement("a");
-    a.className = "btn";
+    a.className = "btn u-interactive u-hover-accent u-focus-inset";   
     a.href = link;
     a.target = "_blank";
     a.textContent = index === 0 ? "Go Live" : "View Source";
@@ -271,8 +271,8 @@ function compileSocial(social, index) {
     <ul class="inline-li">
       ${arrSocialMedia
         .map(
-          (s) => `<li><a href="${s.link}" target="_blank">
-          <span class="icon" data-icon="${s.media}" aria-hidden="true"></span>
+          (s) => `<li><a href="${s.link}" aria-label="${s.media}" target="_blank">
+          <span class="icon u-interactive u-hover-muted u-focus-inset" data-icon="${s.media}" aria-hidden="true"></span>
         </a></li>`,
         )
         .join("")}
