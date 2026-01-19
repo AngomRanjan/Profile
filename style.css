@@ -14,7 +14,7 @@
 
   summary,
   ul { list-style: none; }
-  
+
   html { scroll-behavior: smooth; }
 }
 
@@ -41,6 +41,7 @@
     /* Spacing */
     --space-1: 0.5rem;
     --space-2: 1rem;
+    --space-3: clamp(1.5rem, 3vw, 2rem);
     --space-section: clamp(2.5rem, 6vw, 5rem);
     --space-page: clamp(1.5rem, 4vw, 3rem);
 
@@ -209,70 +210,13 @@
 }
 
 @layer layout {
-  /* =========================================================
-   CONTENT GRID — LAYOUT RAIL SYSTEM (PHASE G2)
-   ---------------------------------------------------------
-   Purpose:
-   - Section-level layout rails
-   - Supports content / pop-in / breakout / full-width
-   - Reduces wrapper soup
-   - Container-query + subgrid ready
 
-   Rules:
-   - Sections only (never components)
-   - No spacing ownership
-   - No nesting
-========================================================= */
-
-.content-grid {
-  --padding-inline: var(--space-page);
-
-  --popin-max-width: 55ch;
-  --content-max-width: 70ch;
-  --breakout-max-width: 85ch;
-
-  --breakout-size: calc(
-    (var(--breakout-max-width) - var(--content-max-width)) / 2
-  );
-
-  --popin-size: calc(
-    (var(--content-max-width) - var(--popin-max-width)) / 2
-  );
-
-  container-type: inline-size;
-
-  display: grid;
-  grid-template-columns:
-    [full-start] minmax(var(--padding-inline), 1fr)
-    [breakout-start] minmax(0, var(--breakout-size))
-    [content-start]
-      minmax(0, var(--popin-size))
-      [popin-start]
-        min(
-          100% - (var(--padding-inline) * 2),
-          var(--popin-max-width)
-        )
-      [popin-end]
-      minmax(0, var(--popin-size))
-    [content-end]
-    minmax(0, var(--breakout-size)) [breakout-end]
-    minmax(var(--padding-inline), 1fr) [full-end];
-}
-
-/* Default: readable content */
-.content-grid > * { grid-column: content; }
-
-/* Explicit opt-ins */
-.content-grid > .pop-in { grid-column: popin; }
-.content-grid > .breakout { grid-column: breakout; }
-.content-grid > .full-width { grid-column: full; }
-  
   /* Container System */
 
   .container {
     max-width: 1100px;
     margin-inline: auto;
-    padding: var(--space-1);
+    padding: var(--space-3);
 
     &.container--narrow {
       max-width: 650px;
@@ -311,21 +255,15 @@
   nav>ul { display: none; }
 
   #headlines {
-    min-height: calc(var(--vh-offset));
     display: grid;
     background-image: url(images/topL.png), url(images/topC.png), url(images/topR.png),
       url(images/bottomL.png), url(images/bottomC.png), url(images/bottomR.png);
     background-position: left top, center top, right top,
       left bottom, center 95%, right bottom;
     background-repeat: no-repeat;
+    min-height: calc(var(--vh-offset));
     border-bottom-left-radius: 100px;
     place-items: center;
-
-    &>div {
-      display: grid;
-      gap: var(--space-page);
-      padding-block: var(--space-2);
-    }
   }
 
   #about {
@@ -343,7 +281,8 @@
     background-image: url(images/contact-bg_01.png), url(images/contact-bg_03.png);
     background-position: center top, right top;
     background-repeat: no-repeat;
-    padding-block: var(--space-section);
+    gap: var(--space-3);
+    padding-block: var(--space-page);
 
     h2 { color: inherit; }
 
@@ -352,6 +291,11 @@
       text-align: center;
     }
   }
+
+    :is(#headlines, #contacts) > div {
+      display: grid;
+      gap: var(--space-3);
+    }
 
   .radius-tr { border-top-right-radius: 100px; }
 
@@ -405,8 +349,6 @@
   /* social-media */
 
   .social-media {
-    padding-block: var(--space-1);
-
     a {
       color: var(--clr-text-muted);
 
@@ -441,7 +383,7 @@
     width: 100%;
     aspect-ratio: 1.25;
     object-fit: cover;
-    border-radius: 1rem;
+    border-radius: inherit;
   }
 
   .card-body {
@@ -449,6 +391,11 @@
     display: flex;
     flex-direction: column;
     gap: var(--space-page);
+
+   .card-details {
+    display: grid;
+    gap: var(--space-1);
+  }
   }
 
   /* Container Query: Switch to Side-by-Side if wider than 600px */
@@ -521,9 +468,7 @@
     background-image: url(images/contact-bg_02.png);
     background-position: right bottom;
     background-repeat: no-repeat;
-    flex-wrap: wrap;
-    gap: calc(1.7 * var(--space-2));
-    padding-block: var(--space-page);
+    gap: var(--space-3);
 
     & > :last-child {
       width: max-content;
@@ -625,7 +570,6 @@
   }
 
   .language-ul li {
-    margin: 2px auto;
     padding: 5px;
     line-height: 25px;
     background-color: var(--clr-tag-bg);
@@ -742,6 +686,7 @@
   .space-sm { margin-block: var(--space-1); }
   .space-md { margin-block: var(--space-2); }
   .space-lg { margin-block: var(--space-page); }
+  .pd-block-md {padding-block: var(--space-3);}
 
   /* || Utilities styles */
 
@@ -779,7 +724,7 @@
         background-color var(--motion-theme),
         color var(--motion-theme),
         box-shadow var(--motion-theme);
-  
+
       &:is(:hover, :focus-visible) {
         background-color: var(--clr-accent);
         color: var(--clr-bg-surface);
