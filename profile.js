@@ -315,18 +315,22 @@ if (savedTheme) {
 
 const mobileMenu = document.getElementById("mobile-menu");
 
+let lastFocusedTrigger = null;  // MObile menu focus management
+
 document.addEventListener("click", (e) => {
   const openBtn = e.target.closest(".mobile-menu-toggle");
   const closeBtn = e.target.closest(".mobile-menu-close");
   const navLink = e.target.closest(".mobile-nav-list a");
 
   if (openBtn && !mobileMenu.open) {
+    lastFocusedTrigger = openBtn;
     mobileMenu.showModal();
     requestAnimationFrame(() => mobileMenu.classList.add("is-visible"));
   }
 
   if (closeBtn || navLink || e.target === mobileMenu) {
     mobileMenu.classList.remove("is-visible");
+    lastFocusedTrigger?.focus();
     setTimeout(() => mobileMenu.close(), 250);
   }
 });

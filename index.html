@@ -17,13 +17,16 @@
 </head>
 
 <body class="" id="body">
+  <a href="#main-content" class="skip-link">
+  Skip to main content
+</a>
 
   <header class="bg-prime" id="header">
     <div class="logo" id="logo">
-      <a class="logo-text" href="#">Angom</a>
+      <a class="logo-text" href="#" aria-current="page">Angom</a>
     </div>
 
-    <nav class="navbar">
+    <nav aria-label="Primary navigation" class="navbar">
       <ul class="fw-medium">
         <li><a class="nav-links-desktop u-interactive u-hover-accent u-focus-inset" href="#works">Portfolio</a></li>
         <li><a class="nav-links-desktop u-interactive u-hover-accent u-focus-inset" href="#about">About</a></li>
@@ -47,20 +50,20 @@
     </fieldset>
   </header>
   <dialog id="mobile-menu" class="mobile-menu" aria-label="Primary navigation">
-    <nav class="mobile-nav">
+    <nav aria-label="Primary navigation" class="mobile-nav">
       <button class="mobile-menu-close icon-btn u-interactive u-hover-accent u-focus-inset" aria-label="Close navigation menu">
         <span class="icon" data-icon="close" aria-hidden="true"></span>
       </button>
 
       <ul class="mobile-nav-list">
-        <li><a class="u-hover-accent" href="#">Home</a></li>
+        <li><a class="u-hover-accent" href="#" aria-current="page">Home</a></li>
         <li><a class="u-hover-accent" href="#works">Projects</a></li>
         <li><a class="u-hover-accent" href="#about">About</a></li>
         <li><a class="u-hover-accent" href="#contact">Contact</a></li>
       </ul>
     </nav>
   </dialog>
-  <main>
+  <main id="#main-content">
     <!-- INTRO -->
     <section id="headlines" class="bg-surface">
       <div class="container container--narrow">
