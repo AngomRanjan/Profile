@@ -9,6 +9,10 @@
    - Only data-icon → SVG mapping
 ========================================================= */
 
+/* Hamburger Menu */
+.icon[data-icon="menu"]     { --icon-url: url("icons/menu.svg"); }
+.icon[data-icon="close"]     { --icon-url: url("icons/close.svg"); }
+
 /* Social */
 .icon[data-icon="twitter"]     { --icon-url: url("icons/twitter.svg"); }
 .icon[data-icon="linkedin"]    { --icon-url: url("icons/linkedin.svg"); }

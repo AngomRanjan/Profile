@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" lang="en" data-theme="dark">
+<html lang="en">
 
 <head>
   <meta charset="UTF-8">
@@ -27,22 +27,39 @@
       <ul class="fw-medium">
         <li><a class="nav-links-desktop u-interactive u-hover-accent u-focus-inset" href="#works">Portfolio</a></li>
         <li><a class="nav-links-desktop u-interactive u-hover-accent u-focus-inset" href="#about">About</a></li>
-        <li><a class="nav-links-desktop u-interactive u-hover-accent u-focus-inset" href="#contacts">Contact</a></li>
+        <li><a class="nav-links-desktop u-interactive u-hover-accent u-focus-inset" href="#contact">Contact</a></li>
       </ul>
     </nav>
-
-    <div class="theme-switch" aria-label="theme selector">
+    <button class="mobile-menu-toggle icon-btn u-interactive u-hover-accent u-focus-inset" aria-haspopup="dialog" aria-controls="mobile-menu"
+      aria-label="Open navigation menu">
+      <span class="icon" data-icon="menu" aria-hidden="true"></span>
+    </button>
+    <fieldset class="theme-switch">
+      <legend class="sr-only">Theme selector</legend>
       <input type="radio" name="theme" class="icon icon--sm u-interactive u-hover-muted u-focus-inset" data-icon="light"
         id="theme-light">
       <input type="radio" name="theme" class="icon icon--sm u-interactive u-hover-muted " data-icon="dark"
         id="theme-dark">
-      <input type="radio" name="theme" class="icon icon--sm u-interactive u-hover-muted u-focus-inset" data-icon="contrast"
-        id="theme-contrast">
+      <input type="radio" name="theme" class="icon icon--sm u-interactive u-hover-muted u-focus-inset"
+        data-icon="contrast" id="theme-contrast">
       <input type="radio" name="theme" class="icon icon--sm u-interactive u-hover-muted u-focus-inset" data-icon="brand"
         id="theme-brand">
-    </div>
+    </fieldset>
   </header>
+  <dialog id="mobile-menu" class="mobile-menu" aria-label="Primary navigation">
+    <nav class="mobile-nav">
+      <button class="mobile-menu-close icon-btn u-interactive u-hover-accent u-focus-inset" aria-label="Close navigation menu">
+        <span class="icon" data-icon="close" aria-hidden="true"></span>
+      </button>
 
+      <ul class="mobile-nav-list">
+        <li><a class="u-hover-accent" href="#">Home</a></li>
+        <li><a class="u-hover-accent" href="#works">Projects</a></li>
+        <li><a class="u-hover-accent" href="#about">About</a></li>
+        <li><a class="u-hover-accent" href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </dialog>
   <main>
     <!-- INTRO -->
     <section id="headlines" class="bg-surface">
@@ -63,7 +80,7 @@
       </div>
     </section>
     <!-- WORKS to be injected from js -->
-    
+
 
     <!-- ABOUT -->
     <section id="about" class="bg-surface radius-tr">
@@ -142,7 +159,7 @@
   </main>
 
   <!-- CONTACT -->
-  <footer id="contacts">
+  <footer id="contact">
     <div class="container container--narrow">
 
       <h2 class="fs-xl" id="contact-me">Contact Me</h2>

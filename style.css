@@ -210,6 +210,7 @@
       transition-duration: 1ms !important;
       scroll-behavior: auto !important;
     }
+    .mobile-menu { transition: none; }
   }
 
 }
@@ -255,7 +256,7 @@
     gap: var(--space-1);
     align-items: center;
 
-    &> :nth-child(2) { margin-left: auto; }
+    nav { margin-left: auto; }
   }
 
   nav>ul { display: none; }
@@ -277,7 +278,7 @@
     padding-block: var(--space-section);
   }
 
-  #contacts {
+  #contact {
     display: grid;
     place-items: center;
     color: #fff;
@@ -298,7 +299,7 @@
     }
   }
 
-    :is(#headlines, #contacts) > div {
+    :is(#headlines, #contact) > div {
       display: grid;
       gap: var(--space-3);
     }
@@ -454,16 +455,12 @@
 
   form {
     width: 100%;
-    display: flex;
+    display: grid;
     background-image: url(images/contact-bg_02.png);
     background-position: right bottom;
     background-repeat: no-repeat;
     gap: var(--space-3);
-
-    & > :last-child {
-      width: max-content;
-      align-self: center;
-    }
+    place-items: center;
   }
 
   .input__container {
@@ -672,21 +669,112 @@
       box-shadow var(--motion-theme);
   }
 
+/* =========================================
+   Mobile Menu — Off-canvas layout
+========================================= */
+
+.mobile-menu {
+  width: clamp(240px, 60vw, 320px);
+  height: 100svh;
+
+  margin: 0;
+  padding: var(--space-3);
+
+  border: none;
+  border-radius: 0;
+  border-inline-end: 1px solid var(--clr-border-muted);
+
+  background-color: color-mix(in srgb, var(--clr-bg-page), transparent 15%);
+  box-shadow: var(--shadow-soft);
+
+  position: fixed;
+  inset-block: 0;
+
+  transform: translateX(-100%);
+  transition: transform var(--motion-theme);
+
+  /* animated open state */
+  &.is-visible {
+  transform: translateX(0);
+}
+
+  &::backdrop {
+    background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(4px);
+  }
+
+  .mobile-nav {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .mobile-menu-close {
+    align-self: flex-end;
+  }
+
+  .mobile-nav-list {
+    display: grid;
+    flex-direction: column;
+    gap: var(--space-2);
+    padding-block: var(--space-section);
+  
+    a {
+      display: block;
+      /* width: max-content; */
+      padding: 0.75rem 0.5rem;
+      text-align: center;
+      font-size: var(--fs-lg);
+      color: var(--clr-text-primary);
+      position: relative;
+      background-color: var(--clr-bg-surface-alpha);
+      width: 100%;
+      --link-bg: var(--clr-text-muted);
+
+      &.u-hover-accent { border-radius: 0375rem; }
+    }
+  }  
+}
+
+/* =================================
+   Icon Control Utility
+   (shared by open / close / future)
+================================= */
+
+.icon-btn {
+  width: 2.5rem;
+  height: 2.5rem;
+
+  display: grid;
+  place-items: center;
+  color: var(--clr-accent);
+  border-radius: 50%;
+  background-color: var(--clr-bg-surface);
+  border: 1px solid var(--clr-border-muted);
+
+  box-shadow: var(--shadow-soft);
+}
+
 /* responsive */
 
-@media only screen and (min-width: 769px) {
+@media (width >= 769px) {
+  .mobile-menu,
+  .mobile-menu-toggle {
+    display: none;
+  }
+
   nav>ul {
     display: flex;
     gap: 1rem;
   }
 
   .nav-links-desktop {
-      color: var(--clr-text-primary);
-      padding: 0 var(--space-1);
-      border-radius: var(--space-1);
-      position: relative;
-  display: inline-flex;
-  align-items: center;
+    color: var(--clr-text-primary);
+    padding: 0 var(--space-1);
+    border-radius: var(--space-1);
+    position: relative;
+    display: inline-flex;
+    align-items: center;
 
   &::after {
   content: "";
@@ -744,6 +832,8 @@
 
   /* Global Interaction Utilities */
 
+  .sr-only { display: none; }
+
   .u-interactive { cursor: pointer; }
 
   .u-hover-accent,
@@ -779,9 +869,11 @@
 
     &:is(a) {
       color: var(--clr-accent);
+      background-color: var(--link-bg, none);
       &::after { transform: scaleX(1); }
     }
   }
+  
 
   /* Global SVG Icon Utility */
 
