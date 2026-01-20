@@ -68,6 +68,7 @@
 
     /* transition */
     --motion-theme: 250ms cubic-bezier(.4, 0, .2, 1);
+    --duration-slow: 750ms;
   }
 
   /* SYSTEM DARK MODE */
@@ -157,6 +158,10 @@
 }
 
 @layer base {
+
+  html {
+    interpolate-size: allow-keywords;
+  }
 
   body {
     font-family: var(--ff-base);
@@ -533,7 +538,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      height: 48px;
+      min-height: 48px;
       font-size: 1.2em;
       color: var(--clr-text-primary);
 
@@ -552,6 +557,42 @@
       color: var(--clr-accent);
     }
   }
+
+  /* =========================================
+   Accordion smooth open / close
+   (robust max-height animation)
+========================================= */
+
+.accordion details {
+  border-bottom: 1px solid var(--clr-border-muted);
+  overflow: hidden;
+}
+
+.accordion details::details-content {
+  max-height: 0;
+  block-size: 0;
+  overflow: hidden;
+
+  opacity: 1;
+  padding-block: 0;
+
+  transition:
+  block-size var(--motion-theme),
+    max-height var(--motion-theme),
+    opacity var(--motion-theme),
+    padding var(--motion-theme),
+    border var(--duration-slow) ease,
+    content-visibility var(--duration-slow);
+    transition-duration: var(--duration-slow);
+    transition-behavior: allow-discrete;
+}
+
+.accordion details[open]::details-content {
+  height: auto;
+  max-height: max-content;
+  opacity: 1;
+  padding-block: var(--space-2);
+}
 
   .language-ul li {
     padding: 5px;

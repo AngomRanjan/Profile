@@ -19,16 +19,18 @@
 
 ============================================================ */
 
+/* ============================
+   DOM CACHE
+============================ */
+
+const DOM = {
+  about: document.getElementById("about"),
+  socialBlocks: document.getElementsByClassName("social-media"),
+  themeRadios: document.querySelectorAll('.theme-switch input[type="radio"]'),
+};
+
 /* ============================================================
    PROJECTS DATA SOURCE
-   ------------------------------------------------------------
-   Responsibility:
-   - Acts as the single source of truth for project data
-   - Consumed by card and modal generators
-
-   Notes:
-   - Data-only
-   - No UI or layout logic
 ============================================================ */
 
 const arrProjects = [
@@ -109,9 +111,10 @@ const arrSocialMedia = [
   },
 ];
 
-/* ============================================================
-   UI FACTORY FUNCTIONS (STRUCTURE ONLY)
-============================================================ */
+/* ============================
+   DOM FACTORY FUNCTIONS
+   (pure, no side effects)
+============================ */
 
 const cardMedia = (projectNo) => {
   const image = document.createElement("img");
@@ -151,11 +154,7 @@ const pDetails = (details, pid = null) => {
 };
 
 /* ============================================================
-   TAGS SYSTEM — NORMALIZED CONTAINER
-   ------------------------------------------------------------
-   - `.tags-group` → structural container (future CQ hook)
-   - `.tags`       → semantic list
-   - `.tag`        → atomic pill component
+   TAGS SYSTEM
 ============================================================ */
 
 const pSkills = (skills) => {
@@ -238,6 +237,10 @@ function compileCards(project) {
   return card;
 }
 
+/* ============================
+   PAGE ASSEMBLY
+   (DOM insertion & ordering)
+============================ */
 /* ============================================================
    PROJECTS SECTION RENDER
 ============================================================ */
@@ -258,8 +261,9 @@ arrProjects.forEach((project) => {
 
 works.appendChild(container);
 
-const about = document.getElementById("about");
-about.parentNode.insertBefore(works, about);
+if (DOM.about && DOM.about.parentNode) {
+  DOM.about.parentNode.insertBefore(works, DOM.about);
+}
 
 /* ============================================================
    SOCIAL LINKS RENDERING
@@ -279,29 +283,28 @@ function compileSocial(social, index) {
     </ul>`;
 }
 
-Array.from(document.getElementsByClassName("social-media")).forEach(
-  (social, i) => compileSocial(social, i + 1),
+Array.from(DOM.socialBlocks).forEach((social, i) =>
+  compileSocial(social, i + 1),
 );
 
 /* ============================================================
-   THEME PERSISTENCE 
+   THEME PERSISTENCE (state only)
 ============================================================ */
 
-const themeRadios = document.querySelectorAll(
-  '.theme-switch input[type="radio"]',
-);
-
-// Save on change
-themeRadios.forEach((radio) => {
-  radio.addEventListener("change", () => {
-    localStorage.setItem("theme", radio.id);
+if (DOM.themeRadios.length) {
+  DOM.themeRadios.forEach((radio) => {
+    radio.addEventListener("change", () => {
+      localStorage.setItem("theme", radio.id);
+    });
   });
-});
+}
 
 // Restore on load
 const savedTheme = localStorage.getItem("theme");
 
 if (savedTheme) {
   const input = document.getElementById(savedTheme);
-  if (input) input.checked = true;
+  if (input && input.type === "radio") {
+    input.checked = true;
+  }
 }
