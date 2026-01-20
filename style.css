@@ -346,7 +346,7 @@
   /* social-media */
 
   .social-media {
-    a { color: var(--clr-text-muted); }
+    a { color: var(--clr-text-primary); }
 
     ul {
       display: flex;
@@ -684,6 +684,25 @@
       color: var(--clr-text-primary);
       padding: 0 var(--space-1);
       border-radius: var(--space-1);
+      position: relative;
+  display: inline-flex;
+  align-items: center;
+
+  &::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -0.25rem;
+
+  height: 2px;
+  background-color: var(--clr-accent);
+
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform var(--motion-theme);
+}
+
     }
 
   .language-ul {
@@ -754,9 +773,14 @@
   }
 
   .u-hover-accent:is(:hover, :focus-visible) {
-    background-color: var(--clr-accent);
+    &:not(a) {background-color: var(--clr-accent);
     color: var(--clr-bg-surface);
-    box-shadow: var(--shadow-soft);
+    box-shadow: var(--shadow-soft);}
+
+    &:is(a) {
+      color: var(--clr-accent);
+      &::after { transform: scaleX(1); }
+    }
   }
 
   /* Global SVG Icon Utility */
