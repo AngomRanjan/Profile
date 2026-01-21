@@ -1,57 +1,138 @@
 <!DOCTYPE html>
-<html lang="en" lang="en" data-theme="dark">
+<html lang="en">
 
 <head>
+  <meta name="robots" content="index, follow">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Web Developer at Jobscan | Full Stack Engineer | Front End Specialist</title>
-
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap"
-    rel="stylesheet">
+  <title>Angom Chittaranjan — Frontend Developer</title>
 
   <meta name="description"
     content="Angom Chittaranjan — Frontend Developer with 5+ years of experience in HTML, CSS, JavaScript, React, responsive UI, and performance optimization.">
 
+  <!-- =========================
+     Open Graph (Social Sharing)
+========================= -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Angom Chittaranjan">
+  <meta property="og:title" content="Angom Chittaranjan — Frontend Developer">
+  <meta property="og:description"
+    content="Frontend Developer specializing in modern, accessible, high-performance web interfaces using HTML, CSS, JavaScript, and React.">
+  <meta property="og:url" content="https://angomranjan.github.io/Profile/">
+  <meta property="og:image" content="https://angomranjan.github.io/Profile/og-preview.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <!-- =========================
+     Twitter / X Card
+========================= -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Angom Chittaranjan — Frontend Developer">
+  <meta name="twitter:description"
+    content="Modern, accessible, high-performance frontend development with clean architecture and design-system thinking.">
+  <meta name="twitter:image" content="https://angomranjan.github.io/Profile/og-preview.jpg">
+  <meta name="twitter:creator" content="@RanjanAngom">
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Angom Chittaranjan",
+  "url": "https://angomranjan.github.io/Profile/",
+  "image": "https://angomranjan.github.io/Profile/og-preview.jpg",
+  "jobTitle": "Frontend Developer",
+  "description": "Frontend Developer specializing in accessible, high-performance, design-system-driven web applications.",
+  "sameAs": [
+    "https://linkedin.com/in/angom-chittaranjan",
+    "https://github.com/AngomRanjan",
+    "https://twitter.com/RanjanAngom"
+  ],
+  "knowsAbout": [
+    "HTML",
+    "CSS",
+    "JavaScript",
+    "Accessibility",
+    "Performance Optimization",
+    "Design Systems",
+    "React",
+    "Node.js",
+    "Ruby on Rails",
+    "PostgreSQL",
+    "MySQL",
+    "MongoDB"
+  ]
+}
+</script>
+  <link rel="canonical" href="https://angomranjan.github.io/Profile/">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap"
+    rel="stylesheet">
+
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="icons.css"> <!-- icons data registry -->
 </head>
 
-<body class="grid" id="body">
+<body>
+  <a href="#headlines" class="skip-link">
+    Skip to main content
+  </a>
 
-  <header class="flex bg-prime" id="header">
-    <div class="logo" id="logo">
-      <a class="logo-text" href="#">Angom</a>
+  <header class="bg-prime">
+    <div class="logo">
+      <a class="logo-text" href="#intro" aria-current="page">Angom</a>
     </div>
 
-    <nav class="navbar"> 
+    <nav aria-label="Primary navigation" class="navbar">
       <ul class="fw-medium">
-        <li><a class="nav-links-desktop" href="#works">Portfolio</a></li>
-        <li><a class="nav-links-desktop" href="#about">About</a></li>
-        <li><a class="nav-links-desktop" href="#contacts">Contact</a></li>
+        <li><a class="nav-links-desktop u-interactive u-hover-accent u-focus-inset" href="#works">Portfolio</a></li>
+        <li><a class="nav-links-desktop u-interactive u-hover-accent u-focus-inset" href="#about">About</a></li>
+        <li><a class="nav-links-desktop u-interactive u-hover-accent u-focus-inset" href="#contact">Contact</a></li>
       </ul>
-      <img class="nav-links-mobile" id="menu" src="icons/menu.png" alt="menu">
     </nav>
-
-    <div class="theme-switch" aria-label="theme selector">
-        <input type="radio" name="theme" id="theme-light">
-        <input type="radio" name="theme" id="theme-dark">
-        <input type="radio" name="theme" id="theme-contrast">
-        <input type="radio" name="theme" id="theme-brand">
-    </div>
-
+    <button class="mobile-menu-toggle icon-btn u-interactive u-hover-accent u-focus-inset" aria-haspopup="dialog"
+      aria-controls="mobile-menu" aria-label="Open navigation menu">
+      <span class="icon" data-icon="menu" aria-hidden="true"></span>
+    </button>
+    <fieldset class="theme-switch">
+      <legend class="sr-only">Theme selector</legend>
+      <input type="radio" name="theme" class="icon icon--sm u-interactive u-hover-muted u-focus-inset" data-icon="light"
+        id="theme-light">
+      <input type="radio" name="theme" class="icon icon--sm u-interactive u-hover-muted " data-icon="dark"
+        id="theme-dark">
+      <input type="radio" name="theme" class="icon icon--sm u-interactive u-hover-muted u-focus-inset"
+        data-icon="contrast" id="theme-contrast">
+      <input type="radio" name="theme" class="icon icon--sm u-interactive u-hover-muted u-focus-inset" data-icon="brand"
+        id="theme-brand">
+    </fieldset>
   </header>
+  <dialog id="mobile-menu" class="mobile-menu">
+    <nav aria-label="Primary navigation" class="mobile-nav">
+      <button class="mobile-menu-close icon-btn u-interactive u-hover-accent u-focus-inset"
+        aria-label="Close navigation menu">
+        <span class="icon" data-icon="close" aria-hidden="true"></span>
+      </button>
 
-  <main class="wrapper grid" id="main-container">
-
+      <ul class="mobile-nav-list">
+        <li><a class="u-hover-accent" href="#intro" aria-current="page">Home</a></li>
+        <li><a class="u-hover-accent" href="#works">Projects</a></li>
+        <li><a class="u-hover-accent" href="#about">About</a></li>
+        <li><a class="u-hover-accent" href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </dialog>
+  <main>
     <!-- INTRO -->
     <section id="headlines" class="bg-surface">
-      <div class="container container--hero vh-100">
-        <h1 class="fs-xl" id="main-title">
+      <div class="container container--narrow">
+        <h1 class="fs-xl">
           I’m Angom,<br>
           Glad to see you!
         </h1>
 
         <p class="description" id="title-desc">
-          I’m a software developer! I can help you build a product,
+          I’m a frontend developer! I can help you build a product,
           feature or website. Look through some of my work and experience!
           If you like what you see and have a project you need coding,
           don’t hesitate to contact me.
@@ -60,13 +141,15 @@
         <div class="social-media"></div>
       </div>
     </section>
+    <!-- WORKS to be injected from js -->
+
 
     <!-- ABOUT -->
     <section id="about" class="bg-surface radius-tr">
-      <div class="container container--narrow">
-        <article class="card card--about">
+      <div class="container card-item">
+        <article class="card card--about card--reverse">
 
-          <div class="card-media">
+          <div class="card-body">
             <h2 class="fs-xl" id="about-title">About Myself</h2>
 
             <p class="card-description" id="about-desc">
@@ -79,26 +162,53 @@
             <div class="social-media"></div>
           </div>
 
-          <div class="card-body">
-            <div class="accordion">
+          <div class="accordion">
+            <!-- Languages (default open) -->
+            <details class="accordion-item" name="stacks" open>
+              <summary class="accordion-header  border-b">
+                <span>Languages</span>
+                <span class="icon icon--sm u-interactive u-focus-inset" data-icon="chevron" aria-hidden="true"></span>
+              </summary>
 
-              <div class="flex accordion-header border-b">
-                <div>Languages</div>
-                <div class="icons"><img src="icons/open.png" name="close" alt="" id="t"></div>
-              </div>
+              <ul class="language-ul">
+                <li><img alt="" loading="lazy" decoding="async" src="images/js.png">JavaScripts</li>
+                <li><img alt="" loading="lazy" decoding="async" src="images/html.png">HTML</li>
+                <li><img alt="" loading="lazy" decoding="async" src="images/css.png">CSS</li>
+                <li><img alt="" loading="lazy" decoding="async" src="images/ruby.png">Ruby</li>
+              </ul>
+            </details>
 
-              <div class="flex accordion-header border-b" id="frameworks">
-                <div>Frameworks</div>
-                <div class="icons"><img src="icons/open.png" name="close" alt=""></div>
-              </div>
+            <!-- Frameworks -->
+            <details class="accordion-item" name="stacks">
+              <summary class="accordion-header border-b">
+                <span>Frameworks</span>
+                <span class="icon icon--sm u-interactive u-focus-inset" data-icon="chevron" aria-hidden="true"></span>
+              </summary>
 
-              <div class="flex accordion-header border-b" id="skills">
-                <div>Skills</div>
-                <div class="icons"><img src="icons/open.png" name="close" alt=""></div>
-              </div>
+              <ul class="language-ul">
+                <li><img alt="" loading="lazy" decoding="async" src="images/react.png">React JS</li>
+                <li><img alt="" loading="lazy" decoding="async" src="images/rails.png">Rails</li>
+                <li><img alt="" loading="lazy" decoding="async" src="images/bootstrap.png">Bootstrap</li>
+                <li><img alt="" loading="lazy" decoding="async" src="images/tailwind.png">Tailwindcss</li>
+              </ul>
+            </details>
 
-            </div>
-          </div>
+            <!-- Skills -->
+            <details class="accordion-item" name="stacks">
+              <summary class="accordion-header border-b">
+                <span>Skills</span>
+                <span class="icon icon--sm u-interactive u-focus-inset" data-icon="chevron" aria-hidden="true"></span>
+              </summary>
+
+              <ul class="language-ul">
+                <li><img alt="" loading="lazy" decoding="async" src="images/mentor.png">Mentoring</li>
+                <li><img alt="" loading="lazy" decoding="async" src="images/leadership.png">Leadership</li>
+                <li><img alt="" loading="lazy" decoding="async" src="images/pairpro.png">Remote Pair Programming</li>
+                <li><img alt="" loading="lazy" decoding="async" src="images/team.png">Teamwork</li>
+              </ul>
+            </details>
+
+          </div>     
 
         </article>
       </div>
@@ -107,8 +217,8 @@
   </main>
 
   <!-- CONTACT -->
-  <footer id="contacts">
-    <div class="container container--hero">
+  <footer id="contact">
+    <div class="container container--narrow">
 
       <h2 class="fs-xl" id="contact-me">Contact Me</h2>
 
@@ -118,7 +228,7 @@
         I’d love to help with it.
       </p>
 
-      <form class="form flex" action="https://formspree.io/f/xbjwpzkw" method="post">
+      <form class="form" action="https://formspree.io/f/xbjwpzkw" method="post">
 
         <div class="input__container">
           <input class="form-input input-line" type="text" id="name" name="name" placeholder="Enter your name"
@@ -133,19 +243,18 @@
         </div>
 
         <div class="input__container">
-          <textarea class="form-input" id="message" name="message" rows="10" maxlength="500"
+          <textarea class="form-input" id="message" name="message" rows="5" maxlength="500"
             placeholder="Write your message here" required></textarea>
           <label class="input__label" for="message">Write your message here</label>
         </div>
 
-        <input class="btn form-button" type="submit" value="Get In Touch">
+        <input class="btn form-button u-interactive u-hover-accent u-focus-inset" type="submit" value="Get In Touch">
       </form>
 
     </div>
   </footer>
 
   <script src="profile.js" defer></script>
-  <script src="accolade.js" defer></script>
 
 </body>
 

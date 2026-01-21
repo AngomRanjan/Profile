@@ -1,0 +1,32 @@
+/* =========================================================
+   ICON REGISTRY — DATA ONLY
+   ---------------------------------------------------------
+   Rules:
+   - No layout
+   - No color
+   - No interaction
+   - No transitions
+   - Only data-icon → SVG mapping
+========================================================= */
+
+/* Hamburger Menu */
+.icon[data-icon="menu"]     { --icon-url: url("icons/menu.svg"); }
+.icon[data-icon="close"]     { --icon-url: url("icons/close.svg"); }
+
+/* Social */
+.icon[data-icon="twitter"]     { --icon-url: url("icons/twitter.svg"); }
+.icon[data-icon="linkedin"]    { --icon-url: url("icons/linkedin.svg"); }
+.icon[data-icon="github"]      { --icon-url: url("icons/github.svg"); }
+.icon[data-icon="medium"]      { --icon-url: url("icons/medium.svg"); }
+.icon[data-icon="angellist"]   { --icon-url: url("icons/angellist.svg"); }
+
+/* UI / Controls */
+.icon[data-icon="chevron"]     { --icon-url: url("icons/chevron.svg"); }
+.icon[data-icon="live-project"]{ --icon-url: url("icons/external.svg"); }
+.icon[data-icon="source-code"] { --icon-url: url("icons/source-code.svg"); }
+
+/* Theme */
+.icon[data-icon="light"]       { --icon-url: url("icons/light.svg"); }
+.icon[data-icon="dark"]        { --icon-url: url("icons/dark.svg"); }
+.icon[data-icon="brand"]       { --icon-url: url("icons/brand.svg"); }
+.icon[data-icon="contrast"]    { --icon-url: url("icons/contrast.svg"); }
