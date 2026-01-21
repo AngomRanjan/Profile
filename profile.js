@@ -116,10 +116,10 @@ const arrSocialMedia = [
    (pure, no side effects)
 ============================ */
 
-const cardMedia = (projectNo) => {
+const cardMedia = (projectNo, pName) => {
   const image = document.createElement("img");
   image.src = `images/SnapshootD${projectNo}.${projectNo === "2" ? "png" : "jpg"}`;
-  image.alt = "Project Looks";
+  image.alt = `${pName} Project Screenshot`;
   image.className = "card-media bg-accent";
 
   return image;
@@ -232,7 +232,7 @@ function compileCards(project) {
   if (project.no % 2 === 0) card.classList.add("card--reverse");
   card.id = `card${project.no}`;
 
-  card.appendChild(cardMedia(project.no));
+  card.appendChild(cardMedia(project.no, project.name));
   card.appendChild(cardBody(project));
   return card;
 }

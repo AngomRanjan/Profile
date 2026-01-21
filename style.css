@@ -1,5 +1,3 @@
-@import url(https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap);
-
 @layer reset, tokens, base, layout, components, utilities;
 
 @layer reset {
@@ -674,6 +672,7 @@
 ========================================= */
 
 .mobile-menu {
+  will-change: transform;
   width: clamp(240px, 60vw, 320px);
   height: 100svh;
 
@@ -696,6 +695,10 @@
   /* animated open state */
   &.is-visible {
   transform: translateX(0);
+/* reduce paint cost the dialog is closed */
+  &:not([open]) {
+  pointer-events: none;
+}
 }
 
   &::backdrop {
@@ -731,7 +734,7 @@
       width: 100%;
       --link-bg: var(--clr-text-muted);
 
-      &.u-hover-accent { border-radius: 0375rem; }
+      &.u-hover-accent { border-radius: 375rem; }
     }
   }  
 }
