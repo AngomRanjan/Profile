@@ -1,27 +1,6 @@
-/* ============================================================
-   PROFILE UI COMPOSITION SCRIPT
-   ------------------------------------------------------------
-   Purpose:
-   - Handles all dynamic UI generation for the profile site:
-     -projects, tags, and social links.
+/* PROFILE UI COMPOSITION SCRIPT */
 
-   Architecture Principles:
-   - JS creates STRUCTURE and BEHAVIOR only
-   - CSS owns layout, spacing, and visuals
-   - No inline styles
-   - No layout logic in JS
-
-   Refactor Context:
-   - This file participates in an incremental CSS
-     design-system migration.
-   - Documentation added to clarify responsibility
-     boundaries during refactor.
-
-============================================================ */
-
-/* ============================
-   DOM CACHE
-============================ */
+/* DOM CACHE */
 
 const DOM = {
   about: document.getElementById("about"),
@@ -29,9 +8,7 @@ const DOM = {
   themeRadios: document.querySelectorAll('.theme-switch input[type="radio"]'),
 };
 
-/* ============================================================
-   PROJECTS DATA SOURCE
-============================================================ */
+/* PROJECTS DATA SOURCE */
 
 const arrProjects = [
   {
@@ -83,38 +60,31 @@ const arrProjects = [
   },
 ];
 
-/* ============================================================
-   SOCIAL MEDIA DATA SOURCE
-============================================================ */
+/* SOCIAL MEDIA DATA SOURCE */
 
 const arrSocialMedia = [
   {
     media: "twitter",
     link: "https://twitter.com/RanjanAngom",
-    icon: "images/twitter.png",
   },
   {
     media: "linkedin",
     link: "https://linkedin.com/in/angom-chittaranjan",
-    icon: "images/linkedin.png",
   },
-  { media: "medium", link: "https://medium.com/", icon: "images/medium.png" },
+  { media: "medium",
+    link: "https://medium.com/",
+  },
   {
     media: "github",
     link: "https://github.com/AngomRanjan",
-    icon: "images/github.png",
   },
   {
     media: "angellist",
     link: "https://angel.co/",
-    icon: "images/angellist.png",
   },
 ];
 
-/* ============================
-   DOM FACTORY FUNCTIONS
-   (pure, no side effects)
-============================ */
+/* DOM FACTORY FUNCTIONS (pure, no side effects) */
 
 const cardMedia = (projectNo, pName) => {
   const image = document.createElement("img");
@@ -145,17 +115,14 @@ const projSummary = (summaries) => {
   return ulSummaries;
 };
 
-const pDetails = (details, pid = null) => {
+const pDetails = (details) => {
   const p = document.createElement("p");
   p.className = "card-description";
-  if (pid) p.id = pid;
   p.textContent = details;
   return p;
 };
 
-/* ============================================================
-   TAGS SYSTEM
-============================================================ */
+/* TAGS SYSTEM*/
 
 const pSkills = (skills) => {
   const ul = document.createElement("ul");
@@ -182,9 +149,7 @@ const cardDetails = (details, summaries, skills) => {
   return div;
 };
 
-/* ============================================================
-   CARD BUTTON FACTORIES
-============================================================ */
+/* CARD BUTTON FACTORIES */
 
 const cardActions = (links) => {
   const div = document.createElement("div");
@@ -222,9 +187,7 @@ const cardBody = (project) => {
   return panel;
 };
 
-/* ============================================================
-   PROJECT CARD COMPILATION
-============================================================ */
+/* PROJECT CARD COMPILATION */
 
 function compileCards(project) {
   const card = document.createElement("article");
@@ -237,13 +200,9 @@ function compileCards(project) {
   return card;
 }
 
-/* ============================
-   PAGE ASSEMBLY
-   (DOM insertion & ordering)
-============================ */
-/* ============================================================
-   PROJECTS SECTION RENDER
-============================================================ */
+/* PAGE ASSEMBLY (DOM insertion & ordering) */
+
+//PROJECTS SECTION RENDER
 
 const works = document.createElement("section");
 works.className = "container works";
@@ -265,9 +224,7 @@ if (DOM.about && DOM.about.parentNode) {
   DOM.about.parentNode.insertBefore(works, DOM.about);
 }
 
-/* ============================================================
-   SOCIAL LINKS RENDERING
-============================================================ */
+/* SOCIAL LINKS RENDERING */
 
 function compileSocial(social, index) {
   social.innerHTML = `
@@ -287,9 +244,7 @@ Array.from(DOM.socialBlocks).forEach((social, i) =>
   compileSocial(social, i + 1),
 );
 
-/* ============================================================
-   THEME PERSISTENCE (state only)
-============================================================ */
+/* THEME PERSISTENCE (state only) */
 
 if (DOM.themeRadios.length) {
   DOM.themeRadios.forEach((radio) => {
@@ -309,13 +264,11 @@ if (savedTheme) {
   }
 }
 
-/* ============================
-   Mobile Menu — Delegated Control
-============================ */
+/* Mobile Menu — Delegated Control */
 
 const mobileMenu = document.getElementById("mobile-menu");
 
-let lastFocusedTrigger = null;  // MObile menu focus management
+let lastFocusedTrigger = null;  // Mobile menu focus management
 
 document.addEventListener("click", (e) => {
   const openBtn = e.target.closest(".mobile-menu-toggle");
